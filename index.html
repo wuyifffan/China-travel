@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>欢迎解锁你的中国奇遇——一份中国游指南</title>
+  <link rel="shortcut icon" href="./images/icon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/echarts.min.js"></script>
+  <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/echarts-wordcloud.min.js"></script>
+  <link rel="stylesheet" href="css/body.css">
+  <link rel="stylesheet" href="css/type.css">
+  <link rel="stylesheet" href="css/plane.css">
+  <link rel="stylesheet" href="css/swiper.css">
+  <link href="./css/animate.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <div class="preloader">
+    <div class="preloader__status">
+      <div status class="preloader__status-text">loading {{loaded}} % </div>
+      <div class="preloader__status-loader">
+        <div loader :style="loadStyle" class="preloader__status-bar"></div>
+      </div>
+    </div>
+  </div>
+  <!-- partial -->
+  <!-- <div id="language-toggle">中/EN</div> -->
+  <div id="nav-intro">
+    <!-- 导航条 -->
+    <nav class="navbox">
+      <div class="top-nav navbox loading">
+        <div class="sect-btns navbox">
+          <div class="btn-wrapper navbox">
+            <button class="sectionBox navbox" id="sectionBox-intro" aria-label="jump to intro" data-target="#intro">
+            </button>
+            <p class="label navbox" id="label-intro">intro</p>
+          </div>
+          <div class="btn-wrapper navbox">
+            <button class="sectionBox navbox" id="sectionBox-trend" aria-label="jump to trend"
+              data-target="#trend"></button>
+            <p class="label navbox" id="label-trend">trend</p>
+          </div>
+          <div class="btn-wrapper navbox">
+            <button class="sectionBox navbox" id="sectionBox-action" aria-label="jump to action"
+              data-target="#action"></button>
+            <p class="label navbox" id="label-action">action</p>
+          </div>
+          <div class="btn-wrapper navbox">
+            <button class="sectionBox navbox" id="sectionBox-recommend" aria-label="jump to recommend"
+              data-target="#recommend"></button>
+            <p class="label navbox" id="label-recommend">recommend</p>
+          </div>
+          <div class="btn-wrapper navbox">
+            <button class="sectionBox navbox" id="sectionBox-methods" aria-label="jump to methods"
+              data-target="#methods"></button>
+            <p class="label navbox" id="label-methods">methods</p>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 导航条结束 -->
+
+    <!-- cover -->
+    <div class="cover">
+      <img class="top" src="./images/cover.png" width="100%" height="auto">
+      <div class="field">
+        <div class="scroll"></div>
+      </div>
+      </a>
+    </div>
+    <!-- chapter1_intro -->
+
+    <div id="intro" class="part">
+      <div class="content intro-text">
+        <br><br>
+        <p class="line1 welcome1">亲爱的外国朋友：
+        </p>
+        <p class="line2 welcome2">这是一封有关中国的旅游指南。</p>
+        <p class="line3 welcome3">提起中国，你会有哪些想象？</p>
+        <p class="line4 welcome4">
+          是憨态可掬的明星国宝大熊猫还是震撼人心的山水风景，是富有赛博朋克气息的现代都市还是“不到长城非好汉”的悠久文化？</p>
+        <p class="line5 welcome5">又或者是辣的火锅、甜的冰糖葫芦，金黄脆皮的北京烤鸭、寓意美好的饺子？</p>
+        <p class="line6 welcome6">这是一个可以激发你无尽想象、满足你无尽探索欲的国家，也是一个充满热情和友善，不断努力着的国家。</p>
+        <p class="line7 welcome7">此时此刻，我们诚挚向你发出这份“中国游指南”，希望能够邀请你来到中国游玩，体验中国、品味中国，并通过这份指南，帮助你拥有一段愉快的、量身定制的专属旅游体验。</p>
+        <p class="line8 welcome8">他人眼中的中国是一个怎样的国家？从你的国家来到中国，我们都做了哪些努力让旅程更便利？哪一个又是最适合你的中国景点？</p>
+        <p class="line9 welcome9">Let's go！</p>
+      </div>
+
+    </div>
+  </div>
+  <!-- chapter2_trend -->
+  <div id="trend-action">
+    <div class="cover" id="trend-cover">
+      <img class="chap1" id="chap1" src="./images/chap1.png" alt="Background Image">
+      <img class="scrolling-emoji" src="./images/emoji.png" alt="Scrolling Image">
+    </div>
+
+
+    <div id="trend" class="part">
+      <div class="content trend-text">
+        <p>如今，正在有越来越多的人对中国产生兴趣。谷歌旅行洞察数据显示，2023到2024年，海外民众对来华航班和住宿的搜索量显著提高。越来越多的外国朋友们正在将心仪目的地设置为“中国”，对中国表现出强烈的旅行需求。 </p>
+        <!-- 谷歌数据图 -->
+        <iframe src='https://flo.uri.sh/visualisation/17083187/embed' ' title=' Interactive or visual content'
+          class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;'
+          sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+        <p> 同时，社交媒体上的“中国热”也在持续升温。</p>
+      </div>
+
+      <div class="video-container">
+        <div class="video-box" id="video-box">
+          <div class="video-row">
+            <div class="video-block">
+              <video id="video1" autoplay loop muted title="视频源于tiktok@passportvisionz_">
+                <source src="./video/video1.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-block">
+              <video id="video2" autoplay loop muted title="视频源于tiktok@our_awesome_world">
+                <source src="./video/video2.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-block">
+              <video id="video3" autoplay loop muted title="视频源于tiktok@cityviews888">
+                <source src="./video/video3.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-block">
+              <video id="video4" autoplay loop muted title="视频源于tiktok@chinesewithhanhan">
+                <source src="./video/video4.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-block">
+              <video id="video5" autoplay loop muted title="视频源于tiktok@travelih">
+                <source src="./video/video5.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-block">
+              <video id="video6" autoplay loop muted title="视频源于tiktok@travelih">
+                <source src="./video/video6.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="video-row">
+            <div class="video-block">
+              <video id="video7" autoplay loop muted title="视频源于tiktok@our_awesome_world">
+                <source src="./video/video7.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-block">
+              <video id="video8" autoplay loop muted title="视频源于tiktok@our_awesome_world">
+                <source src="./video/video8.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-block">
+              <video id="video9" autoplay loop muted title="视频源于tiktok@cityviews888">
+                <source src="./video/video9.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-block">
+              <video id="video10" autoplay loop muted title="视频源于tiktok@cityviews888">
+                <source src="./video/video10.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-block">
+              <video id="video11" autoplay loop muted title="视频源于tiktok@jw.relax">
+                <source src="./video/video11.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-block">
+              <video id="video12" autoplay loop muted title="视频源于tiktok@jw.relax">
+                <source src="./video/video12.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+        <div class="whitebox">
+          <div class="tiktok-text" id="tiktok-text">
+            <div class="tiktok-p" id="tiktok-p0">
+              <p>在国外热门短视频平台——Tiktok上，以“china travel”为关键词搜索，可以看到数千条相关视频，中国的一山一水，一楼一宇，一食一味，都被记录其中。
+              </p>
+            </div>
+            <div class="tiktok-p" id="tiktok-p1">
+              <p>为了更加了解外国朋友们对中国的印象，我们选取了“china
+                travel”关键词下，浏览量在百万以上、评论数在500以上的28条短视频，这些短视频展现了中国各地的特色景观。我们爬取了这些短视频下的评论文本，并对其做了一些有趣的分析。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fixed-element" id="fixed-element">
+        <div class="emojibox" id="emojibox">
+          <iframe src='https://flo.uri.sh/visualisation/16915623/embed' title='Interactive or visual content'
+            class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;'></iframe>
+        </div>
+      </div>
+      <div class="whitebox">
+        <div class="emoji-text" id="emoji-text">
+          <div class="emoji-p" id="emoji-p0">
+            <p>
+              在社交媒体的评论中，网友们常常使用各类emoji表情来抒发自己对视频内容的真实感受。我们提取了评论中的所有emoji表情并进行统计分析，结果显示，这些emoji大都表达了外国网友对中国景观的积极情感。在emoji榜单中，爱心和笑脸元素稳居榜首，🥰、😂、😍成为评论区内外国网友最常使用的表情。
+            </p>
+          </div>
+          <div class="emoji-p" id="emoji-p1">
+            <p>此外，更有趣的是，瞪圆的眼睛和张大的嘴巴（例如：😳、😲）也在表情中占据一席之地，除了喜爱和期待，中国景观给大家带来的震撼和惊叹也不可忽视。</p>
+          </div>
+        </div>
+      </div>
+      <div class="fixed-word" id="fixedword">
+        <div class="wordbox" id="wordbox">
+          <div id="11c49e019bff4e5985d2a8053626f05a" class="chart-container" style="width:1000px; height:500px; ">
+          </div>
+          <div class="whitebox">
+            <p>数据说明：图中所展示出的单词出现频率均在300以上</p>
+          </div>
+        </div>
+      </div>
+      <div class="whitebox">
+        <div class="word-text" id="word-text">
+          <div class="word-p" id="word-p0">
+            <p>
+              除此之外，我们还对这些评论中的英文文本进行了进一步的词频分析。在英文评论文本中，外国网友最喜欢用“beautiful、amazing、cool”等形容词表达对中国景观的赞美，“cyberpunk、future、dream”等词则表现了外国网友对中国城市景观先进程度的惊叹，在语气词中，“wow”最常出现，而“go”是出现频率最高的动词。
+            </p>
+          </div>
+          <div class="word-p" id="word-p1">
+            <p>在大家的眼中，中国是一片美丽与未来感并存的土地，地大物博也正是中国的魅力所在。从一座城到另一座城，你可以看到风格截然不同的景观，吃到多样口味的美食，体验多种文化的趣味。多面的中国，正满足着你对旅行的多重想象。
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="fixed-go" id="fixed-go">
+        <div class="gobox" id="gobox">
+          <iframe src='https://flo.uri.sh/visualisation/16689989/embed' title='Interactive or visual content'
+            class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;'></iframe>
+        </div>
+      </div>
+      <div class="whitebox">
+        <div class="go-text" id="go-text">
+          <div class="go-p" id="go-p0">
+            <p>我们围绕出现频率较高的几个动词（如：go、visit、love、want等词）及其语用搭配， 对评论文本进行了关键词共现分析，“want to go、need to go、want to
+              visit”等词语组合呈现出了外国网友对中国的极高兴趣和强烈的旅游愿望。评论区中，已经有很多外国朋友将中国列入自己的“旅行必去国家清单”。
+            </p>
+          </div>
+          <div class="go-p" id="go-p1">
+            <p>我们相信，如果你能亲自来到这里，中国一定也值得你的一句“wow”！
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="action" class="part">
+      <div class="cover" id="action-cover">
+        <img class="chap2" id="chap2" src="./images/chap2.png" alt="Background Image">
+        <img class="scrolling-fly" src="./images/fly.jpg" alt="Scrolling Image">
+        <!-- <img class="scrolling-line" src="./images/line.png"> -->
+      </div>
+
+      <div class="content action-text">
+        <p>为了实现“want to go”到“be here”的转变，中国也正在积极加入这场同外国游客的“双向奔赴”，努力让大家的中国行变得更便利、更舒适。</p>
+        <p>首先，来到中国正在变成一件越来越简单的“小事”。
+        </p>
+      </div>
+      <!-- 航线对比图 -->
+      <div class="plane-container">
+        <div class="plane">
+          <div class="swiper swiper1">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide slide1"></div>
+              <div class="swiper-slide slide1">
+              </div>
+              <div class="swiper-slide slide2"></div>
+              <div class="swiper-slide slide3"></div>
+              <div class="swiper-slide slide4"></div>
+              <div class="swiper-slide slide5"></div>
+              <div class="swiper-slide slide6"></div>
+              <div class="swiper-slide slide6">
+              </div>
+              <div class="swiper-slide slide6"></div>
+            </div>
+
+          </div>
+        </div>
+        <div class="trigger swiper1_trigger" id="trigger_100"></div>
+        <div class="trigger swiper1_trigger" id="trigger_800"></div>
+        <div class="trigger swiper1_trigger" id="trigger_250"></div>
+        <div class="trigger swiper1_trigger" id="trigger_250"></div>
+        <div class="trigger swiper1_trigger" id="trigger_100"></div>
+        <div class="trigger swiper1_trigger" id="trigger_100"></div>
+        <div class="trigger swiper1_trigger" id="trigger_100"></div>
+        <div class="trigger swiper1_trigger" id="trigger_100"></div>
+        <div class="trigger swiper1_trigger" id="trigger_100"></div>
+        <div class="trigger swiper1_trigger" id="trigger_800"></div>
+        <div class="bottom-placeholder"></div>
+      </div>
+      <div class="whitebox">
+        <div class="plane-text" id="plane-text">
+          <div class="plane-p" id="plane-p0">
+            <p>我们统计了航班查询专业平台——“飞常准”上国外飞往中国大陆的航班数量及航线数。2023年1月份，全面解封的第一周，我国的国际航班也正式开启了全面复苏，由境外飞往中国的航线共有195条，航班数达到355次。
+            </p>
+          </div>
+          <div class="plane-p" id="plane-p1">
+            <p>
+              过去的一年多以来，中国的国际客运航班数量正在稳步恢复，并在原有基础上不断进行优化和新增。据民航局官方统计，至2023年底，中国国际客运定期航班数已恢复至疫情前的六成以上，共通航67个国家，其中英国等25个国家航班量已超过疫情前水平，同时较疫情前新增了科威特、卢森堡等多个国家。目前，这组数据还在持续增长中，中国的国门正积极向全世界打开。
+            </p>
+          </div>
+          <div class="plane-p" id="plane-p2">
+            <p>
+              飞常准数据显示，截止到2024年2月的春节期间，我们共开设了784条航线上的共5861条航班。2024年春节，中国迎来了一个新的入境旅游高峰。
+              经文化和旅游部数据中心测算，刚刚过去的2024年春节假期，中国入境游人次约323万，接近2019年同期水平。中国旅游研究院大数据监测显示，除夕当日入境游客超60万人次。浓厚的传统节日氛围吸引了众多外国游客来到中国，同中国人民一起共享春节的热闹与祥和。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content" action-text>
+        <p>如果是麻烦的签证办理手续让你对中国“望而却步”，那也无需担心，关于签证办理的烦恼，中国也正在努力解决。 </p>
+        <p>目前，中国已经为183个国家提供了包括互免签证、单方面免签、团体旅游互免签证等在内的各项签证便利服务。
+        </p>
+        <p>
+          2024年1月28日，在泰国曼谷，中国与泰国签署互免持普通护照人员签证的协定，协定于3月1日正式生效，至此，中国的互免“朋友圈”已增加至23国。同时，中国也在持续扩大单方面免签的国家范围。2023年12月1日，中国宣布对德国、意大利、马来西亚等六国试行单方面免签政策。今年3月，中国又宣布对瑞士、爱尔兰、匈牙利等六个国家试行免签政策。政策发布后，相应国家的谷歌旅行需求指数有了明显的上升，攀升的数字见证了我们与世界人民的这场“双向奔赴”。
+        </p>
+        <div class="nation-google">
+          <iframe src='https://flo.uri.sh/visualisation/17360563/embed'' title=' Interactive or visual content'
+            class='flourish-embed-iframe' frameborder='0' scrolling='no'
+            style='width:85%;height:600px;display: block; margin: 0 auto;' sandbox=' allow-same-origin allow-forms allow-scripts allow-downloads allow-popups
+            allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+        </div>
+        <p>海南、桂林等热门旅游地，也恢复了专属的免签政策，以最大的热情欢迎外国游客的到来。
+        </p>
+        <p>
+          除此之外，国家政府也在不断优化签证办理的步骤和手续，“一站式签证办理”正在实现。查阅中国驻各国大使馆并进行统计，已经有165个国家公民可享受到不同程度的签证办理便利服务，包括免采指纹、签证办理免预约等，部分国家的签证办理费用也在逐步下调。
+        </p>
+        <p>为了方便游客们能够迅速了解自己国家能够享受到的来华签证便利，我们构建了一个查询系统。你可以选择自己所在的国家，在这里进行一键式查询，以便根据最新信息，规划更加适合你的“中国行”计划。
+        </p>
+        <div class="policy">
+          <iframe src='https://flo.uri.sh/visualisation/17132515/embed' title='Interactive or visual content'
+            class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:700px;'
+            sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+        </div>
+      </div>
+      <!-- 政策查询地图 -->
+
+      <div class="content action-text">
+        <p>
+          与此同时，我们的入境旅游服务也正在不断完善。2023年9月，中国国务院办公厅印发《关于释放旅游消费潜力推动旅游业高质量发展的若干措施》，重点提到将进一步提高入境旅游的各方面服务水平。在未来，外国游客来到中国的住宿登记将变得更加便利，与服务人员们用外语沟通会更加顺畅，各场所的标识和导览也将更加明白易懂。
+        </p>
+        <p>
+          对于很多外国游客都在旅行中感到头疼的“扫码支付”问题，中国也在积极尝试解决。随着移动支付在中国不断普及，从2019年起，中国政府已开始着力推动入境游客的支付便利化，并在各地深入推进实施。广州、三亚等地陆续为外国游客量身定制了多种移动支付便利化解决方案，有微信或支付宝支付、数字人民币、银联境外钱包等方式可供外国游客选择。2023年11月，上海进博会开幕前，上海在商业、文旅、机场车站等重点场景已开通外卡POS机超3.6万台，实现三大场景重点商户全覆盖，以满足境外游客的刷卡需求。
+        </p>
+        <p>
+          今年3月，国务院办公厅又专门印发了《关于进一步优化支付服务提升支付便利性的意见》。针对提升入境游客支付服务水平，提出了很多具体的措施——“大额刷卡、小额扫码、现金兜底“。这些措施既考虑到了外国游客的日常支付习惯，又与当下中国的消费环境相适应，目前正在进一步落实中。
+        </p>
+        <p>我们希望能够让外国游客在旅行中实现“畅通无阻”地消费：挑选你心仪的居住环境，无论是高档酒店还是舒适休闲的民宿；品尝你喜欢的美食，无论是在精致餐馆还是街边小摊；购买你心仪的纪念品，无论是在知名景点还是小众景区……
+        </p>
+        <p>总之，这些都无须担心！</p>
+        <p>中国正在通过自己的努力向世界证明：当你走向中国，中国也在走向你。</p>
+      </div>
+    </div>
+  </div>
+  <div id="recommend-methods">
+    <div id="recommend" class="part">
+      <div class="cover" id="recommend-cover">
+        <img class="chap3" id="chap3" src="./images/chap3.png" alt="Background Image">
+        <img class="scrolling-changcheng" src="./images/changcheng.png" alt="Scrolling Image">
+        <img class="scrolling-bingmayong" src="./images/bingmayong.png" alt="Scrolling Image">
+        <img class="scrolling-xiongmao" src="./images/xiongmao.png" alt="Scrolling Image">
+      </div>
+      <div class="content recommend-text">
+        <p>了解了“如何来”的问题，接下来，我们还希望能够在“去哪里”上为你提供一些建议和帮助。 </p>
+        <p>TripAdvisor是一个全球性的旅行网站，其中收录了来自世界各地旅行者的点评和建议 。为深入了解外国游客的中国旅行偏好与真实体验，我们爬取了TripAdvisor网站“Things to do in
+          China”板块中，外文评论超过200条的景点评论、评分等数据，并对其进行统计分析。如果你想来中国，也许外国游客的真实评价会是一个很好的参考。</p>
+      </div>
+
+      <!-- TripAdvisor大地图 -->
+      <main>
+        <section id="scrolly">
+          <figure style="top: 0px;">
+            <iframe src='https://flo.uri.sh/story/2177034/embed' title='Interactive or visual content'
+              class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:100%;'
+              sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+          </figure>
+          <article>
+            <!-- 地图 -->
+            <div class="step invisible"></div>
+            <div class="step step-box">
+              <div class="picbox">
+                <iframe src='https://flo.uri.sh/visualisation/17131465/embed' title='Interactive or visual content'
+                  class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:90%;height: 100%;'
+                  sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+              </div>
+              <div class="textbox">
+                <p>对景点所在城市进行统计后，我们发现，排名前五的城市分别为上海、北京、西安、广州和成都，还有更多的二、三线城市也开始进入外国游客的视野。</p>
+              </div>
+            </div>
+
+            <div class="step invisible"></div>
+            <div class="step step-box">
+              <div class="picbox">
+                <iframe src='https://flo.uri.sh/visualisation/17131986/embed' title='Interactive or visual content'
+                  class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:90%;height: 100%;'
+                  sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+              </div>
+              <div class="textbox">
+                <p>作为中国一线城市的代表，北上广仍然是外国游客来到中国的首选，国际大都市的现代化气息和历史感碰撞出的火花，对外国朋友们有着强烈的吸引力。</p>
+              </div>
+            </div>
+
+            <div class="step invisible"></div>
+            <div class="step step-box">
+              <div class="picbox">
+                <iframe src='https://flo.uri.sh/visualisation/17131996/embed' title='Interactive or visual content'
+                  class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:90%;height: 100%;'
+                  sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+              </div>
+              <div class="textbox">
+                <p>
+                  两座“文化名城”——西安和成都也备受外国游客的好评，它们浓厚的历史人文气息，承载着外国游客的“东方想象”——浪漫与神秘、含蓄与辉煌。在西安，你可以在大唐不夜城里重温一千多年前的盛唐繁华，从兵马俑中看到两千多年前先秦的气势；而在成都，你可以尝试走进宽窄巷子或者锦里，坐下喝一壶茶，体验老成都的民俗风情。
+                  <!-- <br><br>另外值得一提的是，如果你偏爱辣味美食，那成都会更合你的心意，而西安则被称为“碳水天堂”，爱吃面食的你请一定不要错过它。 -->
+                </p>
+                <p></p>
+              </div>
+            </div>
+
+            <div class="step invisible"></div>
+            <div class="step step-box">
+              <div class="picbox">
+                <iframe src='https://flo.uri.sh/visualisation/16921446/embed' title='Interactive or visual content'
+                  class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height: 100%;'
+                  sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+              </div>
+              <div class="textbox">
+                <p>
+                  根据景点的评分和评论数，我们得出了这些景点在TripAdvisor的综合表现排名，慕田峪长城、兵马俑、成都大熊猫繁育研究基地和外滩是深受外国游客喜爱、也最值得推荐的几个景点。
+                  <br><br>对景点评论进行关键词提取后，我们总结出了这些景点的特别之处。
+                </p>
+              </div>
+            </div>
+            <div class="step invisible"></div>
+            <div class="step invisible"></div>
+            <div class="step step-box">
+              <div class="picbox">
+                <img src="./images/changcheng.png" width="70%">
+              </div>
+              <div class="textbox">
+                <p>
+                  <span>慕田峪长城：</span><br>都说“不到长城非好汉”，作为世界闻名的古代建筑，很多游客都喜欢来长城完成这场挑战，最热门的便是慕田峪长城。除了徒步，长城还增加了很多新的游览形式，长城缆车、升降椅等都备受欢迎，置身其间，眼前满目苍翠、无限开阔。
+                </p>
+              </div>
+            </div>
+            <div class="step invisible"></div>
+            <div class="step invisible"></div>
+            <div class="step step-box">
+              <div class="picbox">
+                <img src="./images/bingmayong.png" width="70%">
+              </div>
+              <div class="textbox">
+                <p>
+                  <span>兵马俑</span>：<br>面对两万多平方米的三个俑坑，比起长城多样的游览形式，来参观兵马俑的游客更愿意选择跟随导游和旅游团，以保证能够在偌大的景区获得最好的参观体验。临走时在纪念品商店挑选一个兵马俑的小礼物也是很多游客的选择。
+                </p>
+              </div>
+            </div>
+            <div class="step invisible"></div>
+            <div class="step invisible"></div>
+            <div class="step step-box">
+              <div class="picbox">
+                <img src="./images/xiongmao.png" width="70%">
+              </div>
+              <div class="textbox">
+                <p>
+                  <span>成都大熊猫繁育研究基地</span>：<br>作为中国的国宝，软萌可爱的大熊猫拥有众多外国粉丝。无论是睡觉、吃竹子还是玩耍，“熊猫明星”们的生活日常总能萌化你。另外，在这里，小熊猫和熊猫宝宝们也是游客们的心头爱。
+                </p>
+              </div>
+            </div>
+            <div class="step invisible"></div>
+            <div class="step invisible"></div>
+            <div class="step step-box">
+              <div class="picbox">
+                <img src="./images/waitan.png" width="70%">
+              </div>
+              <div class="textbox">
+                <p>
+                  <span>外滩</span>：<br>来到外滩的游客更偏爱夜晚，灯光、夜景和江边的好风光是上海外滩的典型标签。在这里，你可以漫步在黄浦江边，观赏一场富有现代都市气息的灯光秀，拍照打卡也是必不可少的环节。
+                </p>
+              </div>
+            </div>
+            <div class="step invisible"></div>
+            <div class="step invisible"></div>
+            <div class="step step-box">
+              <div class="picbox">
+                <iframe src='https://flo.uri.sh/story/2292151/embed' title='Interactive or visual content'
+                  class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:90%;height: 100%;'
+                  sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+              </div>
+              <div class="textbox">
+                <p> 然而，TripAdvisor上呈现的景点还存在一定的局限性。它们基本集中分布于北上广等热门城市，而在中国960万平方公里的广袤土地上，还有更多景色等待发现。<br><br>
+                  在中国最高级别景区——5A景区名单中，那些各有特色的经典景点广泛分布于中国各地，不少省份都有着丰富的旅游资源，但并不被外国游客熟知。</p>
+              </div>
+            </div>
+
+            <div class="step invisible"></div>
+            <!-- <div class="step">
+              <p>
+
+              </p>
+            </div> -->
+
+            <div class="step">
+              <br>
+              <p>
+                这里展示的是未在tripadvisor榜单上的5A景点名单，内蒙古的呼伦贝尔大草原、吉林的长白山、福建的鼓浪屿，还有被誉为“江南三大名楼”的湖南岳阳楼、湖北黄鹤楼和江西滕王阁……这些都是值得一去的好地方。<br><br>如果你想进一步了解感兴趣的景点，查询它们的详细信息，你可以先选择一个自己想要了解的景点榜单（tripadvisor
+                or
+                5A），我们为每一个景点都制作了一张专属的印象卡片，点击自己感兴趣的景点，就可以看到它的名称、地理位置、评论数以及评分。对于TripAdvisor上的景点，我们还根据景点英文评论文本，制作出了每个景点的关键词云。
+              </p>
+            </div>
+
+          </article>
+          <div class="step invisible" id="last"></div>
+        </section>
+        <!-- <section>
+      </section> -->
+      </main>
+      <div class="content recommend-text">
+        <p>
+          此外，我们还制作了一个中国旅游城市推荐小程序，以帮助你制定更加适合自己的旅行计划。其中涵盖了中国的50个重点旅游城市，你可以根据选项选择自己的旅行偏好，获得我们为你推荐的专属旅游城市以及城市中的著名景点。如果你已经因为城市和景点众多而感到眼花缭乱，那不妨试试我们的推荐吧！
+        </p>
+      </div>
+      <div class="quiz-box">
+        <div id="poster-card">
+          <!-- 海报内容 -->
+          <img src="./images/quiz.gif" alt="测试海报">
+          <!-- 开始测试按钮 -->
+          <button id="start-test-btn" onclick="startTest()">开始测试</button>
+        </div>
+
+        <!-- 问题容器 -->
+        <div id="question-container" class="card" style="display: none;">
+          <!-- 问题1 -->
+          <div class="question">
+            <p>1. 如果来到中国某城市旅游，您会对更知名的城市感兴趣吗？</p>
+            <div class="options">
+              <div class="option">
+                <input type="radio" id="option1" name="question1" value="1" onclick="selectOption(1,1)">
+                <label for="option1"><span>不感兴趣，我更想试试小众旅游地</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option2" name="question1" value="2" onclick="selectOption(2,1)">
+                <label for="option2"><span>一般感兴趣</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option3" name="question1" value="3" onclick="selectOption(3,1)">
+                <label for="option3"><span>非常感兴趣，我愿意选择更热门的旅游城市</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 问题2 -->
+          <div class="question">
+            <p>2. 您对历史文化类景点的感兴趣程度是：</p>
+            <div class="options">
+              <div class="option">
+                <input type="radio" id="option4" name="question2" value="1" onclick="selectOption(1,2)">
+                <label for="option4"><span>不感兴趣</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option5" name="question2" value="2" onclick="selectOption(2,2)">
+                <label for="option5"><span>一般感兴趣</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option6" name="question2" value="3" onclick="selectOption(3,2)">
+                <label for="option6"><span>非常感兴趣</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 问题3 -->
+          <div class="question">
+            <p>3. 您对自然山水类景点的感兴趣程度是：</p>
+            <div class="options">
+              <div class="option">
+                <input type="radio" id="option7" name="question3" value="1" onclick="selectOption(1,3)">
+                <label for="option7"><span>不感兴趣</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option8" name="question3" value="2" onclick="selectOption(2,3)">
+                <label for="option8"><span>一般感兴趣</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option9" name="question3" value="3" onclick="selectOption(3,3)">
+                <label for="option9"><span>非常感兴趣</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 问题4 -->
+          <div class="question">
+            <p>4. 您对休闲娱乐类景点的感兴趣程度是：</p>
+            <div class="options">
+              <div class="option">
+                <input type="radio" id="option10" name="question4" value="1" onclick="selectOption(1,4)">
+                <label for="option10"><span>不感兴趣</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option11" name="question4" value="2" onclick="selectOption(2,4)">
+                <label for="option11"><span>一般感兴趣</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option12" name="question4" value="3" onclick="selectOption(3,4)">
+                <label for="option12"><span>非常感兴趣</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 问题5 -->
+          <div class="question">
+            <p>5. 除了参观著名景区之外，您对探索都市丰富生活感兴趣吗？</p>
+            <div class="options">
+              <div class="option">
+                <input type="radio" id="option13" name="question5" value="1" onclick="selectOption(1,5)">
+                <label for="option13"><span>不感兴趣</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option14" name="question5" value="2" onclick="selectOption(2,5)">
+                <label for="option14"><span>一般感兴趣</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option15" name="question5" value="3" onclick="selectOption(3,5)">
+                <label for="option15"><span>非常感兴趣</span></label>
+              </div>
+            </div>
+          </div>
+
+          <button onclick="calculateRecommendation()">提交</button>
+        </div>
+
+        <!-- 推荐结果容器 -->
+        <div id="recommendation" class="card" style="display: none;">
+          <!-- 推荐结果显示在这里 -->
+          <p id="recommendation-text"></p>
+          <div id="city-description"></div>
+          <button onclick="restartTest()">再次测试</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="methods" class="part">
+      <div class="content methods-text">
+        <br><br>
+        <p>
+          中国自古以来就是一个“友谊之邦”。
+        </p>
+        <p>两汉时期，中国开辟了陆上和海上两条丝绸之路，连通了亚、欧、非三方古老的土地。丝路绵延数千里，成为古代中国同外界贸易和文化交流的重要桥梁，也成为了中国人民与世界的友谊的象征，被称为“友谊之路”。</p>
+        <p>
+          从驼铃声声，到列车飞驰；从货轮不止，到天空布满的航线。穿越几千年的时空，如今，同中国正式建交的国家已超过一百八十个，中国的国门已经向全世界打开，欢迎世界各地人民的到来。我们正在变得越来越好，为远道而来的朋友们带来最好的体验，而永远不变的，是我们的友爱和热情。
+        </p>
+        <p>正如中国那句古话所讲：有朋自远方来，不亦乐乎？
+        </p>
+        <p>
+          亲爱的朋友，我们在这里真挚期待你的到来，来领略古老中国独特神奇的文化魅力，了解和发现现代中国日新月异的发展变化，感受来自礼仪之邦的中国人民热情友好的待客之道，解锁你的中国奇遇！
+          中国欢迎你！
+        </p>
+      </div>
+
+
+      <footer>
+        <div class="team">
+          <br><br><br><br><br>
+          <br><img src="./images/icon.png" width="25px"><br>
+          <p>
+            数据收集与分析：夏昊扬 &nbsp 李曼宁 &nbsp 吴一帆<br><br>
+            撰文：李曼宁 &nbsp &nbsp &nbsp 设计：夏昊扬 &nbsp &nbsp &nbsp 前端：吴一帆<br><br>
+            指导老师：刘萍<br><br>
+            联系方式：xiahaoyang@cuc.edu.cn</p>
+
+        </div>
+        <br>
+        <p>&copy 中国传媒大学·新闻学院·2024</p>
+        <br><br>
+
+      </footer>
+
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.28/vue.min.js'></script>
+  <script src="./js/script.js"></script>
+  <script src="./js/debug.addIndicators.min.js"></script>
+  <script src="./js/ScrollMagic.js"></script>
+  <script src="./js/fix-scroll.js"></script>
+  <script src="./js/swiper.min.js"></script>
+  <script src="./js/swiper.animate.min.js"></script>
+  <script src="./js/swipertrigger.js"></script>
+  <script src="https://unpkg.com/scrollama"></script>
+  <script src="./js/d3.min.js" language="javascript"></script>
+  <script src="https://public.flourish.studio/resources/embed.js"></script>
+  <script>
+    // 获取所有的导航按钮、标签和页面内容区域  
+    var buttons = document.querySelectorAll('.sectionBox');
+    var labels = document.querySelectorAll('.label');
+    var sections = document.querySelectorAll('.part');
+
+    // 为每个按钮添加点击事件监听器  
+    buttons.forEach(function (button) {
+      button.addEventListener('click', function (e) {
+        e.preventDefault(); // 阻止默认行为  
+
+        // 移除所有按钮和标签的active类  
+        buttons.forEach(function (btn) {
+          btn.classList.remove('active');
+        });
+        labels.forEach(function (lbl) {
+          lbl.classList.remove('active');
+        });
+
+        // 添加active类到当前点击的按钮和对应的标签  
+        this.classList.add('active');
+        var targetLabel = this.getAttribute('data-target');
+        document.querySelector(targetLabel).classList.add('active');
+
+
+        // 滚动到对应的内容区域  
+        var targetSection = document.querySelector(this.getAttribute('data-target'));
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // 设置滚动事件监听器  
+    window.addEventListener('scroll', function () {
+      // 遍历所有导航按钮和标签  
+      buttons.forEach(function (button, index) {
+        var section = sections[index];
+
+        // 检查用户是否滚动到了对应的内容部分  
+        if (section && isScrolledIntoView(section)) {
+          // 移除所有按钮和标签的active类  
+          buttons.forEach(function (btn) {
+            btn.classList.remove('active');
+          });
+          labels.forEach(function (lbl) {
+            lbl.classList.remove('active');
+          });
+
+          // 添加active类到当前按钮和标签  
+          button.classList.add('active');
+          labels[index].classList.add('active');
+        }
+      });
+    });
+    // 检查元素是否在视口中  
+    function isScrolledIntoView(elem) {
+      var docViewTop = window.pageYOffset || document.documentElement.scrollTop;
+      var docViewBottom = docViewTop + window.innerHeight;
+
+      var elemTop = elem.getBoundingClientRect().top + docViewTop; // 元素顶部相对于文档顶部的距离
+      var elemBottom = elemTop + elem.getBoundingClientRect().height;
+
+      return elemTop < docViewBottom && elemBottom > docViewTop;
+    }
+
+  </script>
+
+
+
+
+  <script>
+    // using d3 for convenience
+    var main = d3.select("main");
+    var scrolly = main.select("#scrolly");
+    var figure = scrolly.select("figure");
+    var article = scrolly.select("article");
+    var step = article.selectAll(".step");
+
+    // initialize the scrollama
+    var scroller = scrollama();
+
+    // generic window resize listener event
+    function handleResize() {
+      // 1. update height of step elements
+      var stepH = Math.floor(window.innerHeight * 1);
+
+      step.style("height", 400 + "px");
+
+      var figureHeight = window.innerHeight;
+      var figureMarginTop = (window.innerHeight - figureHeight);
+
+      figure
+        .style("height", figureHeight + "px")
+        .style("top", 0 + "px");
+
+      // 3. tell scrollama to update new element dimensions
+      scroller.resize();
+    }
+
+    // scrollama event handlers
+    function handleStepEnter(response) {
+      console.log(response);
+      // response = { element, direction, index }
+
+      // add color to current step only
+      step.classed("is-active", function (d, i) {
+        return i === response.index;
+      });
+
+
+
+      // update graphic based on step
+      figure.select("p").text(response.index + 1);
+
+      figure.select("iframe").attr("src", function (d) {
+        return (
+          "https://flo.uri.sh/story/2177034/embed#slide-" + response.index
+
+        );
+      });
+
+      // var iframe = document.querySelector("#scrolly iframe");
+      // iframe.src = iframe.src.replace(/#slide-.*/, "") + "#slide-" + response.index;
+    }
+
+    function setupStickyfill() {
+      d3.selectAll(".sticky").each(function () {
+        Stickyfill.add(this);
+      });
+    }
+
+    function init() {
+      setupStickyfill();
+
+      // 1. force a resize on load to ensure proper dimensions are sent to scrollama
+      handleResize();
+
+      // 2. setup the scroller passing options
+      // 		this will also initialize trigger observations
+      // 3. bind scrollama event handlers (this can be chained like below)
+      scroller
+        .setup({
+          step: "#scrolly article .step",
+          offset: 0.05,
+          debug: false,
+        })
+        .onStepEnter(handleStepEnter);
+
+      // setup resize event
+      window.addEventListener("resize", handleResize);
+    }
+
+    // kick things off
+    init();
+  </script>
+  <script>
+    var chart_11c49e019bff4e5985d2a8053626f05a = echarts.init(
+      document.getElementById('11c49e019bff4e5985d2a8053626f05a'), 'white', { renderer: 'canvas' });
+    var option_11c49e019bff4e5985d2a8053626f05a = {
+      "animation": true,
+      "animationThreshold": 2000,
+      "animationDuration": 1000,
+      "animationEasing": "cubicOut",
+      "animationDelay": 0,
+      "animationDurationUpdate": 300,
+      "animationEasingUpdate": "cubicOut",
+      "animationDelayUpdate": 0,
+      "aria": {
+        "enabled": false
+      },
+      "color": [
+        "#5470c6",
+        "#91cc75",
+        "#fac858",
+        "#ee6666",
+        "#73c0de",
+        "#3ba272",
+        "#fc8452",
+        "#9a60b4",
+        "#ea7ccc"
+      ],
+      "series": [
+        {
+          "type": "wordCloud",
+          "shape": "scardioid",
+          "rotationRange": [
+            0,
+            0
+          ],
+          "rotationStep": 45,
+          "gridSize": 30,
+          "sizeRange": [
+            30,
+            150
+          ],
+          "data": [
+            {
+              "name": " China ",
+              "value": 4076,
+              "textStyle": {
+                "color": "#ff595e",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " beautiful ",
+              "value": 1799,
+              "textStyle": {
+                "color": "#ffca3a",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " go ",
+              "value": 1650,
+              "textStyle": {
+                "color": "#8ac926",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": "   like ",
+              "value": 1503,
+              "textStyle": {
+                "color": "#40B5FF",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " wow ",
+              "value": 1464,
+              "textStyle": {
+                "color": "#ff595e",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " there ",
+              "value": 1449,
+              "textStyle": {
+                "color": "#ffca3a",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " city ",
+              "value": 1234,
+              "textStyle": {
+                "color": "#8ac926",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " amazing ",
+              "value": 1038,
+              "textStyle": {
+                "color": "#40B5FF",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " love ",
+              "value": 772,
+              "textStyle": {
+                "color": "#ff595e",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " real ",
+              "value": 733,
+              "textStyle": {
+                "color": "#ffca3a",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " world ",
+              "value": 624,
+              "textStyle": {
+                "color": "#8ac926",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " want ",
+              "value": 585,
+              "textStyle": {
+                "color": "#40B5FF",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " place ",
+              "value": 565,
+              "textStyle": {
+                "color": "#ff595e",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " people ",
+              "value": 561,
+              "textStyle": {
+                "color": "#ffca3a",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " Chinese ",
+              "value": 538,
+              "textStyle": {
+                "color": "#8ac926",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " visit ",
+              "value": 537,
+              "textStyle": {
+                "color": "#40B5FF",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " see ",
+              "value": 536,
+              "textStyle": {
+                "color": "#ff595e",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " country ",
+              "value": 529,
+              "textStyle": {
+                "color": "#ffca3a",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " nice ",
+              "value": 495,
+              "textStyle": {
+                "color": "#8ac926",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " need ",
+              "value": 480,
+              "textStyle": {
+                "color": "#40B5FF",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " wanna ",
+              "value": 472,
+              "textStyle": {
+                "color": "#ff595e",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " Shanghai ",
+              "value": 471,
+              "textStyle": {
+                "color": "#ffca3a",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " cool ",
+              "value": 467,
+              "textStyle": {
+                "color": "#8ac926",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " look ",
+              "value": 419,
+              "textStyle": {
+                "color": "#40B5FF",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " good ",
+              "value": 410,
+              "textStyle": {
+                "color": "#ff595e",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " live ",
+              "value": 396,
+              "textStyle": {
+                "color": "#ffca3a",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " cyberpunk ",
+              "value": 385,
+              "textStyle": {
+                "color": "#8ac926",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " day ",
+              "value": 374,
+              "textStyle": {
+                "color": "#40B5FF",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " Chongqing ",
+              "value": 354,
+              "textStyle": {
+                "color": "#ff595e",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " bro ",
+              "value": 348,
+              "textStyle": {
+                "color": "#ffca3a",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " omg ",
+              "value": 323,
+              "textStyle": {
+                "color": "#8ac926",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " know ",
+              "value": 312,
+              "textStyle": {
+                "color": "#40B5FF",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " best ",
+              "value": 300,
+              "textStyle": {
+                "color": "#ff595e",
+                "fontFamily": "Chalkboard"
+              }
+            },
+            {
+              "name": " dream ",
+              "value": 319,
+              "textStyle": {
+                "color": "#ffca3a",
+                "fontFamily": "Chalkboard"
+              }
+            }
+          ],
+          "drawOutOfBound": false,
+          "textStyle": {
+            "normal": {
+              "fontFamily": "Chalkboard"
+            },
+            "emphasis": {}
+          }
+        }
+      ],
+      "legend": [
+        {
+          "data": [],
+          "selected": {},
+          "show": true,
+          "padding": 5,
+          "itemGap": 10,
+          "itemWidth": 25,
+          "itemHeight": 14,
+          "backgroundColor": "transparent",
+          "borderColor": "#ccc",
+          "borderRadius": 0,
+          "pageButtonItemGap": 5,
+          "pageButtonPosition": "end",
+          "pageFormatter": "{current}/{total}",
+          "pageIconColor": "#2f4554",
+          "pageIconInactiveColor": "#aaa",
+          "pageIconSize": 15,
+          "animationDurationUpdate": 800,
+          "selector": false,
+          "selectorPosition": "auto",
+          "selectorItemGap": 7,
+          "selectorButtonGap": 10
+        }
+      ],
+      "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+          "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "enterable": false,
+        "confine": false,
+        "appendToBody": false,
+        "transitionDuration": 0.4,
+        "textStyle": {
+          "fontSize": 15,
+          "font-family": "Chalkboard"
+        },
+        "borderWidth": 0,
+        "padding": 5,
+        "order": "seriesAsc"
+      }
+    };
+    chart_11c49e019bff4e5985d2a8053626f05a.setOption(option_11c49e019bff4e5985d2a8053626f05a);
+  </script>
+  <script src="./js/quiz.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.plane {
+    width: 100%;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+.swiper {
+    width: 100%;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+.swiper1 .slide1 {
+    background-image: url(../images/2023-1.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80%;
+}
+
+.swiper1 .slide2 {
+    background-image: url(../images/2023-4.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80%;
+}
+
+.swiper1 .slide3 {
+    background-image: url(../images/2023-7.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80%;
+}
+
+.swiper1 .slide4 {
+    background-image: url(../images/2023-10.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80%;
+}
+
+.swiper1 .slide5 {
+    background-image: url(../images/2024-1.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80%;
+}
+
+.swiper1 .slide6 {
+    background-image: url(../images/2024-3.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80%;
+}
+
+.slider-inner {
+    font-size: 1.2em;
+    width: 40em;
+
+    padding: 20px 40px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 20% auto;
+    line-height: 2em;
+    text-align: justify;
+    box-shadow: 0px 0px 8px 3px #bcbcbc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+#trigger_800 {
+    position: relative;
+    z-index: 10;
+    margin: 800px auto 0;
+    text-align: justify;
+    height: 10px;
+    background: transparent;
+    /* background: black; */
+}
+
+#trigger_10 {
+    position: relative;
+    z-index: 10;
+    margin: 0 auto 0;
+    text-align: justify;
+    height: 10px;
+    background: transparent;
+    /* background: black; */
+}
+
+#trigger_500 {
+    position: relative;
+    z-index: 10;
+    margin: 500px auto 0;
+    text-align: justify;
+    height: 10px;
+    background: transparent;
+    /* background: black; */
+}
+
+#trigger_100 {
+    position: relative;
+    z-index: 10;
+    margin: 100px auto 0;
+    text-align: justify;
+    height: 10px;
+    background: transparent;
+    /* background: black; */
+}
+
+#trigger_250 {
+    position: relative;
+    z-index: 10;
+    margin: 250px auto 0;
+    text-align: justify;
+    height: 10px;
+    background: transparent;
+    /* background: black; */
+}
+
+
+.bottom-placeholder {
+    width: 200px;
+    height: 400px;
+    background-color: transparent;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* .fade-transition {
+    transition: opacity 0.1s ease;
+} */
