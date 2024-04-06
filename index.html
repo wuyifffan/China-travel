@@ -16,10 +16,50 @@
   <link rel="stylesheet" href="css/swiper.css">
   <link href="./css/animate.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="./css/style.css">
+  <style>
+    .lang-button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 14px;
+      color: #343434;
+      background-color: #f9d268;
+      border-color: #343434;
+      border-width: 2px;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      margin-left: 10px;
+      z-index: 99999;
+      font-family: 'button';
+    }
 
+    .lang-button:hover {
+      background-color: #FFCA3A;
+    }
+
+    .lang-buttons-container {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 99999;
+    }
+  </style>
+  <script>
+    function switchToChinese() {
+      window.location.href = 'index.html';
+    }
+
+    function switchToEnglish() {
+      window.location.href = 'index-en.html';
+    }  
+  </script>
 </head>
 
 <body>
+  <div class="lang-buttons-container">
+    <button class="lang-button" onclick="switchToChinese()">中文</button>
+    <button class="lang-button" onclick="switchToEnglish()">English</button>
+  </div>
   <!-- partial:index.partial.html -->
   <div class="preloader">
     <div class="preloader__status">
@@ -39,27 +79,27 @@
           <div class="btn-wrapper navbox">
             <button class="sectionBox navbox" id="sectionBox-intro" aria-label="jump to intro" data-target="#intro">
             </button>
-            <p class="label navbox" id="label-intro">intro</p>
+            <p class="label navbox" id="label-intro" style="width: 2em;">引言</p>
           </div>
           <div class="btn-wrapper navbox">
             <button class="sectionBox navbox" id="sectionBox-trend" aria-label="jump to trend"
               data-target="#trend"></button>
-            <p class="label navbox" id="label-trend">trend</p>
+            <p class="label navbox" id="label-trend" style="width: 8em;">游在中国的趋势</p>
           </div>
           <div class="btn-wrapper navbox">
             <button class="sectionBox navbox" id="sectionBox-action" aria-label="jump to action"
               data-target="#action"></button>
-            <p class="label navbox" id="label-action">action</p>
+            <p class="label navbox" id="label-action" style="width: 8em;">前往中国的便利</p>
           </div>
           <div class="btn-wrapper navbox">
             <button class="sectionBox navbox" id="sectionBox-recommend" aria-label="jump to recommend"
               data-target="#recommend"></button>
-            <p class="label navbox" id="label-recommend">recommend</p>
+            <p class="label navbox" id="label-recommend" style="width: 8em;">不可错过的景色</p>
           </div>
           <div class="btn-wrapper navbox">
             <button class="sectionBox navbox" id="sectionBox-methods" aria-label="jump to methods"
               data-target="#methods"></button>
-            <p class="label navbox" id="label-methods">methods</p>
+            <p class="label navbox" id="label-methods" style="width: 2em;">结语</p>
           </div>
         </div>
       </div>
@@ -88,8 +128,8 @@
           是憨态可掬的明星国宝大熊猫还是震撼人心的山水风景，是富有赛博朋克气息的现代都市还是“不到长城非好汉”的悠久文化？</p>
         <p class="line5 welcome5">又或者是辣的火锅、甜的冰糖葫芦，金黄脆皮的北京烤鸭、寓意美好的饺子？</p>
         <p class="line6 welcome6">这是一个可以激发你无尽想象、满足你无尽探索欲的国家，也是一个充满热情和友善，不断努力着的国家。</p>
-        <p class="line7 welcome7">此时此刻，我们诚挚向你发出这份“中国游指南”，希望能够邀请你来到中国游玩，体验中国、品味中国，并通过这份指南，帮助你拥有一段愉快的、量身定制的专属旅游体验。</p>
-        <p class="line8 welcome8">他人眼中的中国是一个怎样的国家？从你的国家来到中国，我们都做了哪些努力让旅程更便利？哪一个又是最适合你的中国景点？</p>
+        <p class="line7 welcome7">此时此刻，我们诚挚向你送出这份“中国游指南”，希望能够邀请你来到中国游玩，体验中国、品味中国，并通过这份指南，帮助你拥有一段愉快的、量身定制的专属旅游体验。</p>
+        <p class="line8 welcome8">他人眼中的中国是一个怎样的国家？从你的国家来到中国，我们都做了哪些努力让旅程更便利？哪一个又是最适合你的中国旅游城市？</p>
         <p class="line9 welcome9">Let's go！</p>
       </div>
 
@@ -105,7 +145,7 @@
 
     <div id="trend" class="part">
       <div class="content trend-text">
-        <p>如今，正在有越来越多的人对中国产生兴趣。谷歌旅行洞察数据显示，2023到2024年，海外民众对来华航班和住宿的搜索量显著提高。越来越多的外国朋友们正在将心仪目的地设置为“中国”，对中国表现出强烈的旅行需求。 </p>
+        <p>如今，正在有越来越多的人对中国产生兴趣。据谷歌旅游目的地洞察数据，2023到2024年，来华航班和住宿的搜索量显呈上升趋势。越来越多的外国朋友们正在将心仪目的地设置为“中国”，对中国表现出强烈的旅行需求。 </p>
         <!-- 谷歌数据图 -->
         <iframe src='https://flo.uri.sh/visualisation/17083187/embed' ' title=' Interactive or visual content'
           class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;'
@@ -183,12 +223,14 @@
         <div class="whitebox">
           <div class="tiktok-text" id="tiktok-text">
             <div class="tiktok-p" id="tiktok-p0">
-              <p>在国外热门短视频平台——Tiktok上，以“china travel”为关键词搜索，可以看到数千条相关视频，中国的一山一水，一楼一宇，一食一味，都被记录其中。
+              <p>今年1月，在国外热门短视频平台——Tiktok上，“china travel”话题兴趣指数相比去年同期上升了376%。以“china
+                travel”为关键词搜索，可以看到数千条相关视频，中国的一山一水，一楼一宇，一食一味，都被记录其中。
               </p>
             </div>
             <div class="tiktok-p" id="tiktok-p1">
               <p>为了更加了解外国朋友们对中国的印象，我们选取了“china
-                travel”关键词下，浏览量在百万以上、评论数在500以上的28条短视频，这些短视频展现了中国各地的特色景观。我们爬取了这些短视频下的评论文本，并对其做了一些有趣的分析。</p>
+                travel”关键词下，浏览量在百万以上、评论数在1000以上的28条短视频，这些短视频展现了中国各地的特色景观。我们爬取了这些短视频下的评论文本，并对其做了一些有趣的分析。
+              </p>
             </div>
           </div>
         </div>
@@ -217,7 +259,7 @@
           <div id="11c49e019bff4e5985d2a8053626f05a" class="chart-container" style="width:1000px; height:500px; ">
           </div>
           <div class="whitebox">
-            <p>数据说明：图中所展示出的单词出现频率均在300以上</p>
+            <p>数据说明：图中所展示出的单词出现频率均在300以上<br>(悬停可查看详情)</p>
           </div>
         </div>
       </div>
@@ -229,7 +271,7 @@
             </p>
           </div>
           <div class="word-p" id="word-p1">
-            <p>在大家的眼中，中国是一片美丽与未来感并存的土地，地大物博也正是中国的魅力所在。从一座城到另一座城，你可以看到风格截然不同的景观，吃到多样口味的美食，体验多种文化的趣味。多面的中国，正满足着你对旅行的多重想象。
+            <p> 在大家的眼中，中国是一片美丽与未来感并存的土地，地大物博也正是中国的魅力所在。从一座城到另一座城，你可以看到风格截然不同的景观，吃到多样口味的美食，体验多种文化的趣味。多面的中国，正满足着你对旅行的多重想象。
             </p>
           </div>
         </div>
@@ -304,40 +346,39 @@
       <div class="whitebox">
         <div class="plane-text" id="plane-text">
           <div class="plane-p" id="plane-p0">
-            <p>我们统计了航班查询专业平台——“飞常准”上国外飞往中国大陆的航班数量及航线数。2023年1月份，全面解封的第一周，我国的国际航班也正式开启了全面复苏，由境外飞往中国的航线共有195条，航班数达到355次。
+            <p>我们统计了航班查询专业平台——“飞常准”上国外飞往中国大陆的航班及航线数量。2023年1月份，疫情后全面解封的第一周，我国的国际航班也正式开启了全面复苏，由境外飞往中国的航线共有195条，航班数达到355次。
             </p>
           </div>
           <div class="plane-p" id="plane-p1">
             <p>
-              过去的一年多以来，中国的国际客运航班数量正在稳步恢复，并在原有基础上不断进行优化和新增。据民航局官方统计，至2023年底，中国国际客运定期航班数已恢复至疫情前的六成以上，共通航67个国家，其中英国等25个国家航班量已超过疫情前水平，同时较疫情前新增了科威特、卢森堡等多个国家。目前，这组数据还在持续增长中，中国的国门正积极向全世界打开。
+              过去的一年多以来，中国的国际客运航班数量正在稳步恢复，并在原有基础上不断进行优化和新增。据民航局官方统计，至2023年底，中国国际客运定期航班数已恢复至疫情前的六成以上，共通航67个国家，其中英国等25个国家航班量已超过疫情前水平，同时较疫情前新增了坦桑尼亚、塞尔维亚等多个国家。目前，这组数据还在持续增长中，中国的国门正积极向全世界打开。
             </p>
           </div>
           <div class="plane-p" id="plane-p2">
             <p>
-              飞常准数据显示，截止到2024年2月的春节期间，我们共开设了784条航线上的共5861条航班。2024年春节，中国迎来了一个新的入境旅游高峰。
-              经文化和旅游部数据中心测算，刚刚过去的2024年春节假期，中国入境游人次约323万，接近2019年同期水平。中国旅游研究院大数据监测显示，除夕当日入境游客超60万人次。浓厚的传统节日氛围吸引了众多外国游客来到中国，同中国人民一起共享春节的热闹与祥和。
+              飞常准数据显示，截止到2024年2月的春节期间，中国共开设了784条航线上的共5861条航班。2024年春节，中国迎来了一个新的入境旅游高峰。经文化和旅游部数据中心测算，2024年春节假期，中国入境游人次超过300万，接近2019年同期水平。中国旅游研究院大数据监测显示，除夕当日入境游客超60万人次。浓厚的传统节日氛围吸引了众多外国游客来到中国，同中国人民一起共享春节的热闹与祥和。
             </p>
           </div>
         </div>
       </div>
 
       <div class="content" action-text>
-        <p>如果是麻烦的签证办理手续让你对中国“望而却步”，那也无需担心，关于签证办理的烦恼，中国也正在努力解决。 </p>
+        <p>如果是麻烦的签证办理手续让你对中国“望而却步”，那也无需担心，关于签证办理的烦恼，中国也正在努力解决。</p>
         <p>目前，中国已经为183个国家提供了包括互免签证、单方面免签、团体旅游互免签证等在内的各项签证便利服务。
         </p>
         <p>
-          2024年1月28日，在泰国曼谷，中国与泰国签署互免持普通护照人员签证的协定，协定于3月1日正式生效，至此，中国的互免“朋友圈”已增加至23国。同时，中国也在持续扩大单方面免签的国家范围。2023年12月1日，中国宣布对德国、意大利、马来西亚等六国试行单方面免签政策。今年3月，中国又宣布对瑞士、爱尔兰、匈牙利等六个国家试行免签政策。政策发布后，相应国家的谷歌旅行需求指数有了明显的上升，攀升的数字见证了我们与世界人民的这场“双向奔赴”。
+          2024年3月1日，中国与泰国签署的互免签证协定正式生效，至此，中国的互免“朋友圈”已增加至23国，遍布五大洲。同时，中国也在持续扩大单方面免签的国家范围，同世界各国构建友谊的桥梁。2023年，有西班牙、马来西亚等多个国家被纳入了中国试行单方面免签政策的国家清单，今年3月，中国又宣布对瑞士、爱尔兰、匈牙利等六个国家试行免签政策。下图是中国免签朋友圈中部分国家的谷歌旅行需求指数变化趋势，政策发布后，相应国家的谷歌旅行需求指数有了明显的上升，攀升的数字见证了中国与世界人民的这场“双向奔赴”。
         </p>
         <div class="nation-google">
           <iframe src='https://flo.uri.sh/visualisation/17360563/embed'' title=' Interactive or visual content'
             class='flourish-embed-iframe' frameborder='0' scrolling='no'
-            style='width:85%;height:600px;display: block; margin: 0 auto;' sandbox=' allow-same-origin allow-forms allow-scripts allow-downloads allow-popups
+            style='width:90%;height: 500px;display: block; margin: 0 auto;' sandbox=' allow-same-origin allow-forms allow-scripts allow-downloads allow-popups
             allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
         </div>
         <p>海南、桂林等热门旅游地，也恢复了专属的免签政策，以最大的热情欢迎外国游客的到来。
         </p>
         <p>
-          除此之外，国家政府也在不断优化签证办理的步骤和手续，“一站式签证办理”正在实现。查阅中国驻各国大使馆并进行统计，已经有165个国家公民可享受到不同程度的签证办理便利服务，包括免采指纹、签证办理免预约等，部分国家的签证办理费用也在逐步下调。
+          除此之外，国家政府也在不断优化签证办理的步骤和手续，“一站式签证办理”正在实现。查阅中国驻各国大使馆并进行统计，已经有165个国家公民可以享受到不同程度的签证办理便利服务，包括免采指纹、签证办理免预约等，部分国家的签证办理费用也在逐步下调。
         </p>
         <p>为了方便游客们能够迅速了解自己国家能够享受到的来华签证便利，我们构建了一个查询系统。你可以选择自己所在的国家，在这里进行一键式查询，以便根据最新信息，规划更加适合你的“中国行”计划。
         </p>
@@ -351,13 +392,14 @@
 
       <div class="content action-text">
         <p>
-          与此同时，我们的入境旅游服务也正在不断完善。2023年9月，中国国务院办公厅印发《关于释放旅游消费潜力推动旅游业高质量发展的若干措施》，重点提到将进一步提高入境旅游的各方面服务水平。在未来，外国游客来到中国的住宿登记将变得更加便利，与服务人员们用外语沟通会更加顺畅，各场所的标识和导览也将更加明白易懂。
+          与此同时，我们的入境旅游服务也正在不断完善。2023年9月，中国国务院办公厅发布《关于释放旅游消费潜力推动旅游业高质量发展的若干措施》，着重提到将进一步提高入境旅游的各方面服务水平。在未来，外国游客来到中国的住宿登记将变得更加便利，与服务人员们用外语沟通会更加顺畅，各场所的标识和导览也将更加明白易懂。
         </p>
         <p>
-          对于很多外国游客都在旅行中感到头疼的“扫码支付”问题，中国也在积极尝试解决。随着移动支付在中国不断普及，从2019年起，中国政府已开始着力推动入境游客的支付便利化，并在各地深入推进实施。广州、三亚等地陆续为外国游客量身定制了多种移动支付便利化解决方案，有微信或支付宝支付、数字人民币、银联境外钱包等方式可供外国游客选择。2023年11月，上海进博会开幕前，上海在商业、文旅、机场车站等重点场景已开通外卡POS机超3.6万台，实现三大场景重点商户全覆盖，以满足境外游客的刷卡需求。
+          对于很多外国游客都在旅行中感到头疼的“扫码支付”问题，中国也在积极尝试解决。随着移动支付在中国不断普及，从2019年起，中国政府已开始着力推动入境游客的支付便利化，并在各地深入推进实施。广州、三亚等热门旅游城市已经陆续为外国游客提供了多种入境消费的便利化解决方案，外国游客可根据自身情况，选择手机软件（微信或支付宝）支付、数字人民币、银联境外钱包等多种方式进行支付。2023年11月，上海进博会开幕前，上海在商业、文旅、机场车站等重点场景已开通外卡POS机超3.6万台，实现三大场景重点商户全覆盖，以满足境外游客的刷卡需求。
         </p>
+        <img src="./images/convenience.png">
         <p>
-          今年3月，国务院办公厅又专门印发了《关于进一步优化支付服务提升支付便利性的意见》。针对提升入境游客支付服务水平，提出了很多具体的措施——“大额刷卡、小额扫码、现金兜底“。这些措施既考虑到了外国游客的日常支付习惯，又与当下中国的消费环境相适应，目前正在进一步落实中。
+          今年3月，国务院办公厅又发布了《关于进一步优化支付服务提升支付便利性的意见》。针对提升入境游客支付服务水平，提出了很多具体的措施——“大额刷卡、小额扫码、现金兜底“。这些措施既考虑到了外国游客的日常支付习惯，又与当下中国的消费环境相适应，目前正在进一步落实中。
         </p>
         <p>我们希望能够让外国游客在旅行中实现“畅通无阻”地消费：挑选你心仪的居住环境，无论是高档酒店还是舒适休闲的民宿；品尝你喜欢的美食，无论是在精致餐馆还是街边小摊；购买你心仪的纪念品，无论是在知名景点还是小众景区……
         </p>
@@ -376,8 +418,9 @@
       </div>
       <div class="content recommend-text">
         <p>了解了“如何来”的问题，接下来，我们还希望能够在“去哪里”上为你提供一些建议和帮助。 </p>
-        <p>TripAdvisor是一个全球性的旅行网站，其中收录了来自世界各地旅行者的点评和建议 。为深入了解外国游客的中国旅行偏好与真实体验，我们爬取了TripAdvisor网站“Things to do in
+        <p>在全球性旅行网站——TripAdvisor中，来自世界各地的旅行者热情分享了他们的旅行经历、评价和建议。为深入了解外国游客的中国旅行偏好与真实体验，我们爬取了TripAdvisor网站“Things to do in
           China”板块中，外文评论超过200条的景点评论、评分等数据，并对其进行统计分析。如果你想来中国，也许外国游客的真实评价会是一个很好的参考。</p>
+        <p>下方图中每个圆圈代表一个景点，圆圈越大，景点评论数越多；圆圈颜色越深，景点评分越高。</p>
       </div>
 
       <!-- TripAdvisor大地图 -->
@@ -398,7 +441,9 @@
                   sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
               </div>
               <div class="textbox">
-                <p>对景点所在城市进行统计后，我们发现，排名前五的城市分别为上海、北京、西安、广州和成都，还有更多的二、三线城市也开始进入外国游客的视野。</p>
+                <p>对景点所在城市进行统计后，我们发现，排名前五的城市分别为上海、北京、西安、广州和成都，还有更多的二、三线城市也开始进入外国游客的视野。
+                  <br><br>（左侧图表可悬停鼠标查看详情）
+                </p>
               </div>
             </div>
 
@@ -424,7 +469,6 @@
               <div class="textbox">
                 <p>
                   两座“文化名城”——西安和成都也备受外国游客的好评，它们浓厚的历史人文气息，承载着外国游客的“东方想象”——浪漫与神秘、含蓄与辉煌。在西安，你可以在大唐不夜城里重温一千多年前的盛唐繁华，从兵马俑中看到两千多年前先秦的气势；而在成都，你可以尝试走进宽窄巷子或者锦里，坐下喝一壶茶，体验老成都的民俗风情。
-                  <!-- <br><br>另外值得一提的是，如果你偏爱辣味美食，那成都会更合你的心意，而西安则被称为“碳水天堂”，爱吃面食的你请一定不要错过它。 -->
                 </p>
                 <p></p>
               </div>
@@ -440,7 +484,8 @@
               <div class="textbox">
                 <p>
                   根据景点的评分和评论数，我们得出了这些景点在TripAdvisor的综合表现排名，慕田峪长城、兵马俑、成都大熊猫繁育研究基地和外滩是深受外国游客喜爱、也最值得推荐的几个景点。
-                  <br><br>对景点评论进行关键词提取后，我们总结出了这些景点的特别之处。
+                  <br><br>（左侧图表可悬停鼠标查看详细分数）
+
                 </p>
               </div>
             </div>
@@ -448,10 +493,11 @@
             <div class="step invisible"></div>
             <div class="step step-box">
               <div class="picbox">
-                <img src="./images/changcheng.png" width="70%">
+                <img src="./images/changcheng2.png" width="90%">
               </div>
               <div class="textbox">
                 <p>
+                  对景点评论进行关键词提取后，我们总结出了这些景点的特别之处。<br><br>
                   <span>慕田峪长城：</span><br>都说“不到长城非好汉”，作为世界闻名的古代建筑，很多游客都喜欢来长城完成这场挑战，最热门的便是慕田峪长城。除了徒步，长城还增加了很多新的游览形式，长城缆车、升降椅等都备受欢迎，置身其间，眼前满目苍翠、无限开阔。
                 </p>
               </div>
@@ -460,7 +506,7 @@
             <div class="step invisible"></div>
             <div class="step step-box">
               <div class="picbox">
-                <img src="./images/bingmayong.png" width="70%">
+                <img src="./images/bingmayong2.png" width="90%">
               </div>
               <div class="textbox">
                 <p>
@@ -472,7 +518,7 @@
             <div class="step invisible"></div>
             <div class="step step-box">
               <div class="picbox">
-                <img src="./images/xiongmao.png" width="70%">
+                <img src="./images/xiongmao2.png" width="70%" style="margin: 5% 0 5% 10%;">
               </div>
               <div class="textbox">
                 <p>
@@ -484,7 +530,7 @@
             <div class="step invisible"></div>
             <div class="step step-box">
               <div class="picbox">
-                <img src="./images/waitan.png" width="70%">
+                <img src="./images/waitan2.png" width="90%">
               </div>
               <div class="textbox">
                 <p>
@@ -501,8 +547,10 @@
                   sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
               </div>
               <div class="textbox">
-                <p> 然而，TripAdvisor上呈现的景点还存在一定的局限性。它们基本集中分布于北上广等热门城市，而在中国960万平方公里的广袤土地上，还有更多景色等待发现。<br><br>
-                  在中国最高级别景区——5A景区名单中，那些各有特色的经典景点广泛分布于中国各地，不少省份都有着丰富的旅游资源，但并不被外国游客熟知。</p>
+                <p> 然而，TripAdvisor上呈现的景点还存在一定的局限性。它们基本集中分布于北上广等热门城市，而在中国960万平方公里的广袤土地上，还有更多景色等待被发现。<br><br>
+                  在中国文化和旅游部公布的全国最高等级的旅游景区——5A级旅游景区名单中，那些各有特色的经典景点广泛分布于中国各地。左图显示的是中国各省份5A级景区分布，可以看出，仅有部分5A级景点在tripadvisor上受到大量国外游客关注。一些有着丰富旅游资源的地区，例如河南、新疆、江西等地，并不被外国游客所熟知。
+                  <br><br>（左侧图表可悬停鼠标查看详情）
+                </p>
               </div>
             </div>
 
@@ -513,15 +561,28 @@
               </p>
             </div> -->
 
-            <div class="step">
-              <br>
-              <p>
-                这里展示的是未在tripadvisor榜单上的5A景点名单，内蒙古的呼伦贝尔大草原、吉林的长白山、福建的鼓浪屿，还有被誉为“江南三大名楼”的湖南岳阳楼、湖北黄鹤楼和江西滕王阁……这些都是值得一去的好地方。<br><br>如果你想进一步了解感兴趣的景点，查询它们的详细信息，你可以先选择一个自己想要了解的景点榜单（tripadvisor
-                or
-                5A），我们为每一个景点都制作了一张专属的印象卡片，点击自己感兴趣的景点，就可以看到它的名称、地理位置、评论数以及评分。对于TripAdvisor上的景点，我们还根据景点英文评论文本，制作出了每个景点的关键词云。
-              </p>
+            <div class="step step-box">
+              <div class="picbox">
+                <iframe src='https://flo.uri.sh/visualisation/17419553/embed' title='Interactive or visual content'
+                  class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:90%;height: 100%;'
+                  sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+              </div>
+              <div class="textbox">
+                <p>
+                  为了弥补tripadvisor中景点的局限性，我们选择了中国最大的在线旅行服务平台——携程，统计了这些未在tripadvisor榜单上的5A景点的评分与评论数。从综合表现来看，被誉为“江南三大名楼”之一的黄鹤楼、荷香隐与清波中的瘦西湖、以险峻秀丽闻名的华山……这些都是值得一去的好地方。
+                  <br><br>（左侧图表可悬停鼠标查看详情）
+                </p>
+              </div>
             </div>
 
+            <div class="step invisible"></div>
+            <div class="step">
+              <br><br>
+              <p>如果你想进一步了解感兴趣的景点，查询它们的详细信息，你可以先选择一个自己想要了解的景点榜单（tripadvisor or
+                5A），鼠标悬停到其中的景点，就可以看到该景点的的名称、地理位置、评论数以及评分。
+                <br><br>对于TripAdvisor上的景点，我们还根据景点英文评论文本，为它们设计了专属的印象卡片，卡片上呈现了该景点评论的关键词云，你可以根据它们，快速了解这个景点的特别之处。
+              </p>
+            </div>
           </article>
           <div class="step invisible" id="last"></div>
         </section>
@@ -536,46 +597,47 @@
       <div class="quiz-box">
         <div id="poster-card">
           <!-- 海报内容 -->
-          <img src="./images/quiz.gif" alt="测试海报">
+          <img src="./images/quiz.png" alt="测试海报">
           <!-- 开始测试按钮 -->
-          <button id="start-test-btn" onclick="startTest()">开始测试</button>
+          <button id="start-test-btn" class="click" onclick="startTest()">开始测试</button>
         </div>
 
         <!-- 问题容器 -->
         <div id="question-container" class="card" style="display: none;">
+
           <!-- 问题1 -->
           <div class="question">
-            <p>1. 如果来到中国某城市旅游，您会对更知名的城市感兴趣吗？</p>
+            <p>1. 您对历史遗迹景点的感兴趣程度是：</p>
             <div class="options">
               <div class="option">
-                <input type="radio" id="option1" name="question1" value="1" onclick="selectOption(1,1)">
-                <label for="option1"><span>不感兴趣，我更想试试小众旅游地</span></label>
+                <input type="radio" id="option1" name="question1" value="-1" onclick="selectOption(1,1)">
+                <label for="option1"><span>不感兴趣</span></label>
               </div>
               <div class="option">
-                <input type="radio" id="option2" name="question1" value="2" onclick="selectOption(2,1)">
+                <input type="radio" id="option2" name="question1" value="0.5" onclick="selectOption(2,1)">
                 <label for="option2"><span>一般感兴趣</span></label>
               </div>
               <div class="option">
-                <input type="radio" id="option3" name="question1" value="3" onclick="selectOption(3,1)">
-                <label for="option3"><span>非常感兴趣，我愿意选择更热门的旅游城市</span></label>
+                <input type="radio" id="option3" name="question1" value="1" onclick="selectOption(3,1)">
+                <label for="option3"><span>非常感兴趣</span></label>
               </div>
             </div>
           </div>
 
           <!-- 问题2 -->
           <div class="question">
-            <p>2. 您对历史文化类景点的感兴趣程度是：</p>
+            <p>2. 除了参观著名景区之外，您对探索都市丰富生活感兴趣吗？</p>
             <div class="options">
               <div class="option">
-                <input type="radio" id="option4" name="question2" value="1" onclick="selectOption(1,2)">
+                <input type="radio" id="option4" name="question2" value="-1" onclick="selectOption(1,2)">
                 <label for="option4"><span>不感兴趣</span></label>
               </div>
               <div class="option">
-                <input type="radio" id="option5" name="question2" value="2" onclick="selectOption(2,2)">
+                <input type="radio" id="option5" name="question2" value="0.5" onclick="selectOption(2,2)">
                 <label for="option5"><span>一般感兴趣</span></label>
               </div>
               <div class="option">
-                <input type="radio" id="option6" name="question2" value="3" onclick="selectOption(3,2)">
+                <input type="radio" id="option6" name="question2" value="1" onclick="selectOption(3,2)">
                 <label for="option6"><span>非常感兴趣</span></label>
               </div>
             </div>
@@ -583,18 +645,18 @@
 
           <!-- 问题3 -->
           <div class="question">
-            <p>3. 您对自然山水类景点的感兴趣程度是：</p>
+            <p>3. 您对山岳峡谷类景观的感兴趣程度是：</p>
             <div class="options">
               <div class="option">
-                <input type="radio" id="option7" name="question3" value="1" onclick="selectOption(1,3)">
+                <input type="radio" id="option7" name="question3" value="-1" onclick="selectOption(1,3)">
                 <label for="option7"><span>不感兴趣</span></label>
               </div>
               <div class="option">
-                <input type="radio" id="option8" name="question3" value="2" onclick="selectOption(2,3)">
+                <input type="radio" id="option8" name="question3" value="0.5" onclick="selectOption(2,3)">
                 <label for="option8"><span>一般感兴趣</span></label>
               </div>
               <div class="option">
-                <input type="radio" id="option9" name="question3" value="3" onclick="selectOption(3,3)">
+                <input type="radio" id="option9" name="question3" value="1" onclick="selectOption(3,3)">
                 <label for="option9"><span>非常感兴趣</span></label>
               </div>
             </div>
@@ -602,18 +664,18 @@
 
           <!-- 问题4 -->
           <div class="question">
-            <p>4. 您对休闲娱乐类景点的感兴趣程度是：</p>
+            <p>4. 您对海滨沙滩类景观的感兴趣程度是：</p>
             <div class="options">
               <div class="option">
                 <input type="radio" id="option10" name="question4" value="1" onclick="selectOption(1,4)">
                 <label for="option10"><span>不感兴趣</span></label>
               </div>
               <div class="option">
-                <input type="radio" id="option11" name="question4" value="2" onclick="selectOption(2,4)">
+                <input type="radio" id="option11" name="question4" value="0.5" onclick="selectOption(2,4)">
                 <label for="option11"><span>一般感兴趣</span></label>
               </div>
               <div class="option">
-                <input type="radio" id="option12" name="question4" value="3" onclick="selectOption(3,4)">
+                <input type="radio" id="option12" name="question4" value="1" onclick="selectOption(3,4)">
                 <label for="option12"><span>非常感兴趣</span></label>
               </div>
             </div>
@@ -621,24 +683,177 @@
 
           <!-- 问题5 -->
           <div class="question">
-            <p>5. 除了参观著名景区之外，您对探索都市丰富生活感兴趣吗？</p>
+            <p>5. 您对动植物园等生物景观的感兴趣程度是：</p>
             <div class="options">
               <div class="option">
-                <input type="radio" id="option13" name="question5" value="1" onclick="selectOption(1,5)">
+                <input type="radio" id="option13" name="question5" value="-1" onclick="selectOption(1,5)">
                 <label for="option13"><span>不感兴趣</span></label>
               </div>
               <div class="option">
-                <input type="radio" id="option14" name="question5" value="2" onclick="selectOption(2,5)">
+                <input type="radio" id="option14" name="question5" value="0.5" onclick="selectOption(2,5)">
                 <label for="option14"><span>一般感兴趣</span></label>
               </div>
               <div class="option">
-                <input type="radio" id="option15" name="question5" value="3" onclick="selectOption(3,5)">
+                <input type="radio" id="option15" name="question5" value="1" onclick="selectOption(3,5)">
                 <label for="option15"><span>非常感兴趣</span></label>
               </div>
             </div>
           </div>
 
-          <button onclick="calculateRecommendation()">提交</button>
+          <!-- 问题6 -->
+          <div class="question">
+            <p>6. 您对江河湖泊类景观的感兴趣程度是：</p>
+            <div class="options">
+              <div class="option">
+                <input type="radio" id="option16" name="question6" value="-1" onclick="selectOption(1,6)">
+                <label for="option16"><span>不感兴趣</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option17" name="question6" value="0.5" onclick="selectOption(2,6)">
+                <label for="option17"><span>一般感兴趣</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option18" name="question6" value="1" onclick="selectOption(3,6)">
+                <label for="option18"><span>非常感兴趣</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 问题7 -->
+          <div class="question">
+            <p>7. 您在饮食方面对酸味的偏好程度是：</p>
+            <div class="options">
+              <div class="option">
+                <input type="radio" id="option19" name="question7" value="-1" onclick="selectOption(1,7)">
+                <label for="option19"><span>不喜欢</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option20" name="question7" value="0.5" onclick="selectOption(2,7)">
+                <label for="option20"><span>一般</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option21" name="question7" value="1" onclick="selectOption(3,7)">
+                <label for="option21"><span>非常喜欢</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 问题8 -->
+          <div class="question">
+            <p>8. 您在饮食方面对甜味的偏好程度是：</p>
+            <div class="options">
+              <div class="option">
+                <input type="radio" id="option22" name="question8" value="-1" onclick="selectOption(1,8)">
+                <label for="option22"><span>不喜欢</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option23" name="question8" value="0.5" onclick="selectOption(2,8)">
+                <label for="option23"><span>一般</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option24" name="question8" value="1" onclick="selectOption(3,8)">
+                <label for="option24"><span>非常喜欢</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 问题9 -->
+          <div class="question">
+            <p>9. 您在饮食方面对咸味的偏好程度是：</p>
+            <div class="options">
+              <div class="option">
+                <input type="radio" id="option25" name="question9" value="-1" onclick="selectOption(1,9)">
+                <label for="option25"><span>不喜欢</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option26" name="question9" value="0.5" onclick="selectOption(2,9)">
+                <label for="option26"><span>一般</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option27" name="question9" value="1" onclick="selectOption(3,9)">
+                <label for="option27"><span>非常喜欢</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 问题10 -->
+          <div class="question">
+            <p>10. 您在饮食方面对辣味的偏好程度是：</p>
+            <div class="options">
+              <div class="option">
+                <input type="radio" id="option28" name="question10" value="-1" onclick="selectOption(1,10)">
+                <label for="option28"><span>不喜欢</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option29" name="question10" value="0.5" onclick="selectOption(2,10)">
+                <label for="option29"><span>一般</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option30" name="question10" value="1" onclick="selectOption(3,10)">
+                <label for="option30"><span>非常喜欢</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 问题11 -->
+          <div class="question">
+            <p>11. 如果来到中国旅游，您会选择更知名的城市作为您的目的地吗？</p>
+            <div class="options">
+              <div class="option">
+                <input type="radio" id="option31" name="question11" value="-1" onclick="selectOption(1,11)">
+                <label for="option31"><span>不会，我更想尝试小众旅游地</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option32" name="question11" value="0" onclick="selectOption(2,11)">
+                <label for="option32"><span>无所谓</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option33" name="question11" value="1" onclick="selectOption(3,11)">
+                <label for="option33"><span>会的，我对热门的旅游城市非常感兴趣</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 问题12 -->
+          <div class="question">
+            <p>12. 您对旅行城市交通便利水平的在意程度是：</p>
+            <div class="options">
+              <div class="option">
+                <input type="radio" id="option34" name="question12" value="-1" onclick="selectOption(1,12)">
+                <label for="option34"><span>不在意</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option35" name="question12" value="0.5" onclick="selectOption(2,12)">
+                <label for="option35"><span>一般在意</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option36" name="question12" value="1" onclick="selectOption(3,12)">
+                <label for="option36"><span>非常在意</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 问题13 -->
+          <div class="question">
+            <p>13. 您对旅行城市住宿性价比的在意程度是：</p>
+            <div class="options">
+              <div class="option">
+                <input type="radio" id="option37" name="question13" value="-1" onclick="selectOption(1,13)">
+                <label for="option37"><span>不在意</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option38" name="question13" value="0.5" onclick="selectOption(2,13)">
+                <label for="option38"><span>一般在意</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option39" name="question13" value="1" onclick="selectOption(3,13)">
+                <label for="option39"><span>非常在意</span></label>
+              </div>
+            </div>
+          </div>
+
+
+          <button class="click" onclick="calculateRecommendation()">提交</button>
         </div>
 
         <!-- 推荐结果容器 -->
@@ -646,7 +861,7 @@
           <!-- 推荐结果显示在这里 -->
           <p id="recommendation-text"></p>
           <div id="city-description"></div>
-          <button onclick="restartTest()">再次测试</button>
+          <button class="click" onclick="restartTest()">再次测试</button><br>
         </div>
       </div>
     </div>
@@ -673,17 +888,20 @@
       <footer>
         <div class="team">
           <br><br><br><br><br>
-          <br><img src="./images/icon.png" width="25px"><br>
+          <p>
+            有关本作品数据获取与分析的方法论，详见：<a href="#" class="method">方法论</a>
+          </p>
+
           <p>
             数据收集与分析：夏昊扬 &nbsp 李曼宁 &nbsp 吴一帆<br><br>
             撰文：李曼宁 &nbsp &nbsp &nbsp 设计：夏昊扬 &nbsp &nbsp &nbsp 前端：吴一帆<br><br>
             指导老师：刘萍<br><br>
-            联系方式：xiahaoyang@cuc.edu.cn</p>
+            联系方式：karexia@163.com</p>
 
         </div>
         <br>
         <p>&copy 中国传媒大学·新闻学院·2024</p>
-        <br><br>
+        <br>
 
       </footer>
 

@@ -16,10 +16,51 @@
   <link rel="stylesheet" href="css/swiper.css">
   <link href="./css/animate.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="./css/style.css">
+  <style>
+    .lang-button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 14px;
+      color: #343434;
+      background-color: #f9d268;
+      border-color: #343434;
+      border-width: 2px;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      margin-left: 10px;
+      z-index: 99999;
+      font-family: 'button';
+    }
 
+    .lang-button:hover {
+      background-color: #FFCA3A;
+    }
+
+    .lang-buttons-container {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 99999;
+    }
+  </style>
+  <script>
+    // 假设当前页面是index.html或者index-en.html  
+    function switchToChinese() {
+      window.location.href = 'index.html';
+    }
+
+    function switchToEnglish() {
+      window.location.href = 'index-en.html';
+    }  
+  </script>
 </head>
 
 <body>
+  <div class="lang-buttons-container">
+    <button class="lang-button" onclick="switchToChinese()">中文</button>
+    <button class="lang-button" onclick="switchToEnglish()">English</button>
+  </div>
   <!-- partial:index.partial.html -->
   <div class="preloader">
     <div class="preloader__status">
@@ -49,17 +90,17 @@
           <div class="btn-wrapper navbox">
             <button class="sectionBox navbox" id="sectionBox-action" aria-label="jump to action"
               data-target="#action"></button>
-            <p class="label navbox" id="label-action">action</p>
+            <p class="label navbox" id="label-action">convenience</p>
           </div>
           <div class="btn-wrapper navbox">
             <button class="sectionBox navbox" id="sectionBox-recommend" aria-label="jump to recommend"
               data-target="#recommend"></button>
-            <p class="label navbox" id="label-recommend">recommend</p>
+            <p class="label navbox" id="label-recommend">attractions</p>
           </div>
           <div class="btn-wrapper navbox">
             <button class="sectionBox navbox" id="sectionBox-methods" aria-label="jump to methods"
               data-target="#methods"></button>
-            <p class="label navbox" id="label-methods">methods</p>
+            <p class="label navbox" id="label-methods">conclusion</p>
           </div>
         </div>
       </div>
@@ -69,7 +110,7 @@
 
     <!-- cover -->
     <div class="cover">
-      <img class="top" src="./images/cover.png" width="100%" height="auto">
+      <img class="top" src="./images/cover-en.png" width="100%" height="auto">
       <div class="field">
         <div class="scroll"></div>
       </div>
@@ -98,7 +139,8 @@
           invite >you to visit China, experience China, taste China, and through this guide, help you have a
           delightful,tailor-made travel experience.</p>
         <p class="line9 welcome9">What is China like in the eyes of others? What efforts have we made to make your
-          journey more convenient? Which Chinese attractions are best suited for you?</p>
+          journey more convenient? Which Chinese Tourism City are best suited for you?
+        </p>
         <p class="line10 welcome10">Let's go！ </p>
       </div>
 
@@ -107,17 +149,18 @@
   <!-- chapter2_trend -->
   <div id="trend-action">
     <div class="cover" id="trend-cover">
-      <img class="chap1" id="chap1" src="./images/chap1.png" alt="Background Image">
+      <img class="chap1" id="chap1" src="./images/chap1-en.png" alt="Background Image">
       <img class="scrolling-emoji" src="./images/emoji.png" alt="Scrolling Image">
     </div>
 
 
     <div id="trend" class="part">
       <div class="content trend-text">
-        <p>Today, there is an increasing number of people getting interested in China.According to data from Google
-          Travel Insight, from 2023 to 2024, there has been a significant increase in searches by overseas travelers for
-          flights to China and accommodations. More and more foreign friends are setting their sights on "China,"
-          showing strong travel demand for the country. </p>
+        <p>Today, there is an increasing number of people getting interested in China.
+          According to data from Google Travel Insight, from 2023 to 2024, there has been a significant increase in
+          searches by overseas travelers for flights to China and accommodations. More and more people are setting their
+          sights on “China,” showing strong travel demand for the country.
+        </p>
         <!-- 谷歌数据图 -->
         <iframe src='https://flo.uri.sh/visualisation/17341161/embed' title=' Interactive or visual content'
           class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;'
@@ -195,15 +238,16 @@
         <div class="whitebox">
           <div class="tiktok-text" id="tiktok-text">
             <div class="tiktok-p" id="tiktok-p0">
-              <p>On the popular overseas short video platform TikTok, searching for "china travel" yields thousands of
-                related videos showcasing China's landscapes, architecture, cuisine, and more.
+              <p>In January this year, on the popular short video platform TikTok, the interest index of the topic
+                "China travel" rose by 376% compared with the same period last year. Searching for "china travel" yields
+                thousands of related videos showcasing China's landscapes, architecture, cuisine, and more.
               </p>
             </div>
             <div class="tiktok-p" id="tiktok-p1">
-              <p>To better understand foreign friends' impressions of China, we selected 28 short videos under the
-                keyword
-                "china travel" with views over a million and more than 500 comments. These videos display unique
-                landscapes across China. We collected and analyzed the comments from these videos to gain insights.</p>
+              <p>To better understand people's impressions of China, we selected 28 short videos under the keyword
+                "china travel" with views over a million and more than 1000 comments. These videos display unique
+                landscapes across China. We collected and analyzed the comments from these videos to gain insights.
+              </p>
             </div>
           </div>
         </div>
@@ -222,8 +266,9 @@
         <div class="emoji-text" id="emoji-text">
           <div class="emoji-p" id="emoji-p0">
             <p>
-              In social media comments, netizens often use various emojis to express their genuine feelings about the
-              video content. We extracted all emoji expressions from the comments for statistical analysis. The results
+              In social media comments, Tik Tok users often use various emojis to express their genuine feelings about
+              the video content. We extracted all emoji expressions from the comments for statistical analysis. The
+              results
               show that these emojis mostly convey positive emotions towards Chinese landscapes. In the emoji ranking,
               heart and smiling face elements top the list, with 🥰, 😂, 😍 being the most frequently used emojis by
               foreign netizens in the comment section.
@@ -239,14 +284,14 @@
           <div class="wordbox" id="wordbox">
             <div id="11c49e019bff4e5985d2a8053626f05a" class="chart-container" style="width:1000px; height:500px; ">
             </div>
-            <p>Data note: All words shown in the graph have a frequency of occurrence of over 300</p>
+            <p>Note: Words shown here have a frequency of 300 or more.<br>(Hover for more information)</p>
           </div>
         </div>
         <div class="word-text" id="word-text">
           <div class="word-p" id="word-p0">
             <p>
               Furthermore, we conducted a frequency analysis of English text in these comments. Among English comments,
-              foreign netizens often use adjectives like "beautiful, amazing, cool" to praise Chinese landscapes. Words
+              Tik Tok users often use adjectives like "beautiful, amazing, cool" to praise Chinese landscapes. Words
               like "cyberpunk, future, dream" express admiration for China's urban landscapes' sophistication. In terms
               of
               mood, "wow" appears most frequently, and "go" is the most common verb used.
@@ -264,7 +309,7 @@
 
       <div class="fixed-go" id="fixed-go">
         <div class="gobox" id="gobox">
-          <iframe src='https://flo.uri.sh/visualisation/16689989/embed' title='Interactive or visual content'
+          <iframe src='https://flo.uri.sh/visualisation/17417779/embed' title='Interactive or visual content'
             class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;'></iframe>
         </div>
       </div>
@@ -274,7 +319,7 @@
             <p>We conducted keyword co-occurrence analysis focusing on high-frequency verbs such as "go," "visit,"
               "love,"
               "want," and their collocations in the comments. Phrases like "want to go," "need to go," "want to visit,"
-              and similar combinations reflect foreign netizens' high interest in China and their strong desire to
+              and similar combinations reflect Tik Tok users' high interest in China and their strong desire to
               travel.
               Many foreign friends have already added China to their "must-visit travel destinations" list in the
               comments
@@ -291,7 +336,7 @@
 
     <div id="action" class="part">
       <div class="cover" id="action-cover">
-        <img class="chap2" id="chap2" src="./images/chap2.png" alt="Background Image">
+        <img class="chap2" id="chap2" src="./images/chap2-en.png" alt="Background Image">
         <img class="scrolling-fly" src="./images/fly.jpg" alt="Scrolling Image">
       </div>
 
@@ -317,6 +362,9 @@
               <div class="swiper-slide slide6">
               </div>
               <div class="swiper-slide slide6"></div>
+              <div class="swiper-slide slide6"></div>
+              <div class="swiper-slide slide6"></div>
+              <div class="swiper-slide slide6"></div>
             </div>
 
           </div>
@@ -331,6 +379,9 @@
         <div class="trigger swiper1_trigger" id="trigger_100"></div>
         <div class="trigger swiper1_trigger" id="trigger_100"></div>
         <div class="trigger swiper1_trigger" id="trigger_800"></div>
+        <div class="trigger swiper1_trigger" id="trigger_800"></div>
+        <div class="trigger swiper1_trigger" id="trigger_800"></div>
+
         <div class="bottom-placeholder"></div>
       </div>
 
@@ -357,16 +408,18 @@
           </div>
           <div class="plane-p" id="plane-p2">
             <p>
-              VariFlight data shows that during the 2024 Spring Festival period until February, we operated a total of
-              5,861 flights on 784 routes. The 2024 Spring Festival saw a new peak in inbound tourism to China.
-              According
-              to calculations from the Cultural and Tourism Ministry's data center, China welcomed approximately 3.23
-              million inbound tourists during the recent 2024 Spring Festival holiday, close to the level seen in the
-              same
-              period in 2019. The China Tourism Academy's big data monitoring showed that on Chinese New Year's Eve
-              alone,
-              inbound tourists exceeded 600,000. The festive atmosphere attracted numerous foreign tourists to China,
-              allowing them to experience the lively and peaceful Chinese New Year with the local people.
+              VariFlight data shows that during the 2024 Spring Festival period until February, China mainland operated
+              a total of 5,861 flights on 784 routes. The 2024 Spring Festival saw a new peak in inbound tourism to
+              China. According to calculations from the Cultural and Tourism Ministry's data center, China welcomed more
+              than 3 million inbound tourists during the 2024 Spring Festival holiday, close to the level seen in the
+              same period in 2019.
+            </p>
+          </div>
+          <div class="plane-p" id="plane-p3">
+            <p>
+              The China Tourism Academy's big data monitoring showed that on Chinese New Year's Eve alone, inbound
+              tourists exceeded 600,000. The festive atmosphere attracted numerous foreign tourists to China, allowing
+              them to experience the lively and peaceful Chinese New Year with the local people.
             </p>
           </div>
         </div>
@@ -378,22 +431,29 @@
         <p>Currently, China offers various visa facilitation services for 183 countries, including visa exemption
           agreements, unilateral visa exemptions, group tourist visa exemptions, and more.
         <p>
-          On January 28, 2024, in Bangkok, China and Thailand signed an agreement for mutual visa exemption for ordinary
-          passport holders. The agreement officially took effect on March 1, expanding China's mutual visa exemption
-          "friends circle" to 23 countries. Meanwhile, China continues to expand the scope of unilateral visa
-          exemptions. On December 1, 2023, China announced unilateral visa exemptions for six countries, including
-          Germany, Italy, and Malaysia. In March of this year, China announced visa exemptions for another six
-          countries, including Switzerland, Ireland, and Hungary. After the policy announcements, there was a
-          significant increase in Google Travel demand indices for corresponding countries, indicating a surge in mutual
-          travel efforts between China and the world.
+          On March 1, 2024, the mutual visa exemption agreement signed between China and Thailand officially came into
+          effect, so China's mutual exemption "friends circle" has increased to 23 countries, spreading over five
+          continents.
         </p>
+        <p> At the same time, China is also continuing to expand the scope of unilateral visa-free countries, and build
+          bridges of friendship with other countries around the world. 2023, there are Spain, Malaysia and other
+          countries have been included in the list of countries where China is trying to implement the unilateral
+          visa-free policy.In March of this year, China announced visa exemptions for another six countries, including
+          Switzerland, Ireland, and Hungary.
+        </p>
+        <p>The figure below shows the changing trend of the Google Travel Demand Index for some countries in China’s
+          visa-free circle of friends,after the policy announcements, there was a significant increase in Google Travel
+          demand indices for corresponding countries, indicating a surge in mutual travel efforts between China and the
+          world.
+        </p>
+
         <div class="nation-google">
           <iframe src='https://flo.uri.sh/visualisation/17360835/embed' title=' Interactive or visual content'
             class='flourish-embed-iframe' frameborder='0' scrolling='no'
             style='width:85%;height:600px;display: block; margin: 0 auto;'
             sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
         </div>
-        <p> Hainan, Guilin, and other popular tourist destinations have also reinstated exclusive visa-free policies,
+        <p>Hainan, Guilin, and other popular tourist destinations have also reinstated exclusive visa-free policies,
           welcoming foreign tourists with the utmost enthusiasm.
         </p>
         <p>
@@ -405,11 +465,11 @@
         </p>
         <p>To facilitate tourists in quickly understanding the visa conveniences available to them from their respective
           countries, we have developed a query system. You can select your country of residence and perform a one-click
-          query to plan your "China trip" according to the latest information, tailored to your needs.
+          query to plan your "China travel" according to the latest information, tailored to your needs.
         </p>
         <div class="policy">
           <iframe src='https://flo.uri.sh/visualisation/17361337/embed' title='Interactive or visual content'
-            class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:800px;'
+            class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:700px;'
             sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
         </div>
       </div>
@@ -419,24 +479,31 @@
         <p>
           Simultaneously, our inbound tourism services are continually improving. In September 2023, the State Council
           General Office issued "Several Measures to Unleash Tourism Consumption Potential and Promote High-Quality
-          Tourism Development," emphasizing the enhancement of inbound tourism services. In the future, accommodations
-          registration for foreign tourists in China will become more convenient, communication with service personnel
-          in foreign languages will be smoother, and signage and guides at various locations will be clearer and more
-          recognizable.
+          Tourism Development," emphasizing the enhancement of inbound tourism services.
+        </p>
+        <p>
+          In the future, accommodations registration for foreign tourists in China will become more convenient,
+          communication with service personnel in foreign languages will be smoother, and signage and guides at various
+          locations will be clearer and more recognizable.
         </p>
         <p>
           Addressing the common headache of "QR code payments" faced by many foreign tourists during travel, China is
           actively working to resolve this issue. With the widespread adoption of mobile payments in China since 2019,
           the Chinese government has been focusing on facilitating payment for inbound tourists and implementing
-          solutions nationwide. Cities like Guangzhou and Sanya have tailored various mobile payment solutions for
-          foreign tourists, including WeChat Pay, Alipay, digital RMB, UnionPay international wallets, and more. In
-          November 2023, ahead of the China International Import Expo in Shanghai, over 36,000 overseas POS machines
+          solutions nationwide.
+        </p>
+        <p> Popular tourist cities such as Guangzhou and Sanya have successively provided a variety of inbound
+          consumption facilitation solutions for foreign tourists, who can choose mobile software (WeChat or Alipay)
+          payment, digital RMB, UnionPay offshore wallet and other methods of payment according to their own
+          circumstances.
+        </p>
+        <img src="./images/convenience-en.png">
+        <p>In November 2023, ahead of the China International Import Expo in Shanghai, over 36,000 overseas POS machines
           were installed in key locations such as businesses, cultural tourism venues, airports, and stations in
           Shanghai, providing full coverage for key merchants and meeting the card payment needs of international
           visitors.
         </p>
-        <p>
-          In March, 2024, the State Council General Office issued the "Opinions on Further Optimizing Payment Services
+        <p>In March, 2024, the State Council General Office issued the "Opinions on Further Optimizing Payment Services
           to Enhance Payment Convenience," outlining specific measures to improve payment services for inbound tourists,
           such as "large amount card payments, small amount QR code payments, and cash as a fallback." These measures
           consider both the daily payment habits of foreign tourists and align with the current consumption environment
@@ -449,14 +516,15 @@
         </p>
         <p>In summary, there is no need to worry about these matters!</p>
         <p>China is proving to the world through its efforts that as you step into China, China is also reaching out to
-          you.</p>
+          you.
+        </p>
       </div>
     </div>
   </div>
   <div id="recommend-methods">
     <div id="recommend" class="part">
       <div class="cover" id="recommend-cover">
-        <img class="chap3" id="chap3" src="./images/chap3.png" alt="Background Image">
+        <img class="chap3" id="chap3" src="./images/chap3-en.png" alt="Background Image">
         <img class="scrolling-changcheng" src="./images/changcheng.png" alt="Scrolling Image">
         <img class="scrolling-bingmayong" src="./images/bingmayong.png" alt="Scrolling Image">
         <img class="scrolling-xiongmao" src="./images/xiongmao.png" alt="Scrolling Image">
@@ -464,18 +532,22 @@
       <div class="content recommend-text">
         <p>After addressing the question of "how to get there," we also hope to provide you with some suggestions and
           assistance on "where to go."</p>
-        <p>TripAdvisor is a global travel website that includes reviews and recommendations from travelers around the
-          world. To gain a deeper understanding of the travel preferences and real experiences of foreign tourists in
-          China, we crawled data from the "Things to do in China" section of TripAdvisor's website, including comments
-          and ratings in foreign languages, for over 200 scenic spots, and conducted statistical analysis. If you plan
-          to visit China, the genuine reviews from foreign tourists may serve as an excellent reference for you.</p>
+        <p>On TripAdvisor, the global travel site, travelers from all over the world enthusiastically share their travel
+          experiences, reviews and recommendations. To gain a deeper understanding of the travel preferences and real
+          experiences of foreign tourists in China, we selected attractions with more than 200 non-Chinese reviews in
+          TripAdvisor's "Things to do in China" section, and crawled their reviews, ratings and other data， then
+          conducted statistical analysis. If you plan to visit China, the genuine reviews from these tourists may serve
+          as an excellent reference for you. </p>
+        <p>Each circle in the chart below represents an attraction. The larger the circle, the more reviews the
+          attraction has; the darker the color of the circle, the higher the rating of the attraction.
+        </p>
       </div>
 
       <!-- TripAdvisor大地图 -->
       <main>
         <section id="scrolly">
           <figure style="top: 0px;">
-            <iframe src='https://flo.uri.sh/story/2177034/embed' title='Interactive or visual content'
+            <iframe src='https://flo.uri.sh/story/2314923/embed' title='Interactive or visual content'
               class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:100%;'
               sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
           </figure>
@@ -484,35 +556,38 @@
             <div class="step invisible"></div>
             <div class="step step-box">
               <div class="picbox">
-                <iframe src='https://flo.uri.sh/visualisation/17131465/embed' title='Interactive or visual content'
+                <iframe src='https://flo.uri.sh/visualisation/17376095/embed' title='Interactive or visual content'
                   class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:90%;height: 100%;'
                   sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
               </div>
               <div class="textbox">
                 <p>After analyzing the cities where these attractions are located, we found that the top five cities are
                   Shanghai, Beijing, Xi'an, Guangzhou, and Chengdu. Moreover, more second and third-tier cities are also
-                  starting to attract the attention of foreign tourists.</p>
+                  starting to attract the attention of foreign tourists.<br><br>（Hover over the chart for more
+                  information）
+                </p>
               </div>
             </div>
 
             <div class="step invisible"></div>
             <div class="step step-box">
               <div class="picbox">
-                <iframe src='https://flo.uri.sh/visualisation/17131986/embed' title='Interactive or visual content'
+                <iframe src='https://flo.uri.sh/visualisation/17377600/embed' title='Interactive or visual content'
                   class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:90%;height: 100%;'
                   sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
               </div>
               <div class="textbox">
                 <p>Representing China's first-tier cities, Beijing, Shanghai, and Guangzhou remain the top choices for
                   foreign tourists visiting China due to their blend of international metropolitan vibes and historical
-                  significance, which strongly appeal to foreign visitors.</p>
+                  significance, which strongly appeal to foreign visitors.
+                </p>
               </div>
             </div>
 
             <div class="step invisible"></div>
             <div class="step step-box">
               <div class="picbox">
-                <iframe src='https://flo.uri.sh/visualisation/17131996/embed' title='Interactive or visual content'
+                <iframe src='https://flo.uri.sh/visualisation/17377557/embed' title='Interactive or visual content'
                   class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:90%;height: 100%;'
                   sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
               </div>
@@ -523,10 +598,7 @@
                   visitors — romantic and mysterious, reserved yet magnificent. In Xi'an, you can relive the grandeur of
                   the Tang Dynasty in the Great Tang All Day Mall and witness the majesty of the Terracotta Warriors
                   dating back over two millennia. In Chengdu, you can explore Kuanzhai Alley or Jinli Ancient Street,
-                  sit down for a pot of tea, and experience the folk customs of old
-                  Chengdu.
-                  <!-- <br><br>Additionally, if you prefer spicy cuisine, Chengdu would be more to your liking, while
-                  Xi'an is renowned as a "carbohydrate paradise," so if you love noodles, you must not miss it. -->
+                  sit down for a pot of tea, and experience the folk customs of old Chengdu.
                 </p>
                 <p></p>
               </div>
@@ -535,7 +607,7 @@
             <div class="step invisible"></div>
             <div class="step step-box">
               <div class="picbox">
-                <iframe src='https://flo.uri.sh/visualisation/16921446/embed' title='Interactive or visual content'
+                <iframe src='https://flo.uri.sh/visualisation/17377665/embed' title='Interactive or visual content'
                   class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height: 100%;'
                   sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
               </div>
@@ -544,9 +616,7 @@
                   Based on the ratings and comments of these attractions, we have compiled a comprehensive ranking of
                   these attractions' performance on TripAdvisor. Mutianyu Great Wall, Terracotta Warriors, Chengdu
                   Research Base of Giant Panda Breeding, and The Bund are among the most loved and highly recommended
-                  attractions by foreign tourists.
-                  <br><br>By extracting keywords from the comments about these attractions, we have summarized their
-                  unique features.
+                  attractions by foreign tourists.<br><br>（Hover over the chart for more information）
                 </p>
               </div>
             </div>
@@ -554,10 +624,12 @@
             <div class="step invisible"></div>
             <div class="step step-box">
               <div class="picbox">
-                <img src="./images/changcheng.png" width="70%">
+                <img src="./images/changcheng2.png" width="90%">
               </div>
               <div class="textbox">
                 <p>
+                  By extracting keywords from the comments about these attractions, we have summarized their unique
+                  features.
                   <span>Mutianyu Great Wall:
                   </span><br>It is said that "The man who does not reach the Great Wall is not a true man." As a
                   world-renowned ancient structure, many tourists enjoy the challenge of visiting the Great Wall, with
@@ -571,7 +643,7 @@
             <div class="step invisible"></div>
             <div class="step step-box">
               <div class="picbox">
-                <img src="./images/bingmayong.png" width="70%">
+                <img src="./images/bingmayong2.png" width="90%">
               </div>
               <div class="textbox">
                 <p>
@@ -588,7 +660,7 @@
             <div class="step invisible"></div>
             <div class="step step-box">
               <div class="picbox">
-                <img src="./images/xiongmao.png" width="70%">
+                <img src="./images/xiongmao2.png" width="70%" style="margin: 8% 0 5% 10%;">
               </div>
               <div class="textbox">
                 <p>
@@ -603,7 +675,7 @@
             <div class="step invisible"></div>
             <div class="step step-box">
               <div class="picbox">
-                <img src="./images/waitan.png" width="70%">
+                <img src="./images/waitan2.png" width="90%">
               </div>
               <div class="textbox">
                 <p>
@@ -616,50 +688,72 @@
               </div>
             </div>
             <div class="step invisible"></div>
+
+            <div class="step">
+              <br><br>
+              <p>However, the attractions presented on TripAdvisor still have certain limitations. They are mostly
+                concentrated in popular cities such as Beijing, Shanghai, and Guangzhou. Yet, across the vast expanse
+                of
+                China's 9.6 million square kilometers, there are many more landscapes waiting to be discovered.
+              </p>
+            </div>
+            <div class="step invisible"></div>
             <div class="step step-box">
               <div class="picbox">
-                <iframe src='https://flo.uri.sh/story/2292151/embed' title='Interactive or visual content'
+                <iframe src='https://flo.uri.sh/story/2313834/embed' title='Interactive or visual content'
                   class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:90%;height: 100%;'
                   sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
               </div>
               <div class="textbox">
                 <br>
-                <p>However, the attractions presented on TripAdvisor still have certain limitations. They are mostly
-                  concentrated in popular cities such as Beijing, Shanghai, and Guangzhou. Yet, across the vast expanse
-                  of
-                  China's 9.6 million square kilometers, there are many more landscapes waiting to be discovered.
-                  <br><br>
-                  In China's highest-level scenic spots—5A scenic spots list, various distinctive classic attractions
-                  are
-                  widely distributed throughout China. Many provinces boast rich tourism resources, yet they are not
-                  well
-                  known to foreign tourists.
+                <p>
+                  In the list of 5A-level tourist attractions, the country's highest-level tourist attractions,
+                  announced by the Ministry of Culture and Tourism of China, those classic attractions with their own
+                  characteristics are widely distributed across China. The picture on the left shows the distribution of
+                  5A-level scenic spots in various provinces in China. It can be seen that only some 5A-level scenic
+                  spots have attracted a large number of foreign tourists' attention on tripadvisor. Some areas with
+                  rich tourism resources, such as Henan, Xinjiang, Jiangxi and other places, are not well known by
+                  foreign tourists.
+                  <br>
+                  （Hover over the chart for more information）
                 </p>
               </div>
             </div>
 
             <div class="step invisible"></div>
+            <div class="step step-box">
+              <div class="picbox">
+                <iframe src='https://flo.uri.sh/visualisation/17421173/embed' title='Interactive or visual content'
+                  class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:90%;height: 100%;'
+                  sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+              </div>
+              <div class="textbox">
+                <p>
+                  In order to make up for the limitations of the attractions in Tripadvisor, we chose Ctrip, China's
+                  largest online travel service platform, and counted the ratings and reviews of these 5A attractions
+                  that were not on the Tripadvisor list. From the perspective of comprehensive performance, the Yellow
+                  Crane Tower, one of the "Three Famous Towers in the South of the Yangtze River", the Slender West Lake
+                  with the fragrance of lotus hidden in the clear waves, and Huashan Mountain, which is famous for its
+                  steepness and beauty...are all good places worth visiting.
+                  <br>
+                  （Hover over the chart for more information）
+                </p>
+              </div>
+            </div>
 
             <div class="step invisible"></div>
             <div class="step">
-              <p>
-                Here is a list of 5A scenic spots that are not on the TripAdvisor list but are worth visiting:
-                Hulunbuir
-                Grassland in Inner Mongolia, Changbai Mountain in Jilin, Gulangyu Island in Fujian, as well as the
-                renowned "Three Famous Towers in Jiangnan" including Yueyang Tower in Hunan, Yellow Crane Tower in
-                Hubei, and Tengwang Pavilion in Jiangxi. These are all excellent places worth visiting.
-                <br><br>
-                If you want to further explore the attractions you are interested in and get detailed information,
-                you
-                can first choose a list of attractions you want to know more about (TripAdvisor or 5A), and we have
-                created an exclusive impression card for each attraction. Clicking on the attraction you are
-                interested
-                in will show you its name, location, number of reviews, and ratings. For attractions on TripAdvisor,
-                we
-                have also created keyword clouds based on English comments for each attraction.
+              <br><br>
+              <p>If you want to learn more about the attractions you are interested in and query their detailed
+                information, you can first select a list of attractions you want to know about (tripadvisor or 5A),
+                hover the mouse over the attraction you want to know about, and you can see the list. The name,
+                location, number of reviews and rating of the attraction.
+                <br><br>For the attractions on TripAdvisor, we have
+                also designed exclusive impression cards for them based on the English review text of the attraction.
+                The card presents a keyword cloud of the attraction's reviews. You can use them to quickly understand
+                what is special about this attraction.
               </p>
             </div>
-
           </article>
           <div class="step invisible" id="last"></div>
         </section>
@@ -668,118 +762,273 @@
       </main>
       <div class="content recommend-text">
         <p>
-          In addition, we have created a China Travel City Recommendation Quiz to help you make a more suitable travel
+          In addition, we have created a China travel city recommendation system to help you make a more suitable travel
           plan for yourself. It covers 50 key tourist cities in China, and you can choose your travel preferences based
           on the options to get our exclusive recommendations of cities to visit and famous attractions in the cities.
-          If you're already dazzled by the sheer number of cities and attractions, try our recommendations!
+          If you are already dazzled by the number of cities and attractions, try our recommendations!
         </p>
       </div>
       <div class="quiz-box">
         <div id="poster-card">
           <!-- 海报内容 -->
-          <img src="./images/quiz.gif" alt="poster">
+          <img src="./images/quiz-en.png" alt="poster">
           <!-- 开始测试按钮 -->
-          <button id="start-test-btn" onclick="startTest()">START</button>
+          <button id="start-test-btn" class="click" onclick="startTest()">START</button>
         </div>
 
         <!-- 问题容器 -->
         <div id="question-container" class="card" style="display: none;">
+
           <!-- 问题1 -->
           <div class="question">
-            <p>1. If travelling to a city in China, would you be interested in a more well-known city?</p>
+            <p>1. Your level of interest in historical sites and attractions is:</p>
             <div class="options">
               <div class="option">
-                <input type="radio" id="option1" name="question1" value="1" onclick="selectOption(1,1)">
-                <label for="option1"><span>Not interested. I'd rather try a niche destination.</span></label>
+                <input type="radio" id="option1" name="question1" value="-1" onclick="selectOption(1,1)">
+                <label for="option1"><span>Not interested</span></label>
               </div>
               <div class="option">
-                <input type="radio" id="option2" name="question1" value="2" onclick="selectOption(2,1)">
-                <label for="option2"><span>一般感兴趣</span></label>
+                <input type="radio" id="option2" name="question1" value="0.5" onclick="selectOption(2,1)">
+                <label for="option2"><span>A little interested</span></label>
               </div>
               <div class="option">
-                <input type="radio" id="option3" name="question1" value="3" onclick="selectOption(3,1)">
-                <label for="option3"><span>非常感兴趣，我愿意选择更热门的旅游城市</span></label>
+                <input type="radio" id="option3" name="question1" value="1" onclick="selectOption(3,1)">
+                <label for="option3"><span>Very interested</span></label>
               </div>
             </div>
           </div>
 
           <!-- 问题2 -->
           <div class="question">
-            <p>2. 您对历史文化类景点的感兴趣程度是：</p>
+            <p>2. In addition to visiting famous scenic spots, are you interested in exploring the rich life in the
+              city?</p>
             <div class="options">
               <div class="option">
-                <input type="radio" id="option4" name="question2" value="1" onclick="selectOption(1,2)">
-                <label for="option4"><span>不感兴趣</span></label>
+                <input type="radio" id="option4" name="question2" value="-1" onclick="selectOption(1,2)">
+                <label for="option4"><span>Not interested</span></label>
               </div>
               <div class="option">
-                <input type="radio" id="option5" name="question2" value="2" onclick="selectOption(2,2)">
-                <label for="option5"><span>一般感兴趣</span></label>
+                <input type="radio" id="option5" name="question2" value="0.5" onclick="selectOption(2,2)">
+                <label for="option5"><span>A little interested</span></label>
               </div>
               <div class="option">
-                <input type="radio" id="option6" name="question2" value="3" onclick="selectOption(3,2)">
-                <label for="option6"><span>非常感兴趣</span></label>
+                <input type="radio" id="option6" name="question2" value="1" onclick="selectOption(3,2)">
+                <label for="option6"><span>Very interested</span></label>
               </div>
             </div>
           </div>
 
           <!-- 问题3 -->
           <div class="question">
-            <p>3. 您对自然山水类景点的感兴趣程度是：</p>
+            <p>3. Your level of interest in mountain and canyon landscapes is:</p>
             <div class="options">
               <div class="option">
-                <input type="radio" id="option7" name="question3" value="1" onclick="selectOption(1,3)">
-                <label for="option7"><span>不感兴趣</span></label>
+                <input type="radio" id="option7" name="question3" value="-1" onclick="selectOption(1,3)">
+                <label for="option7"><span>Not interested</span></label>
               </div>
               <div class="option">
-                <input type="radio" id="option8" name="question3" value="2" onclick="selectOption(2,3)">
-                <label for="option8"><span>一般感兴趣</span></label>
+                <input type="radio" id="option8" name="question3" value="0.5" onclick="selectOption(2,3)">
+                <label for="option8"><span>A little interested</span></label>
               </div>
               <div class="option">
-                <input type="radio" id="option9" name="question3" value="3" onclick="selectOption(3,3)">
-                <label for="option9"><span>非常感兴趣</span></label>
+                <input type="radio" id="option9" name="question3" value="1" onclick="selectOption(3,3)">
+                <label for="option9"><span>Very interested</span></label>
               </div>
             </div>
           </div>
 
           <!-- 问题4 -->
           <div class="question">
-            <p>4. 您对休闲娱乐类景点的感兴趣程度是：</p>
+            <p>4. Your level of interest in seaside beach landscapes is:</p>
             <div class="options">
               <div class="option">
                 <input type="radio" id="option10" name="question4" value="1" onclick="selectOption(1,4)">
-                <label for="option10"><span>不感兴趣</span></label>
+                <label for="option10"><span>Not interested</span></label>
               </div>
               <div class="option">
-                <input type="radio" id="option11" name="question4" value="2" onclick="selectOption(2,4)">
-                <label for="option11"><span>一般感兴趣</span></label>
+                <input type="radio" id="option11" name="question4" value="0.5" onclick="selectOption(2,4)">
+                <label for="option11"><span>A little interested</span></label>
               </div>
               <div class="option">
-                <input type="radio" id="option12" name="question4" value="3" onclick="selectOption(3,4)">
-                <label for="option12"><span>非常感兴趣</span></label>
+                <input type="radio" id="option12" name="question4" value="1" onclick="selectOption(3,4)">
+                <label for="option12"><span>Very interested</span></label>
               </div>
             </div>
           </div>
 
           <!-- 问题5 -->
           <div class="question">
-            <p>5. 除了参观著名景区之外，您对探索都市丰富生活感兴趣吗？</p>
+            <p>5. Your level of interest in biological landscapes such as zoological and botanical gardens is:</p>
             <div class="options">
               <div class="option">
-                <input type="radio" id="option13" name="question5" value="1" onclick="selectOption(1,5)">
-                <label for="option13"><span>不感兴趣</span></label>
+                <input type="radio" id="option13" name="question5" value="-1" onclick="selectOption(1,5)">
+                <label for="option13"><span>Not interested</span></label>
               </div>
               <div class="option">
-                <input type="radio" id="option14" name="question5" value="2" onclick="selectOption(2,5)">
-                <label for="option14"><span>一般感兴趣</span></label>
+                <input type="radio" id="option14" name="question5" value="0.5" onclick="selectOption(2,5)">
+                <label for="option14"><span>A little interested</span></label>
               </div>
               <div class="option">
-                <input type="radio" id="option15" name="question5" value="3" onclick="selectOption(3,5)">
-                <label for="option15"><span>非常感兴趣</span></label>
+                <input type="radio" id="option15" name="question5" value="1" onclick="selectOption(3,5)">
+                <label for="option15"><span>Very interested</span></label>
               </div>
             </div>
           </div>
 
-          <button onclick="calculateRecommendation()">提交</button>
+          <!-- 问题6 -->
+          <div class="question">
+            <p>6. Your level of interest in rivers and lakes landscapes is:</p>
+            <div class="options">
+              <div class="option">
+                <input type="radio" id="option16" name="question6" value="-1" onclick="selectOption(1,6)">
+                <label for="option16"><span>Not interested</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option17" name="question6" value="0.5" onclick="selectOption(2,6)">
+                <label for="option17"><span>A little interested</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option18" name="question6" value="1" onclick="selectOption(3,6)">
+                <label for="option18"><span>Very interested</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 问题7 -->
+          <div class="question">
+            <p>7. Your dietary preference for sour flavors is:</p>
+            <div class="options">
+              <div class="option">
+                <input type="radio" id="option19" name="question7" value="-1" onclick="selectOption(1,7)">
+                <label for="option19"><span>Not a fan of sour food</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option20" name="question7" value="0.5" onclick="selectOption(2,7)">
+                <label for="option20"><span>I don't hate eating sour food</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option21" name="question7" value="1" onclick="selectOption(3,7)">
+                <label for="option21"><span>I like eating sour food very much</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 问题8 -->
+          <div class="question">
+            <p>8. Your dietary preference for sweet flavors is:</p>
+            <div class="options">
+              <div class="option">
+                <input type="radio" id="option22" name="question8" value="-1" onclick="selectOption(1,8)">
+                <label for="option22"><span>Not a fan of sweet food</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option23" name="question8" value="0.5" onclick="selectOption(2,8)">
+                <label for="option23"><span>I don't hate eating sweet food</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option24" name="question8" value="1" onclick="selectOption(3,8)">
+                <label for="option24"><span>I like eating sweet food very much</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 问题9 -->
+          <div class="question">
+            <p>9. Your dietary preference for savory flavors is:</p>
+            <div class="options">
+              <div class="option">
+                <input type="radio" id="option25" name="question9" value="-1" onclick="selectOption(1,9)">
+                <label for="option25"><span>Not a fan of savory food</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option26" name="question9" value="0.5" onclick="selectOption(2,9)">
+                <label for="option26"><span>I don't hate eating savory food</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option27" name="question9" value="1" onclick="selectOption(3,9)">
+                <label for="option27"><span>I like eating savory food very much</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 问题10 -->
+          <div class="question">
+            <p>10. Your dietary preference for spicy flavors is:</p>
+            <div class="options">
+              <div class="option">
+                <input type="radio" id="option28" name="question10" value="-1" onclick="selectOption(1,10)">
+                <label for="option28"><span>Not a fan of spicy food</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option29" name="question10" value="0.5" onclick="selectOption(2,10)">
+                <label for="option29"><span>I don't hate eating spicy food</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option30" name="question10" value="1" onclick="selectOption(3,10)">
+                <label for="option30"><span>I like eating spicy food very much</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 问题11 -->
+          <div class="question">
+            <p>11. If you travel to China, will you choose a more well-known city as your destination?</p>
+            <div class="options">
+              <div class="option">
+                <input type="radio" id="option31" name="question11" value="-1" onclick="selectOption(1,11)">
+                <label for="option31"><span>No, I'd rather try a niche destination</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option32" name="question11" value="0" onclick="selectOption(2,11)">
+                <label for="option32"><span>It doesn't matter to me</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option33" name="question11" value="1" onclick="selectOption(3,11)">
+                <label for="option33"><span>Yes, I'm very interested in popular tourist cities.</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 问题12 -->
+          <div class="question">
+            <p>12. How much do you care about the transportation convenience of the city you travel to?</p>
+            <div class="options">
+              <div class="option">
+                <input type="radio" id="option34" name="question12" value="-1" onclick="selectOption(1,12)">
+                <label for="option34"><span>I don't care</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option35" name="question12" value="0.5" onclick="selectOption(2,12)">
+                <label for="option35"><span>A little concerned</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option36" name="question12" value="1" onclick="selectOption(3,12)">
+                <label for="option36"><span>I care very much</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 问题13 -->
+          <div class="question">
+            <p>13. How much do you care about the value for money of accommodation in the cities you travel to?</p>
+            <div class="options">
+              <div class="option">
+                <input type="radio" id="option37" name="question13" value="-1" onclick="selectOption(1,13)">
+                <label for="option37"><span>I don't care</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option38" name="question13" value="0.5" onclick="selectOption(2,13)">
+                <label for="option38"><span>A little concerned</span></label>
+              </div>
+              <div class="option">
+                <input type="radio" id="option39" name="question13" value="1" onclick="selectOption(3,13)">
+                <label for="option39"><span>I care very much</span></label>
+              </div>
+            </div>
+          </div>
+
+
+          <button class="click" onclick="calculateRecommendation()">Submit</button>
         </div>
 
         <!-- 推荐结果容器 -->
@@ -787,7 +1036,7 @@
           <!-- 推荐结果显示在这里 -->
           <p id="recommendation-text"></p>
           <div id="city-description"></div>
-          <button onclick="restartTest()">再次测试</button>
+          <button class="click" onclick="restartTest()">Test again</button>
         </div>
       </div>
     </div>
@@ -822,18 +1071,21 @@
 
       <footer>
         <div class="team">
-          <br><br><br><br><br>
-          <br><img src="./images/icon.png" width="25px"><br>
-          <p>
-            Data collection and analysis: &nbsp Haoyang Xia &nbsp&nbsp Manning Li &nbsp&nbsp Yifan Wu<br><br>
-            Writer: Manning Li &nbsp &nbsp &nbsp Design: Haoyang Xia &nbsp &nbsp &nbsp Front-end: Yifan Wu<br><br>
-            Supervisor：Liu Ping<br><br>
-            Contact: xiahaoyang@cuc.edu.cn</p>
-        </div>
-        <br>
-        <p>&copy 中国传媒大学·新闻学院·2024</p>
-        <br><br>
+          <div class="team">
+            <br><br><br><br><br>
+            <p>
+              Read more about the&nbsp &nbsp<a href="#" class="method"> methodology</a>&nbsp &nbspbehind this project.
+            </p>
 
+            <p>
+              Data collection and analysis: &nbsp Haoyang Xia &nbsp&nbsp Manning Li &nbsp&nbsp Yifan Wu<br><br>
+              Writer: Manning Li &nbsp &nbsp &nbsp Design: Haoyang Xia &nbsp &nbsp &nbsp Front-end: Yifan Wu<br><br>
+              Supervisor：Liu Ping<br><br>
+              Contact: karexia@163.com</p>
+          </div>
+          <br>
+          <p>&copy Communication University of China · School of Journalism · 2024</p>
+          <br>
       </footer>
     </div>
   </div>
@@ -938,7 +1190,7 @@
       // 1. update height of step elements
       var stepH = Math.floor(window.innerHeight * 1);
 
-      step.style("height", 400 + "px");
+      step.style("height", 440 + "px");
 
       var figureHeight = window.innerHeight;
       var figureMarginTop = (window.innerHeight - figureHeight);
@@ -968,7 +1220,7 @@
 
       figure.select("iframe").attr("src", function (d) {
         return (
-          "https://flo.uri.sh/story/2177034/embed#slide-" + response.index
+          "https://flo.uri.sh/story/2314923/embed#slide-" + response.index
 
         );
       });
@@ -1381,7 +1633,7 @@
     };
     chart_11c49e019bff4e5985d2a8053626f05a.setOption(option_11c49e019bff4e5985d2a8053626f05a);
   </script>
-  <script src="./js/quiz.js"></script>
+  <script src="./js/quiz-en.js"></script>
 </body>
 
 </html>
