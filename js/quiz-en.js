@@ -1,56 +1,56 @@
 // let answers = []; // 保存用户选择的答案
 
 const cities = [
-  { name: "北京", history: 100.00, variety: 88.63, mountain: 100.00, beach: 0.00, bioscape: 90.00, river: 80.00, acid: 78.42, sweet: 90.91, salty: 80.72, spicy: 54.96, popularity: 10000.00, transport: 100.00, accommodation: 1.00 },
-  { name: "长春", history: 41.18, variety: 19.38, mountain: 7.69, beach: 0.00, bioscape: 10.00, river: 26.67, acid: 80.74, sweet: 58.18, salty: 93.98, spicy: 58.02, popularity: 1.00, transport: 22.66, accommodation: 42.01 },
-  { name: "长沙", history: 41.18, variety: 35.84, mountain: 53.85, beach: 0.00, bioscape: 30.00, river: 6.67, acid: 64.5, sweet: 67.88, salty: 96.79, spicy: 99.24, popularity: 1.00, transport: 41.53, accommodation: 40.63 },
-  { name: "成都", history: 23.53, variety: 68.44, mountain: 61.54, beach: 0.00, bioscape: 100.00, river: 46.67, acid: 85.38, sweet: 55.15, salty: 93.57, spicy: 73.28, popularity: 10000.00, transport: 90.21, accommodation: 21.31 },
-  { name: "大连", history: 0.00, variety: 21.38, mountain: 23.08, beach: 100.00, bioscape: 10.00, river: 0.00, acid: 78.65, sweet: 65.45, salty: 92.37, spicy: 55.73, popularity: 1.00, transport: 24.80, accommodation: 40.14 },
-  { name: "东莞", history: 23.53, variety: 29.18, mountain: 15.38, beach: 0.00, bioscape: 10.00, river: 13.33, acid: 76.33, sweet: 100, salty: 82.33, spicy: 68.7, popularity: 1.00, transport: 24.33, accommodation: 44.51 },
-  { name: "福州", history: 17.65, variety: 22.45, mountain: 61.54, beach: 0.00, bioscape: 40.00, river: 0.00, acid: 80.51, sweet: 78.18, salty: 85.54, spicy: 67.94, popularity: 1.00, transport: 29.80, accommodation: 26.40 },
-  { name: "广州", history: 64.71, variety: 59.47, mountain: 38.46, beach: 0.00, bioscape: 60.00, river: 0.00, acid: 76.33, sweet: 100, salty: 82.33, spicy: 68.7, popularity: 10000.00, transport: 86.83, accommodation: 8.94 },
-  { name: "桂林", history: 29.41, variety: 10.60, mountain: 100.00, beach: 0.00, bioscape: 10.00, river: 73.33, acid: 75.17, sweet: 86.06, salty: 87.55, spicy: 73.28, popularity: 10000.00, transport: 21.48, accommodation: 65.29 },
-  { name: "贵阳", history: 23.53, variety: 15.06, mountain: 23.08, beach: 0.00, bioscape: 20.00, river: 13.33, acid: 86.54, sweet: 40, salty: 100, spicy: 80.92, popularity: 1.00, transport: 39.02, accommodation: 47.07 },
-  { name: "哈尔滨", history: 5.88, variety: 22.64, mountain: 38.46, beach: 100.00, bioscape: 60.00, river: 0.00, acid: 77.73, sweet: 61.21, salty: 92.77, spicy: 51.91, popularity: 1.00, transport: 31.20, accommodation: 28.06 },
-  { name: "海口", history: 0.00, variety: 10.69, mountain: 7.69, beach: 100.00, bioscape: 10.00, river: 0.00, acid: 77.73, sweet: 67.27, salty: 92.77, spicy: 77.86, popularity: 1.00, transport: 25.16, accommodation: 55.54 },
-  { name: "杭州", history: 58.82, variety: 53.43, mountain: 84.62, beach: 0.00, bioscape: 50.00, river: 60.00, acid: 82.13, sweet: 64.24, salty: 90.36, spicy: 73.28, popularity: 1.00, transport: 63.33, accommodation: 16.55 },
-  { name: "合肥", history: 52.94, variety: 29.52, mountain: 23.08, beach: 0.00, bioscape: 40.00, river: 6.67, acid: 89.1, sweet: 80, salty: 74.7, spicy: 55.73, popularity: 1.00, transport: 26.53, accommodation: 46.94 },
-  { name: "呼和浩特", history: 35.29, variety: 11.78, mountain: 7.69, beach: 0.00, bioscape: 10.00, river: 20.00, acid: 79.58, sweet: 62.42, salty: 91.16, spicy: 65.65, popularity: 1.00, transport: 18.50, accommodation: 78.13 },
-  { name: "黄山", history: 35.29, variety: 7.91, mountain: 76.92, beach: 0.00, bioscape: 0.00, river: 26.67, acid: 89.1, sweet: 80, salty: 74.7, spicy: 55.73, popularity: 10000.00, transport: 11.68, accommodation: 43.67 },
-  { name: "济南", history: 17.65, variety: 26.91, mountain: 15.38, beach: 0.00, bioscape: 40.00, river: 26.67, acid: 85.85, sweet: 62.42, salty: 85.54, spicy: 59.54, popularity: 1.00, transport: 37.56, accommodation: 21.64 },
-  { name: "昆明", history: 17.65, variety: 26.16, mountain: 53.85, beach: 0.00, bioscape: 10.00, river: 6.67, acid: 78.42, sweet: 60, salty: 85.94, spicy: 98.47, popularity: 1.00, transport: 54.91, accommodation: 31.76 },
-  { name: "拉萨", history: 29.41, variety: 3.58, mountain: 0.00, beach: 0.00, bioscape: 10.00, river: 6.67, acid: 77.49, sweet: 50.3, salty: 89.56, spicy: 77.86, popularity: 1.00, transport: 8.45, accommodation: 52.24 },
-  { name: "兰州", history: 17.65, variety: 11.66, mountain: 38.46, beach: 0.00, bioscape: 10.00, river: 6.67, acid: 88.86, sweet: 67.27, salty: 89.56, spicy: 72.52, popularity: 1.00, transport: 24.79, accommodation: 28.09 },
-  { name: "丽江", history: 17.65, variety: 3.92, mountain: 38.46, beach: 0.00, bioscape: 10.00, river: 13.33, acid: 78.42, sweet: 60, salty: 85.94, spicy: 98.47, popularity: 1.00, transport: 11.01, accommodation: 59.56 },
-  { name: "洛阳", history: 35.29, variety: 17.47, mountain: 100.00, beach: 0.00, bioscape: 40.00, river: 6.67, acid: 85.15, sweet: 72.12, salty: 88.76, spicy: 73.28, popularity: 1.00, transport: 12.61, accommodation: 40.63 },
-  { name: "南昌", history: 58.82, variety: 17.99, mountain: 23.08, beach: 0.00, bioscape: 40.00, river: 0.00, acid: 75.64, sweet: 70.3, salty: 91.97, spicy: 83.21, popularity: 1.00, transport: 22.22, accommodation: 75.20 },
-  { name: "南京", history: 76.47, variety: 37.51, mountain: 23.08, beach: 0.00, bioscape: 20.00, river: 26.67, acid: 81.44, sweet: 73.33, salty: 87.55, spicy: 70.23, popularity: 1.00, transport: 47.44, accommodation: 14.01 },
-  { name: "南宁", history: 11.76, variety: 18.98, mountain: 30.77, beach: 0.00, bioscape: 170.00, river: 33.33, acid: 75.17, sweet: 86.06, salty: 87.55, spicy: 73.28, popularity: 1.00, transport: 30.78, accommodation: 74.66 },
-  { name: "宁波", history: 64.71, variety: 32.94, mountain: 38.46, beach: 100.00, bioscape: 20.00, river: 6.67, acid: 82.13, sweet: 64.24, salty: 90.36, spicy: 73.28, popularity: 1.00, transport: 23.08, accommodation: 35.80 },
-  { name: "秦皇岛", history: 17.65, variety: 6.04, mountain: 38.46, beach: 100.00, bioscape: 20.00, river: 0.00, acid: 84.69, sweet: 66.06, salty: 88.76, spicy: 63.36, popularity: 1.00, transport: 7.55, accommodation: 44.38 },
-  { name: "青岛", history: 11.76, variety: 36.26, mountain: 53.85, beach: 100.00, bioscape: 40.00, river: 6.67, acid: 85.85, sweet: 62.42, salty: 85.54, spicy: 59.54, popularity: 1.00, transport: 39.33, accommodation: 26.85 },
-  { name: "泉州", history: 41.18, variety: 19.78, mountain: 53.85, beach: 100.00, bioscape: 20.00, river: 0.00, acid: 80.51, sweet: 78.18, salty: 85.54, spicy: 67.94, popularity: 1.00, transport: 17.36, accommodation: 56.07 },
-  { name: "三亚", history: 0.00, variety: 5.50, mountain: 38.46, beach: 100.00, bioscape: 20.00, river: 0.00, acid: 77.73, sweet: 67.27, salty: 92.77, spicy: 77.86, popularity: 1.00, transport: 19.98, accommodation: 24.20 },
-  { name: "上海", history: 88.24, variety: 100.00, mountain: 7.69, beach: 100.00, bioscape: 100.00, river: 66.67, acid: 93.04, sweet: 76.36, salty: 83.13, spicy: 58.78, popularity: 10000.00, transport: 90.20, accommodation: 1.36 },
-  { name: "沈阳", history: 35.29, variety: 25.47, mountain: 15.38, beach: 0.00, bioscape: 40.00, river: 0.00, acid: 78.65, sweet: 65.45, salty: 92.37, spicy: 55.73, popularity: 1.00, transport: 31.98, accommodation: 45.17 },
-  { name: "深圳", history: 0.00, variety: 58.63, mountain: 0.00, beach: 0.00, bioscape: 60.00, river: 6.67, acid: 76.33, sweet: 100, salty: 82.33, spicy: 68.7, popularity: 10000.00, transport: 61.73, accommodation: 16.66 },
-  { name: "石家庄", history: 23.53, variety: 21.74, mountain: 100.00, beach: 0.00, bioscape: 0.00, river: 13.33, acid: 84.69, sweet: 66.06, salty: 88.76, spicy: 63.36, popularity: 1.00, transport: 24.62, accommodation: 41.40 },
-  { name: "苏州", history: 70.59, variety: 43.77, mountain: 46.15, beach: 0.00, bioscape: 40.00, river: 80.00, acid: 81.44, sweet: 73.33, salty: 87.55, spicy: 70.23, popularity: 1.00, transport: 30.72, accommodation: 35.75 },
-  { name: "太原", history: 5.88, variety: 16.19, mountain: 15.38, beach: 0.00, bioscape: 30.00, river: 6.67, acid: 100, sweet: 57.58, salty: 93.98, spicy: 67.94, popularity: 1.00, transport: 23.94, accommodation: 29.54 },
-  { name: "天津", history: 52.94, variety: 35.49, mountain: 38.46, beach: 0.00, bioscape: 20.00, river: 33.33, acid: 76.1, sweet: 69.7, salty: 91.16, spicy: 59.54, popularity: 1.00, transport: 38.75, accommodation: 20.85 },
-  { name: "温州", history: 17.65, variety: 25.38, mountain: 61.54, beach: 100.00, bioscape: 0.00, river: 33.33, acid: 82.13, sweet: 64.24, salty: 90.36, spicy: 73.28, popularity: 1.00, transport: 26.74, accommodation: 36.59 },
-  { name: "武汉", history: 41.18, variety: 47.30, mountain: 23.08, beach: 0.00, bioscape: 30.00, river: 13.33, acid: 80.28, sweet: 64.85, salty: 93.57, spicy: 100, popularity: 10000.00, transport: 51.01, accommodation: 34.07 },
-  { name: "乌鲁木齐", history: 5.88, variety: 8.00, mountain: 23.08, beach: 0.00, bioscape: 20.00, river: 0.00, acid: 87.47, sweet: 62.42, salty: 92.37, spicy: 75.57, popularity: 1.00, transport: 21.99, accommodation: 41.71 },
-  { name: "无锡", history: 100.00, variety: 27.17, mountain: 30.77, beach: 0.00, bioscape: 30.00, river: 33.33, acid: 81.44, sweet: 73.33, salty: 87.55, spicy: 70.23, popularity: 1.00, transport: 23.91, accommodation: 35.39 },
-  { name: "西安", history: 100.00, variety: 45.02, mountain: 23.08, beach: 0.00, bioscape: 40.00, river: 26.67, acid: 60.56, sweet: 44.24, salty: 97.19, spicy: 80.15, popularity: 10000.00, transport: 52.50, accommodation: 39.24 },
-  { name: "西宁", history: 17.65, variety: 5.90, mountain: 7.69, beach: 0.00, bioscape: 10.00, river: 0.00, acid: 87.7, sweet: 61.82, salty: 92.37, spicy: 74.81, popularity: 1.00, transport: 2.21, accommodation: 48.81 },
-  { name: "厦门", history: 5.88, variety: 20.26, mountain: 15.38, beach: 100.00, bioscape: 30.00, river: 0.00, acid: 80.51, sweet: 78.18, salty: 85.54, spicy: 67.94, popularity: 10000.00, transport: 40.52, accommodation: 36.63 },
-  { name: "宜昌", history: 23.53, variety: 8.22, mountain: 69.23, beach: 0.00, bioscape: 0.00, river: 100.00, acid: 80.28, sweet: 64.85, salty: 93.57, spicy: 100, popularity: 1.00, transport: 15.46, accommodation: 63.33 },
-  { name: "银川", history: 17.65, variety: 9.46, mountain: 23.08, beach: 0.00, bioscape: 10.00, river: 6.67, acid: 87.24, sweet: 72.73, salty: 87.95, spicy: 67.18, popularity: 1.00, transport: 20.29, accommodation: 67.91 },
-  { name: "张家界", history: 11.76, variety: 3.55, mountain: 46.15, beach: 0.00, bioscape: 0.00, river: 6.67, acid: 64.5, sweet: 67.88, salty: 96.79, spicy: 99.24, popularity: 1.00, transport: 7.63, accommodation: 100.00 },
-  { name: "郑州", history: 41.18, variety: 34.59, mountain: 23.08, beach: 0.00, bioscape: 10.00, river: 0.00, acid: 85.15, sweet: 72.12, salty: 88.76, spicy: 73.28, popularity: 1.00, transport: 41.29, accommodation: 34.01 },
-  { name: "重庆", history: 100.00, variety: 60.61, mountain: 100.00, beach: 0.00, bioscape: 100.00, river: 100.00, acid: 81.67, sweet: 84.85, salty: 86.35, spicy: 62.6, popularity: 10000.00, transport: 75.08, accommodation: 45.32 },
-  { name: "珠海", history: 5.88, variety: 11.00, mountain: 0.00, beach: 100.00, bioscape: 0.00, river: 0.00, acid: 82.13, sweet: 64.24, salty: 90.36, spicy: 73.28, popularity: 1.00, transport: 21.17, accommodation: 20.00 },
+  { name: "Beijing", history: 100.00, variety: 88.63, mountain: 100.00, beach: 0.00, bioscape: 90.00, river: 80.00, acid: 78.42, sweet: 90.91, salty: 80.72, spicy: 54.96, popularity: 10000.00, transport: 100.00, accommodation: 1.00 },
+  { name: "Changchun", history: 41.18, variety: 19.38, mountain: 7.69, beach: 0.00, bioscape: 10.00, river: 26.67, acid: 80.74, sweet: 58.18, salty: 93.98, spicy: 58.02, popularity: 1.00, transport: 22.66, accommodation: 42.01 },
+  { name: "Changsha", history: 41.18, variety: 35.84, mountain: 53.85, beach: 0.00, bioscape: 30.00, river: 6.67, acid: 64.5, sweet: 67.88, salty: 96.79, spicy: 99.24, popularity: 1.00, transport: 41.53, accommodation: 40.63 },
+  { name: "Chengdu", history: 23.53, variety: 68.44, mountain: 61.54, beach: 0.00, bioscape: 100.00, river: 46.67, acid: 85.38, sweet: 55.15, salty: 93.57, spicy: 73.28, popularity: 10000.00, transport: 90.21, accommodation: 21.31 },
+  { name: "Dalian", history: 0.00, variety: 21.38, mountain: 23.08, beach: 100.00, bioscape: 10.00, river: 0.00, acid: 78.65, sweet: 65.45, salty: 92.37, spicy: 55.73, popularity: 1.00, transport: 24.80, accommodation: 40.14 },
+  { name: "Dongguan", history: 23.53, variety: 29.18, mountain: 15.38, beach: 0.00, bioscape: 10.00, river: 13.33, acid: 76.33, sweet: 100, salty: 82.33, spicy: 68.7, popularity: 1.00, transport: 24.33, accommodation: 44.51 },
+  { name: "Fuzhou", history: 17.65, variety: 22.45, mountain: 61.54, beach: 0.00, bioscape: 40.00, river: 0.00, acid: 80.51, sweet: 78.18, salty: 85.54, spicy: 67.94, popularity: 1.00, transport: 29.80, accommodation: 26.40 },
+  { name: "Guangzhou", history: 64.71, variety: 59.47, mountain: 38.46, beach: 0.00, bioscape: 60.00, river: 0.00, acid: 76.33, sweet: 100, salty: 82.33, spicy: 68.7, popularity: 10000.00, transport: 86.83, accommodation: 8.94 },
+  { name: "Guilin", history: 29.41, variety: 10.60, mountain: 100.00, beach: 0.00, bioscape: 10.00, river: 73.33, acid: 75.17, sweet: 86.06, salty: 87.55, spicy: 73.28, popularity: 10000.00, transport: 21.48, accommodation: 65.29 },
+  { name: "Guiyang", history: 23.53, variety: 15.06, mountain: 23.08, beach: 0.00, bioscape: 20.00, river: 13.33, acid: 86.54, sweet: 40, salty: 100, spicy: 80.92, popularity: 1.00, transport: 39.02, accommodation: 47.07 },
+  { name: "Harbin", history: 5.88, variety: 22.64, mountain: 38.46, beach: 100.00, bioscape: 60.00, river: 0.00, acid: 77.73, sweet: 61.21, salty: 92.77, spicy: 51.91, popularity: 1.00, transport: 31.20, accommodation: 28.06 },
+  { name: "Haikou", history: 0.00, variety: 10.69, mountain: 7.69, beach: 100.00, bioscape: 10.00, river: 0.00, acid: 77.73, sweet: 67.27, salty: 92.77, spicy: 77.86, popularity: 1.00, transport: 25.16, accommodation: 55.54 },
+  { name: "Hangzhou", history: 58.82, variety: 53.43, mountain: 84.62, beach: 0.00, bioscape: 50.00, river: 60.00, acid: 82.13, sweet: 64.24, salty: 90.36, spicy: 73.28, popularity: 1.00, transport: 63.33, accommodation: 16.55 },
+  { name: "Hefei", history: 52.94, variety: 29.52, mountain: 23.08, beach: 0.00, bioscape: 40.00, river: 6.67, acid: 89.1, sweet: 80, salty: 74.7, spicy: 55.73, popularity: 1.00, transport: 26.53, accommodation: 46.94 },
+  { name: "Hohhot", history: 35.29, variety: 11.78, mountain: 7.69, beach: 0.00, bioscape: 10.00, river: 20.00, acid: 79.58, sweet: 62.42, salty: 91.16, spicy: 65.65, popularity: 1.00, transport: 18.50, accommodation: 78.13 },
+  { name: "Huangshan", history: 35.29, variety: 7.91, mountain: 76.92, beach: 0.00, bioscape: 0.00, river: 26.67, acid: 89.1, sweet: 80, salty: 74.7, spicy: 55.73, popularity: 10000.00, transport: 11.68, accommodation: 43.67 },
+  { name: "Jinan", history: 17.65, variety: 26.91, mountain: 15.38, beach: 0.00, bioscape: 40.00, river: 26.67, acid: 85.85, sweet: 62.42, salty: 85.54, spicy: 59.54, popularity: 1.00, transport: 37.56, accommodation: 21.64 },
+  { name: "Kunming", history: 17.65, variety: 26.16, mountain: 53.85, beach: 0.00, bioscape: 10.00, river: 6.67, acid: 78.42, sweet: 60, salty: 85.94, spicy: 98.47, popularity: 1.00, transport: 54.91, accommodation: 31.76 },
+  { name: "Lhasa", history: 29.41, variety: 3.58, mountain: 0.00, beach: 0.00, bioscape: 10.00, river: 6.67, acid: 77.49, sweet: 50.3, salty: 89.56, spicy: 77.86, popularity: 1.00, transport: 8.45, accommodation: 52.24 },
+  { name: "Lanzhou", history: 17.65, variety: 11.66, mountain: 38.46, beach: 0.00, bioscape: 10.00, river: 6.67, acid: 88.86, sweet: 67.27, salty: 89.56, spicy: 72.52, popularity: 1.00, transport: 24.79, accommodation: 28.09 },
+  { name: "Lijiang", history: 17.65, variety: 3.92, mountain: 38.46, beach: 0.00, bioscape: 10.00, river: 13.33, acid: 78.42, sweet: 60, salty: 85.94, spicy: 98.47, popularity: 1.00, transport: 11.01, accommodation: 59.56 },
+  { name: "Luoyang", history: 35.29, variety: 17.47, mountain: 100.00, beach: 0.00, bioscape: 40.00, river: 6.67, acid: 85.15, sweet: 72.12, salty: 88.76, spicy: 73.28, popularity: 1.00, transport: 12.61, accommodation: 40.63 },
+  { name: "Nanchang", history: 58.82, variety: 17.99, mountain: 23.08, beach: 0.00, bioscape: 40.00, river: 0.00, acid: 75.64, sweet: 70.3, salty: 91.97, spicy: 83.21, popularity: 1.00, transport: 22.22, accommodation: 75.20 },
+  { name: "Nanjing", history: 76.47, variety: 37.51, mountain: 23.08, beach: 0.00, bioscape: 20.00, river: 26.67, acid: 81.44, sweet: 73.33, salty: 87.55, spicy: 70.23, popularity: 1.00, transport: 47.44, accommodation: 14.01 },
+  { name: "Nanning", history: 11.76, variety: 18.98, mountain: 30.77, beach: 0.00, bioscape: 170.00, river: 33.33, acid: 75.17, sweet: 86.06, salty: 87.55, spicy: 73.28, popularity: 1.00, transport: 30.78, accommodation: 74.66 },
+  { name: "Ningbo", history: 64.71, variety: 32.94, mountain: 38.46, beach: 100.00, bioscape: 20.00, river: 6.67, acid: 82.13, sweet: 64.24, salty: 90.36, spicy: 73.28, popularity: 1.00, transport: 23.08, accommodation: 35.80 },
+  { name: "Qinhuangdao", history: 17.65, variety: 6.04, mountain: 38.46, beach: 100.00, bioscape: 20.00, river: 0.00, acid: 84.69, sweet: 66.06, salty: 88.76, spicy: 63.36, popularity: 1.00, transport: 7.55, accommodation: 44.38 },
+  { name: "Qingdao", history: 11.76, variety: 36.26, mountain: 53.85, beach: 100.00, bioscape: 40.00, river: 6.67, acid: 85.85, sweet: 62.42, salty: 85.54, spicy: 59.54, popularity: 1.00, transport: 39.33, accommodation: 26.85 },
+  { name: "Quanzhou", history: 41.18, variety: 19.78, mountain: 53.85, beach: 100.00, bioscape: 20.00, river: 0.00, acid: 80.51, sweet: 78.18, salty: 85.54, spicy: 67.94, popularity: 1.00, transport: 17.36, accommodation: 56.07 },
+  { name: "Sanya", history: 0.00, variety: 5.50, mountain: 38.46, beach: 100.00, bioscape: 20.00, river: 0.00, acid: 77.73, sweet: 67.27, salty: 92.77, spicy: 77.86, popularity: 1.00, transport: 19.98, accommodation: 24.20 },
+  { name: "Shanghai", history: 88.24, variety: 100.00, mountain: 7.69, beach: 100.00, bioscape: 100.00, river: 66.67, acid: 93.04, sweet: 76.36, salty: 83.13, spicy: 58.78, popularity: 10000.00, transport: 90.20, accommodation: 1.36 },
+  { name: "Shenyang", history: 35.29, variety: 25.47, mountain: 15.38, beach: 0.00, bioscape: 40.00, river: 0.00, acid: 78.65, sweet: 65.45, salty: 92.37, spicy: 55.73, popularity: 1.00, transport: 31.98, accommodation: 45.17 },
+  { name: "Shenzhen", history: 0.00, variety: 58.63, mountain: 0.00, beach: 0.00, bioscape: 60.00, river: 6.67, acid: 76.33, sweet: 100, salty: 82.33, spicy: 68.7, popularity: 10000.00, transport: 61.73, accommodation: 16.66 },
+  { name: "Shijiazhuang", history: 23.53, variety: 21.74, mountain: 100.00, beach: 0.00, bioscape: 0.00, river: 13.33, acid: 84.69, sweet: 66.06, salty: 88.76, spicy: 63.36, popularity: 1.00, transport: 24.62, accommodation: 41.40 },
+  { name: "Suzhou", history: 70.59, variety: 43.77, mountain: 46.15, beach: 0.00, bioscape: 40.00, river: 80.00, acid: 81.44, sweet: 73.33, salty: 87.55, spicy: 70.23, popularity: 1.00, transport: 30.72, accommodation: 35.75 },
+  { name: "Taiyuan", history: 5.88, variety: 16.19, mountain: 15.38, beach: 0.00, bioscape: 30.00, river: 6.67, acid: 100, sweet: 57.58, salty: 93.98, spicy: 67.94, popularity: 1.00, transport: 23.94, accommodation: 29.54 },
+  { name: "Tianjin", history: 52.94, variety: 35.49, mountain: 38.46, beach: 0.00, bioscape: 20.00, river: 33.33, acid: 76.1, sweet: 69.7, salty: 91.16, spicy: 59.54, popularity: 1.00, transport: 38.75, accommodation: 20.85 },
+  { name: "Wenzhou", history: 17.65, variety: 25.38, mountain: 61.54, beach: 100.00, bioscape: 0.00, river: 33.33, acid: 82.13, sweet: 64.24, salty: 90.36, spicy: 73.28, popularity: 1.00, transport: 26.74, accommodation: 36.59 },
+  { name: "Wuhan", history: 41.18, variety: 47.30, mountain: 23.08, beach: 0.00, bioscape: 30.00, river: 13.33, acid: 80.28, sweet: 64.85, salty: 93.57, spicy: 100, popularity: 10000.00, transport: 51.01, accommodation: 34.07 },
+  { name: "Urumqi", history: 5.88, variety: 8.00, mountain: 23.08, beach: 0.00, bioscape: 20.00, river: 0.00, acid: 87.47, sweet: 62.42, salty: 92.37, spicy: 75.57, popularity: 1.00, transport: 21.99, accommodation: 41.71 },
+  { name: "Wuxi", history: 100.00, variety: 27.17, mountain: 30.77, beach: 0.00, bioscape: 30.00, river: 33.33, acid: 81.44, sweet: 73.33, salty: 87.55, spicy: 70.23, popularity: 1.00, transport: 23.91, accommodation: 35.39 },
+  { name: "Xi'an", history: 100.00, variety: 45.02, mountain: 23.08, beach: 0.00, bioscape: 40.00, river: 26.67, acid: 60.56, sweet: 44.24, salty: 97.19, spicy: 80.15, popularity: 10000.00, transport: 52.50, accommodation: 39.24 },
+  { name: "Xining", history: 17.65, variety: 5.90, mountain: 7.69, beach: 0.00, bioscape: 10.00, river: 0.00, acid: 87.7, sweet: 61.82, salty: 92.37, spicy: 74.81, popularity: 1.00, transport: 2.21, accommodation: 48.81 },
+  { name: "Xiamen", history: 5.88, variety: 20.26, mountain: 15.38, beach: 100.00, bioscape: 30.00, river: 0.00, acid: 80.51, sweet: 78.18, salty: 85.54, spicy: 67.94, popularity: 10000.00, transport: 40.52, accommodation: 36.63 },
+  { name: "Yichang", history: 23.53, variety: 8.22, mountain: 69.23, beach: 0.00, bioscape: 0.00, river: 100.00, acid: 80.28, sweet: 64.85, salty: 93.57, spicy: 100, popularity: 1.00, transport: 15.46, accommodation: 63.33 },
+  { name: "Yinchuan", history: 17.65, variety: 9.46, mountain: 23.08, beach: 0.00, bioscape: 10.00, river: 6.67, acid: 87.24, sweet: 72.73, salty: 87.95, spicy: 67.18, popularity: 1.00, transport: 20.29, accommodation: 67.91 },
+  { name: "Zhangjiajie", history: 11.76, variety: 3.55, mountain: 46.15, beach: 0.00, bioscape: 0.00, river: 6.67, acid: 64.5, sweet: 67.88, salty: 96.79, spicy: 99.24, popularity: 1.00, transport: 7.63, accommodation: 100.00 },
+  { name: "Zhengzhou", history: 41.18, variety: 34.59, mountain: 23.08, beach: 0.00, bioscape: 10.00, river: 0.00, acid: 85.15, sweet: 72.12, salty: 88.76, spicy: 73.28, popularity: 1.00, transport: 41.29, accommodation: 34.01 },
+  { name: "Chongqing", history: 100.00, variety: 60.61, mountain: 100.00, beach: 0.00, bioscape: 100.00, river: 100.00, acid: 81.67, sweet: 84.85, salty: 86.35, spicy: 62.6, popularity: 10000.00, transport: 75.08, accommodation: 45.32 },
+  { name: "Zhuhai", history: 5.88, variety: 11.00, mountain: 0.00, beach: 100.00, bioscape: 0.00, river: 0.00, acid: 82.13, sweet: 64.24, salty: 90.36, spicy: 73.28, popularity: 1.00, transport: 21.17, accommodation: 20.00 },
 ];
 
 // 开始测试函数，切换卡片显示
@@ -76,7 +76,7 @@ function selectOption(optionId, questionNumber) {
 function calculateRecommendation() {
   // 检查是否所有问题都已经回答
   if (answers.includes(undefined)) {
-    alert("请先选择所有问题的答案！");
+    alert("Please select the answers to all questions first!");
     return;
   }
 
@@ -115,7 +115,7 @@ function calculateRecommendation() {
     return `${index + 1}. ${city.name}:<br>${cityDescription}`;
   }).join("<br><br>");
 
-  document.getElementById("recommendation-text").innerHTML = `推荐您去以下城市旅游：<br>${recommendationText}`;
+  document.getElementById("recommendation-text").innerHTML = `We recommend you to visit the following cities:<br>${recommendationText}`;
 
   // 隐藏问题卡片，显示推荐结果卡片
   document.getElementById("question-container").style.display = "none";

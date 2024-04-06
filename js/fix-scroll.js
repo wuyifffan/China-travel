@@ -147,7 +147,7 @@ $(document).ready(function () {
 $(document).ready(function () {
   var fixedElementHeight = $("#fixed-element").height();
   var emojitextHeight = $("#emoji-text").height();
-  var fixedHeight = emojitextHeight * 3 + fixedElementHeight * 2;
+  var fixedHeight = emojitextHeight * 2.5 + fixedElementHeight * 1.5;
 
   $("#emojibox").css("padding-top", fixedElementHeight);
 
@@ -171,7 +171,7 @@ $(document).ready(function () {
   $(window).scroll(function () {
     var scrollTop = $(window).scrollTop();
 
-    if (scrollTop >= triggerOffset) {
+    if (scrollTop >= triggerOffset - 500) {
       // 当滚动到emojibox位置时，显示并添加active类  
       emojibox.addClass('active');
 
@@ -179,7 +179,7 @@ $(document).ready(function () {
       setTimeout(function () {
         emojibox.addClass('fixed');
         isFixed = true;
-      }, 1000); // 等待动画完成  
+      }, 100); // 等待动画完成  
     } else if (isFixed) {
       // 当滚动回上面时，如果已经是fixed状态，则移除fixed和active类  
       emojibox.removeClass('fixed active');
@@ -262,7 +262,7 @@ $(document).ready(function () {
   $(window).scroll(function () {
     var scrollTop = $(window).scrollTop();
 
-    if (scrollTop >= triggerOffset) {
+    if (scrollTop >= triggerOffset - 100) {
       // 当滚动到gobox位置时，显示并添加active类  
       gobox.addClass('active');
 
@@ -296,7 +296,7 @@ $(document).ready(function () {
 })
 
 document.addEventListener("scroll", function () {
-  var scrollPosition = window.scrollY - 1700; // 将 scrollPosition 减去 1000px
+  var scrollPosition = window.scrollY - 1500; // 将 scrollPosition 减去 1000px
   var image = document.querySelector('.scrolling-fly');
   var chap2Width = document.querySelector('.chap2').offsetWidth / 6; // 获取 .chap2 图片的宽度
   var chap2WidthPercentage = (chap2Width / window.innerWidth) * 100;
@@ -327,7 +327,7 @@ $(document).ready(function () {
 })
 
 document.addEventListener("scroll", function () {
-  var scrollPosition = window.scrollY - 2400;
+  var scrollPosition = window.scrollY - 2800;
   var image = document.querySelector('.scrolling-changcheng');
   var chap3Width = document.querySelector('.chap3').offsetWidth / 6;
   var chap3WidthPercentage = (chap3Width / window.innerWidth) * 100;
@@ -337,7 +337,7 @@ document.addEventListener("scroll", function () {
 });
 
 document.addEventListener("scroll", function () {
-  var scrollPosition = window.scrollY - 2400;
+  var scrollPosition = window.scrollY - 2800;
   var image = document.querySelector('.scrolling-bingmayong');
   var chap3Width = document.querySelector('.chap3').offsetWidth / 6;
   var chap3WidthPercentage = (chap3Width / window.innerWidth) * 100;
@@ -346,7 +346,7 @@ document.addEventListener("scroll", function () {
 });
 
 document.addEventListener("scroll", function () {
-  var scrollPosition = window.scrollY - 2400;
+  var scrollPosition = window.scrollY - 2800;
   var image = document.querySelector('.scrolling-xiongmao');
   var chap3Width = document.querySelector('.chap3').offsetWidth / 6;
   var chap3WidthPercentage = (chap3Width / window.innerWidth) * 100;
