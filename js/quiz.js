@@ -1,4 +1,4 @@
-// let answers = []; // 保存用户选择的答案
+answers = []; // 保存用户选择的答案
 
 const cities = [
   { name: "北京", history: 100.00, variety: 88.63, mountain: 100.00, beach: 0.00, bioscape: 90.00, river: 80.00, acid: 78.42, sweet: 90.91, salty: 80.72, spicy: 54.96, popularity: 10000.00, transport: 100.00, accommodation: 1.00 },
@@ -53,34 +53,86 @@ const cities = [
   { name: "珠海", history: 5.88, variety: 11.00, mountain: 0.00, beach: 100.00, bioscape: 0.00, river: 0.00, acid: 82.13, sweet: 64.24, salty: 90.36, spicy: 73.28, popularity: 1.00, transport: 21.17, accommodation: 20.00 },
 ];
 
-// 开始测试函数，切换卡片显示
-function startTest() {
-  // 清空之前的答案
-  answers = [];
-  // 隐藏海报卡片
-  document.getElementById("poster-card").style.display = "none";
-  // 显示问题卡片
-  document.getElementById("question-container").style.display = "block";
+
+window.onload = function () {
+  showQuestions(1);
 }
-// 用户选择答案的函数
+
+function startTest() {
+  answers = [];
+  document.getElementById("poster-card").style.display = "none";
+  document.getElementById("question-container").style.display = "block";
+  showQuestions(1);
+}
+
 function selectOption(optionId, questionNumber) {
-  // 获取选项的value值
   var value = parseFloat(document.getElementById('option' + optionId).value);
-  // 将得分记录在answers数组中
   answers[questionNumber - 1] = value;
 }
+function showQuestions(page) {
+  var questions = document.querySelectorAll('.question');
+  questions.forEach(function (question) {
+    var questionPage = parseInt(question.getAttribute('data-page'));
+    if (questionPage === page) {
+      question.style.display = 'block';
+    } else {
+      question.style.display = 'none';
+    }
+  });
 
+  var prevBtn = document.getElementById('prev-btn');
+  var nextBtn = document.getElementById('next-btn');
+  var submitBtn = document.getElementById('submit-btn');
 
+  if (page === 1) {
+    prevBtn.style.display = 'none'; // 隐藏上一页按钮
+  } else {
+    prevBtn.style.display = 'block'; // 显示上一页按钮
+  }
 
-// 计算推荐城市
+  if (page === 3) {
+    nextBtn.style.display = 'none'; // 隐藏下一页按钮
+    submitBtn.style.display = 'block'; // 显示提交按钮
+  } else {
+    nextBtn.style.display = 'block'; // 显示下一页按钮
+    submitBtn.style.display = 'none'; // 隐藏提交按钮
+  }
+}
+
+function nextPage() {
+  var currentPage = getCurrentPage();
+  if (currentPage < 3) {
+    currentPage++;
+    showQuestions(currentPage);
+  }
+}
+
+function prevPage() {
+  var currentPage = getCurrentPage();
+  if (currentPage > 1) {
+    currentPage--;
+    showQuestions(currentPage);
+  }
+}
+
+function getCurrentPage() {
+  var currentQuestion = document.querySelector('.question[style="display: block;"]');
+  return parseInt(currentQuestion.getAttribute('data-page'));
+}
+
+// 本文件中的计算代码由AI辅助生成
 function calculateRecommendation() {
-  // 检查是否所有问题都已经回答
-  if (answers.includes(undefined)) {
+  var hasAnswer = answers.some(answer => answer !== undefined);
+  if (!hasAnswer) {
+    alert("请先选择所有问题的答案！");
+    return;
+  }
+  var unansweredQuestions = answers.filter(answer => answer === undefined);
+  if (unansweredQuestions.length > 0) {
     alert("请先选择所有问题的答案！");
     return;
   }
 
-  // 计算每个城市的总分
   const scores = cities.map(city => ({
     name: city.name,
     score: (
@@ -100,13 +152,11 @@ function calculateRecommendation() {
     )
   }));
 
-  // 打印所有城市的得分结果到控制台
+
   console.log("所有城市的得分结果：", scores);
 
-  // 按照得分降序排序
   scores.sort((a, b) => b.score - a.score);
 
-  // 获取前三个城市
   const topThree = scores.slice(0, 3);
 
   // 显示得分最高的三个城市及其描述和图片
@@ -115,7 +165,7 @@ function calculateRecommendation() {
     return `${index + 1}. ${city.name}:<br>${cityDescription}`;
   }).join("<br><br>");
 
-  document.getElementById("recommendation-text").innerHTML = `推荐您去以下城市旅游：<br>${recommendationText}`;
+  document.getElementById("recommendation-text").innerHTML = `推荐您去以下城市旅游：<br><br>${recommendationText}`;
 
   // 隐藏问题卡片，显示推荐结果卡片
   document.getElementById("question-container").style.display = "none";
@@ -127,205 +177,205 @@ function getCityDescription(cityName) {
   // 这里可以根据城市名称获取对应的描述和图片链接，这里只是示例
   const descriptions = {
     "北京": {
-      description: "北京：千年古都，现代国际都市，融合古今之美。<br>著名景点：故宫、天安门广场、颐和园、长城。",
-      image: "images/Beijing.png"
-    },
+          description: "作为中国的首都，北京融合了古今之美。在这里，你可以欣赏故宫的红墙金瓦，感受天安门广场的宏伟。<br>香脆皮嫩的北京烤鸭和酱香浓郁的炸酱面，都让人回味无穷。<br>更多城市信息请查看：https://www.trip.com/travel-guide/destination/beijing-1/",
+          image: "images/Beijing.png"
+        },
     "长春": {
-      description: "长春：北国春城，汽车工业的摇篮，四季分明，景色宜人。<br>著名景点：伪满皇宫博物院、南湖公园、净月潭。",
-      image: "images/Changchun.png"
-    },
+          description: "长春的伪满皇宫让你一窥历史的风云变幻，净月潭的湖光山色则让人心旷神怡。<br>别忘了尝尝锅包肉、雪衣豆沙，它们都是长春的特色美食。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/changchun-216",
+          image: "images/Changchun.png"
+        },
     "长沙": {
-      description: "长沙：星城长沙，楚汉文化之地，美食与美景并存。<br>著名景点：岳麓山、橘子洲头、世界之窗。",
-      image: "images/Changsha.png"
-    },
+              description: "在长沙，你可以漫步橘子洲头，欣赏湘江的美景，岳麓书院则让你感受到浓厚的文化氛围。<br>记得在晚上出门逛逛，外酥里嫩的臭豆腐、香甜软糯的糖油粑粑是长沙夜市的必备。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/changsha-148",
+              image: "images/Changsha.png"
+            },
     "成都": {
-      description: "成都：天府之国，悠闲之都，美食与熊猫的故乡。<br>著名景点：大熊猫繁育研究基地、武侯祠、宽窄巷子。",
-      image: "images/Chengdu.png"
-    },
+              description: "宽窄巷子可以带你穿越回老成都，熊猫基地则是萌态可掬的熊猫们的家。<br>在这里，你可以尽情品尝麻辣火锅和串串香，感受成都的美食魅力。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/chengdu-104",
+              image: "images/Chengdu.png"
+            },
     "大连": {
-      description: "大连：浪漫之都，海滨风光旖旎，东北的明珠。<br>著名景点：星海广场、老虎滩海洋公园、棒棰岛。",
-      image: "images/Dalian.png"
-    },
+              description: "大连的星海广场夜景璀璨夺目，老虎滩海洋公园则充满趣味。<br>海鲜大餐是大连的一大特色美味，特别是烤鱿鱼，香气四溢，让人垂涎欲滴。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/dalian-4",
+              image: "images/Dalian.png"
+            },
     "东莞": {
-      description: "东莞：世界工厂，制造业发达，现代与传统交相辉映。<br>著名景点：虎门炮台、可园、观音山国家森林公园。",
-      image: "images/Dongguan.png"
-    },
+              description: "来到东莞，你可以感受岭南的绿意盎然，品尝甜美的荔枝，也可以去参观虎门炮台和可园等著名历史景点。<br>这里的粿条汤和烧鹅也是不可错过的美食。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/dongguan-212",
+              image: "images/Dongguan.png"
+            },
     "福州": {
-      description: "福州：榕城福州，温泉之都，历史文化底蕴深厚。<br>著名景点：三坊七巷、鼓山、西湖公园。",
-      image: "images/Fuzhou.png"
-    },
+              description: "福州的三坊七巷充满古色古香，鼓山则风景秀美壮丽，<br>汤汁浓郁的佛跳墙和皮薄馅足的肉燕极具地方特色，是当地的美食代表。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/fuzhou-164",
+              image: "images/Fuzhou.png"
+            },
     "广州": {
-      description: "广州：羊城广州，岭南文化的代表，商贸繁荣。<br>著名景点：广州塔、白云山、陈家祠。",
-      image: "images/Guangzhou.png"
-    },
+          description: "广州的珠江夜游让你领略到南国的繁华夜景，广州塔则耸立云端，气势磅礴。<br>从早茶点心、清润糖水到酥脆烧腊……广州的美食也绝对不会让你失望。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/guangzhou-152",
+          image: "images/Guangzhou.png"
+        },
     "桂林": {
-      description: "桂林：山水甲天下，漓江风光美不胜收。<br>著名景点：漓江、象鼻山、阳朔西街。",
-      image: "images/Guilin.png"
-    },
+              description: "桂林的山水风光被誉为甲天下，漓江的美景更是如画般美丽。<br>别忘了品尝桂林米粉和啤酒鱼，米粉爽滑可口，啤酒鱼鲜美无比，有着独特的桂林风味。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/guilin-28",
+              image: "images/Guilin.png"
+            },
     "贵阳": {
-      description: "贵阳：高原明珠，避暑胜地，少数民族文化丰富。<br>著名景点：青岩古镇、黔灵山公园、花溪公园。",
-      image: "images/Guiyang.png"
-    },
+              description: "贵阳的黔灵山秀美壮丽，青岩古镇则古朴典雅。<br>在这里，你可以品尝到酸汤鱼和豆腐圆子等地道美食。酸汤鱼酸辣可口，豆腐圆子外酥里嫩，让人回味无穷。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/guiyang-33",
+              image: "images/Guiyang.png"
+            },
     "哈尔滨": {
-      description: "哈尔滨：冰城哈尔滨，冬季雪景如画，欧陆风情浓郁。<br>著名景点：中央大街、太阳岛、冰雪大世界。",
-      image: "images/Harbin.png"
-    },
+              description: "哈尔滨也被称为“冰城”，其中冰雪大世界的冰雕雪景最为著名，中央大街、太阳岛也是哈尔滨值得一去景点。<br>再来一顿香醇浓郁的铁锅炖，你会倍感温暖。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/harbin-151",
+              image: "images/Harbin.png"
+            },
     "海口": {
-      description: "海口：椰城海口，热带海滨城市，阳光沙滩的乐园。<br>著名景点：万绿园、假日海滩、五公祠。",
-      image: "images/Haikou.png"
-    },
+              description: "在海口，你可以尽情享受热带海滨城市的风情，体验阳光沙滩的悠闲乐趣，<br>清补凉、椰子鸡等是不可错过的美味佳肴，还能帮助你清凉解暑。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/haikou-37/",
+              image: "images/Haikou.png"
+            },
     "杭州": {
-      description: "杭州：人间天堂，西湖美景名扬四海。<br>著名景点：西湖、灵隐寺、千岛湖。",
-      image: "images/Hangzhou.png"
-    },
+              description: "杭州被誉为“人间天堂”，你可以在这里观赏如诗如画的西湖美景，来到灵隐寺感受佛教文化氛围。<br>西湖醋鱼、龙井虾仁鲜美无比，是杭州一绝。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/hangzhou-14",
+              image: "images/Hangzhou.png"
+            },
     "合肥": {
-      description: "合肥：科教之城，历史悠久，现代气息浓厚。<br>著名景点：包公祠、三河古镇、巢湖。",
-      image: "images/Hefei.png"
-    },
+              description: "合肥是科教之城，也极具文化底蕴，科大讯飞和安徽博物院都值得一游。<br>你还可以在这里品尝到臭鳜鱼、毛豆腐等独具风味的特色美食。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/hefei-196",
+              image: "images/Hefei.png"
+            },
     "呼和浩特": {
-      description: "呼和浩特：草原明珠，蒙古族文化浓厚，风光无限。<br>著名景点：大召寺、五塔寺、草原文化博物馆。",
-      image: "images/Hohhot.png"
-    },
+              description: "在呼和浩特，你可以一览草原的辽阔，在成吉思汗陵中见证英雄的历史。<br>传统草原美食手抓肉、羊肉火锅等，在这里吃到的则最为正宗。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/hohhot-156/",
+              image: "images/Hohhot.png"
+            },
     "黄山": {
-      description: "黄山：天下第一奇山，云海、奇松、怪石、温泉四绝。<br>著名景点：黄山风景区、西递宏村古村落。",
-      image: "images/Huangshan.png"
-    },
+              description: "来到这里，最不可错过的是被誉为“天下第一奇山”的黄山，这里的奇峰怪石和云海日出让人流连忘返。<br>徽州毛豆腐、黄山烧饼也很值得一尝。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/huangshan-120061",
+              image: "images/Huangshan.png"
+            },
     "济南": {
-      description: "济南：泉城济南，七十二名泉，历史文化名城。<br>著名景点：趵突泉、大明湖、千佛山。",
-      image: "images/Jinan.png"
-    },
+              description: "济南有七十二名泉，其中趵突泉泉水甘甜，最负盛名，大明湖、千佛山也是济南风景和文化的名片。<br>从煎饼到糖醋鲤鱼，你还可以在济南品味到经典的山东风味。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/jinan-128/",
+              image: "images/Jinan.png"
+            },
     "昆明": {
-      description: "昆明：春城昆明，四季如春，花海之都。<br>著名景点：石林、滇池、西山。",
-      image: "images/Kunming.png"
-    },
+              description: "昆明是一座春城，这里四季如春，鲜花茂盛。在景点中，石林奇观让人叹为观止，环境优美的滇池则让人心旷神怡。<br>过桥米线、玫瑰米凉虾是昆明的经典美味。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/kunming-29/",
+              image: "images/Kunming.png"
+            },
     "拉萨": {
-      description: "拉萨：雪域高原的圣地，藏传佛教的文化中心。<br>著名景点：布达拉宫、大昭寺、罗布林卡。",
-      image: "images/Lhasa.png"
-    },
+              description: "在拉萨，你可以在布达拉宫、大昭寺领略到神圣庄严的藏族文化，<br>藏族人的传统美食——酥油茶、糌粑……也一定会给你带来新奇的体验。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/lhasa-36/",
+              image: "images/Lhasa.png"
+            },
     "兰州": {
-      description: "兰州：黄河之都，拉面之乡，自然风光与人文景观交相辉映。<br>著名景点：白塔山、五泉山、黄河风情线。",
-      image: "images/Lanzhou.png"
-    },
+              description: "提到兰州，兰州拉面是它的金字招牌，这里的牛肉面和烤肉也独具特色。<br>你还可以去看看白塔山和黄河铁桥，欣赏兰州的美景，感受这座城市的历史底蕴。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/lanzhou-231/",
+              image: "images/Lanzhou.png"
+            },
     "丽江": {
-      description: "丽江：古城丽江，纳西文化的瑰宝，风情万种。<br>著名景点：丽江古城、玉龙雪山、束河古镇。",
-      image: "images/Lijiang.png"
-    },
+              description: "丽江是一个特色鲜明的城市，你可以在玉龙雪山欣赏这里的自然风光，也可以漫步古城之中，体会它的风情万种。<br>鸡豆凉粉、腊排骨火锅则是丽江的特色佳肴。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/lijiang-32/",
+              image: "images/Lijiang.png"
+            },
     "洛阳": {
-      description: "洛阳：牡丹花城，十三朝古都，文化底蕴深厚。<br>著名景点：龙门石窟、白马寺、关林庙。",
-      image: "images/Luoyang.png"
-    },
+              description: "在洛阳，你可以去看看雄伟的龙门石窟佛像，也可以在白马寺感受到浓厚的佛教文化氛围。<br>再记得去尝尝洛阳水席和牡丹饼，这里的美食也不会让你失望。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/luoyang-198/",
+              image: "images/Luoyang.png"
+            },
     "南昌": {
-      description: "南昌：英雄城南昌，红色文化丰富，湖光山色美。<br>著名景点：滕王阁、八一起义纪念馆、庐山。",
-      image: "images/Nanchang.png"
-    },
+              description: "南昌有着丰富的红色文化，古色古香的滕王阁和风景独好的鄱阳湖则代表着这座城市的古朴和秀美。<br>炒粉、瓦罐汤是南昌的特色美食，非常值得品尝。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/nanchang-175/",
+              image: "images/Nanchang.png"
+            },
     "南京": {
-      description: "南京：六朝古都，金陵风华，历史与现代交融。<br>著名景点：中山陵、夫子庙、秦淮河。",
-      image: "images/Nanjing.png"
-    },
+              description: "南京是一座历史与现代交融的城市，中山陵庄严肃穆，夫子庙则繁华热闹。<br>南京的美食也很有名，盐水鸭、鸭血粉丝汤是其中的代表。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/nanjing-9/",
+              image: "images/Nanjing.png"
+            },
     "南宁": {
-      description: "南宁：绿城南宁，壮族文化的摇篮，山水相依。<br>著名景点：青秀山、南湖公园、大明山。",
-      image: "images/Nanning.png"
-    },
+              description: "在山水相依的南宁，你可以体验到极致的自然之美，青秀山、大明山和南湖公园都是旅行休闲的好去处。<br>你还可以品尝到酸辣可口的老友粉和柠檬鸭，它们别有一番风味。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/nanning-166/",
+              image: "images/Nanning.png"
+            },
     "宁波": {
-      description: "宁波：东方商埠，海港城市，历史与现代并存。<br>著名景点：天一阁、东钱湖、老外滩。",
-      image: "images/Ningbo.png"
-    },
+              description: "来到宁波旅游，藏书丰富的天一阁和充满异国情调的老外滩都很值得一去。<br>另外，这里的汤圆和糟卤则口感鲜美，是不可错过的特色美食。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/ningbo-83/",
+              image: "images/Ningbo.png"
+            },
     "秦皇岛": {
-      description: "秦皇岛：海滨之城，长城的起点，历史与自然共融。<br>著名景点：山海关、北戴河、秦皇求仙入海处。",
-      image: "images/Qinhuangdao.png"
-    },
+              description: "秦皇岛是著名的海滨之城，你可以在这里观赏到壮观的海上日出，挑战著名的山海关长城，<br>离开之前别忘了来一顿鲜美可口的海鲜大咖。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/qinhuangdao-132",
+              image: "images/Qinhuangdao.png"
+            },
     "青岛": {
-      description: "青岛：海滨明珠，啤酒之城，德国风情浓郁。<br>著名景点：八大关、栈桥、崂山。",
-      image: "images/Qingdao.png"
-    },
+              description: "青岛有着迷人的海滨风光和浓郁的欧洲风情，栈桥和八大关都是极具代表性的景点，<br>醇香的啤酒和海鲜烧烤在这里则是最佳美食搭档。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/qingdao-5/",
+              image: "images/Qingdao.png"
+            },
     "泉州": {
-      description: "泉州：海上丝绸之路的起点，文化名城，风光旖旎。<br>著名景点：清源山、开元寺、崇武古城。",
-      image: "images/Quanzhou.png"
-    },
+              description: "泉州的开元寺钟声悠扬，清源山风景如画，你还可以在这里体验到正火热的传统簪花文化。<br>土笋冻、卤鸡爪则是泉州美食的代表。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/quanzhou-243",
+              image: "images/Quanzhou.png"
+            },
     "三亚": {
-      description: "三亚：南海明珠，热带海滨度假胜地，阳光沙滩的乐园。<br>著名景点：亚龙湾、天涯海角、南山文化旅游区。",
-      image: "images/Sanya.png"
-    },
+              description: "三亚是一个热带海滨度假胜地，亚龙湾和南山文化旅游区都会给你带来绝佳的体验，<br>记得搭配鲜美可口的海鲜大餐和椰子饭，你一定不会感到失望。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/sanya-61",
+              image: "images/Sanya.png"
+            },
     "上海": {
-      description: "上海：东方之珠，国际大都市，繁华与典雅并存。<br>著名景点：外滩、东方明珠、城隍庙。",
-      image: "images/Shanghai.png"
-    },
+              description: "上海繁华与典雅并存，外滩的夜景璀璨，城隍庙则充满了老上海风情。<br>你还可以品尝到皮薄馅足的小笼包和浓郁鲜美的蟹黄面，它们是上海的特色。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/shanghai-2",
+              image: "images/Shanghai.png"
+            },
     "沈阳": {
-      description: "沈阳：一朝发祥地，两代帝王都，历史文化与现代气息交相辉映。<br>著名景点：沈阳故宫、张氏帅府、北陵公园。",
-      image: "images/Shenyang.png"
-    },
+              description: "在沈阳，你可以去看看具有历史特色的沈阳故宫，漫步在风景秀丽的北陵公园。<br>沈阳的美食也极具特色，炸鸡架和烤冷面香气四溢，让人垂涎欲滴。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/shenyang-155",
+              image: "images/Shenyang.png"
+            },
     "深圳": {
-      description: "深圳：中国的硅谷，创新之城，现代化程度高。<br>著名景点：世界之窗、东部华侨城、深圳湾公园。",
-      image: "images/Shenzhen.png"
-    },
+              description: "深圳摩天大楼林立，是一座现代化都市，世界之窗、东部华侨城是深圳的特色景区。<br>广式点心、海鲜粥味道鲜美、口感丰富，是深圳的美食代表。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/shenzhen-26",
+              image: "images/Shenzhen.png"
+            },
     "石家庄": {
-      description: "石家庄：燕赵大地，历史文化名城，现代气息浓厚。<br>著名景点：正定古城、抱犊寨、赵州桥。",
-      image: "images/Shijiazhuang.png"
-    },
+              description: "石家庄有着风景秀美的抱犊寨和充满历史气息的正定古城。<br>金凤扒鸡鲜嫩多汁，驴肉火烧香酥可口，是来到石家庄不容错过的美食。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/shijiazhuang-199",
+              image: "images/Shijiazhuang.png"
+            },
     "苏州": {
-      description: "苏州：人间天堂，园林之城，江南水乡的代表。<br>著名景点：拙政园、留园、虎丘。",
-      image: "images/Suzhou.png"
-    },
+              description: "苏州是江南水乡的代表，一座园林之城，拙政园、留园是其中的佼佼者。<br>松鼠桂鱼、奥灶面则是苏州的特色美食，有着独特的滋味。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/suzhou-11",
+              image: "images/Suzhou.png"
+            },
     "太原": {
-      description: "太原：龙城太原，晋商故里，历史文化底蕴深厚。<br>著名景点：晋祠、双塔寺、天龙山石窟。",
-      image: "images/Taiyuan.png"
-    },
+              description: "太原有着深厚的文化底蕴，双塔寺、晋祠、天龙山石窟是太原景点的代表。<br>这里的面食最为有名，过油肉、太原头脑等当地美食也让人回味无穷。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/taiyuan-167",
+              image: "images/Taiyuan.png"
+            },
     "天津": {
-      description: "天津：北方明珠，近代历史文化名城，中西建筑交相辉映。<br>著名景点：天津之眼、意式风情街、盘山风景区。",
-      image: "images/Tianjin.png"
-    },
+              description: "来到天津，你可以坐上天津之眼俯瞰海河，也可以在意式风情街感受异国情调。<br>狗不理包子、十八街麻花都是天津的特色小吃，非常值得品尝。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/tianjin-154",
+              image: "images/Tianjin.png"
+            },
     "温州": {
-      description: "温州：东瓯名城，商贸繁荣，山水风光秀美。<br>著名景点：雁荡山、楠溪江、江心屿。",
-      image: "images/Wenzhou.png"
-    },
+              description: "温州有着繁荣的商贸和秀美的风光，这里气候温润，雁荡山、楠溪江、江心屿等景区都非常适合旅行游玩，<br>温州鱼丸、糯米饭则是温州的美食名片。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/wenzhou-153",
+              image: "images/Wenzhou.png"
+            },
     "武汉": {
-      description: "武汉：九省通衢，江城武汉，历史与现代交融。<br>著名景点：黄鹤楼、东湖、汉口江滩。",
-      image: "images/Wuhan.png"
-    },
+              description: "武汉的黄鹤楼名扬四海，东湖也是休闲好去处。<br>你可以在这里品尝到有名的热干面和香辣可口的鸭脖，还有更多美食等待你的发掘。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/wuhan-145",
+              image: "images/Wuhan.png"
+            },
     "乌鲁木齐": {
-      description: "乌鲁木齐：西域之都，多民族文化交融，自然风光独特。<br>著名景点：天山天池、国际大巴扎、红山公园。",
-      image: "images/Urumqi.png"
-    },
+              description: "乌鲁木齐是西域之都，这里既有如画般的天山天池美景，也有充满异域风情的国际大巴扎。<br>这里的烤全羊、手抓饭美味诱人，是最为正宗的西域特色美食。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/urumqi-117/",
+              image: "images/Urumqi.png"
+            },
     "无锡": {
-      description: "无锡：太湖明珠，江南水乡的代表，历史文化名城。<br>著名景点：鼋头渚、灵山大佛、寄畅园。",
-      image: "images/Wuxi.png"
-    },
+              description: "来到无锡，最不能错过的当属太湖和鼋头渚，它们将水乡的柔情和山水的壮阔和谐统一，别有韵味，灵山大佛也是有名的景区。<br>小笼包、糖醋排骨则是当地美食的代表。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/wuxi-10/",
+              image: "images/Wuxi.png"
+            },
     "西安": {
-      description: "西安：古都西安，十三朝古都，历史文化底蕴深厚。<br>著名景点：兵马俑、大雁塔、钟楼。",
-      image: "images/Xi'an.png"
-    },
+              description: "西安是有名的十三朝古都，兵马俑、大雁塔和钟楼都在诉说着这座城市繁华的历史故事。<br>西安也是碳水的天堂，肉夹馍、羊肉泡馍香醇美味，是这里的必吃美食。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/xi-an-7",
+              image: "images/Xi'an.png"
+            },
     "西宁": {
-      description: "西宁：高原古城，多民族聚居，自然风光与人文景观丰富。<br>著名景点：塔尔寺、东关清真大寺、南山公园。",
-      image: "images/Xining.png"
-    },
+              description: "西宁是青藏高原上的一颗璀璨明珠，这里民族文化浓郁，自然风光秀丽，塔尔寺和周边的青海湖是其中的代表。<br>除了酸奶、酿皮等美食，你还能品尝到多种做法的羊肉，感受大西北的风味。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/xining-237",
+              image: "images/Xining.png"
+            },
     "厦门": {
-      description: "厦门：海上花园，浪漫鹭岛，文艺气息浓厚。<br>著名景点：鼓浪屿、南普陀寺、环岛路。",
-      image: "images/Xiamen.png"
-    },
+              description: "厦门被誉为海上花园，充满着浪漫和文艺气息，鼓浪屿、环岛路等是热门景点。<br>厦门也是一座美食之城，姜母鸭、沙茶面、海蛎饼都是不可错过的美味。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/xiamen-21",
+              image: "images/Xiamen.png"
+            },
     "宜昌": {
-      description: "宜昌：三峡门户，水电之都，自然风光与人文景观交相辉映。<br>著名景点：三峡大坝、西陵峡、神农架。",
-      image: "images/Yichang.png"
-    },
+              description: "来到宜昌，你可以观赏雄伟壮观的三峡大坝，感受夷陵老街的古朴和历史韵味，<br>当地的凉虾、萝卜饺子等美食都有着地道的风味。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/yichang-313",
+              image: "images/Yichang.png"
+            },
     "银川": {
-      description: "银川：塞上江南，回族之乡，沙漠与绿洲共存。<br>著名景点：西夏王陵、镇北堡西部影城、贺兰山。",
-      image: "images/Yinchuan.png"
-    },
+              description: "银川有“塞上江南”的美称，沙漠与绿洲并存，镇北堡西部影城、西夏王陵和贺兰山是银川的经典景点，<br>你还可以在这里品尝到美味诱人的羊肉粉、羊肉臊子面。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/yinchuan-239",
+              image: "images/Yinchuan.png"
+            },
     "张家界": {
-      description: "张家界：武陵源奇观，峰林王国，自然风光旖旎。<br>著名景点：张家界国家森林公园、天门山、黄龙洞。",
-      image: "images/Zhangjiajie.png"
-    },
+              description: "张家界最著名的是它的山水自然风光。在张家界国家森林公园、天门山等景区，<br>你既可以感受到放松，也可以体验一些冒险，当地的土家菜也十分地道美味。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/zhangjiajie-23",
+              image: "images/Zhangjiajie.png"
+            },
     "郑州": {
-      description: "郑州：中原腹地，商都郑州，历史文化与现代气息并存。<br>著名景点：嵩山少林寺、黄河游览区、二七纪念塔。",
-      image: "images/Zhengzhou.png"
-    },
+              description: "郑州是一座中原名城，嵩山少林寺名扬四海，黄河游览区的风景也是一绝。<br>你还可以在这里品尝到胡辣汤、烩面等有名的郑州美食。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/zhengzhou-157",
+              image: "images/Zhengzhou.png"
+            },
     "重庆": {
-      description: "重庆：山城重庆，火锅之都，长江与嘉陵江交汇之地。<br>著名景点：洪崖洞、解放碑、武隆仙女山。",
-      image: "images/Chongqing.png"
-    },
+              description: "重庆被誉为山城，有着独特的地貌和风光，洪崖洞、解放碑都是值得推荐的景点。<br>你还可以在这里品尝地道的麻辣火锅，感受重庆热情与活力。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/chongqing-158",
+              image: "images/Chongqing.png"
+            },
     "珠海": {
-      description: "珠海：浪漫之城，海滨度假胜地，现代化程度高。<br>著名景点：珠海渔女、长隆海洋王国、圆明新园。",
-      image: "images/Zhuhai.png"
-    },
+          description: "珠海海滨风光旖旎，渔女像、长隆海洋公园是当地的地标。<br>你还可以在这里尽情品尝珠海海鲜，感受海滨城市的浪漫与惬意。<br>更多城市信息请查看：https://us.trip.com/travel-guide/destination/zhuhai-27/",
+          image: "images/Zhuhai.png"
+        },
   };
 
   const cityInfo = descriptions[cityName];
@@ -343,17 +393,20 @@ function getCityDescription(cityName) {
 
 // 重新开始测试的函数
 function restartTest() {
-  // 清空之前的答案
+  // 清空用户的答案
   answers = [];
-  // 重新加载页面
-  location.reload();
+
+  // 清除选中的选项样式
+  var options = document.querySelectorAll('input[type="radio"]');
+  options.forEach(function (option) {
+    option.checked = false;
+  });
   // 显示问题容器
   // 显示海报卡片
-  document.getElementById("poster-card").style.display = "block";
+  document.getElementById("poster-card").style.display = "none";
   // 隐藏推荐结果卡片
   document.getElementById("recommendation").style.display = "none";
-  // 重置用户选择的答案
-  n1 = null;
-  // 重置问题卡片的显示状态
-  document.getElementById("question-container").style.display = "none";
+  // 显示问题容器，并且显示第一页的问题
+  document.getElementById("question-container").style.display = "block";
+  showQuestions(1);
 }

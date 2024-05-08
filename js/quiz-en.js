@@ -1,4 +1,4 @@
-// let answers = []; // 保存用户选择的答案
+answers = []; // 保存用户选择的答案
 
 const cities = [
   { name: "Beijing", history: 100.00, variety: 88.63, mountain: 100.00, beach: 0.00, bioscape: 90.00, river: 80.00, acid: 78.42, sweet: 90.91, salty: 80.72, spicy: 54.96, popularity: 10000.00, transport: 100.00, accommodation: 1.00 },
@@ -53,6 +53,12 @@ const cities = [
   { name: "Zhuhai", history: 5.88, variety: 11.00, mountain: 0.00, beach: 100.00, bioscape: 0.00, river: 0.00, acid: 82.13, sweet: 64.24, salty: 90.36, spicy: 73.28, popularity: 1.00, transport: 21.17, accommodation: 20.00 },
 ];
 
+
+// 初始化页面时，只显示第一页的问题容器
+window.onload = function () {
+  showQuestions(1);
+}
+
 // 开始测试函数，切换卡片显示
 function startTest() {
   // 清空之前的答案
@@ -61,7 +67,10 @@ function startTest() {
   document.getElementById("poster-card").style.display = "none";
   // 显示问题卡片
   document.getElementById("question-container").style.display = "block";
+  // 显示第一页的问题
+  showQuestions(1);
 }
+
 // 用户选择答案的函数
 function selectOption(optionId, questionNumber) {
   // 获取选项的value值
@@ -69,14 +78,73 @@ function selectOption(optionId, questionNumber) {
   // 将得分记录在answers数组中
   answers[questionNumber - 1] = value;
 }
+function showQuestions(page) {
+  var questions = document.querySelectorAll('.question');
+  questions.forEach(function (question) {
+    var questionPage = parseInt(question.getAttribute('data-page'));
+    if (questionPage === page) {
+      question.style.display = 'block';
+    } else {
+      question.style.display = 'none';
+    }
+  });
+
+  // 控制上一页和下一页按钮的显示和隐藏
+  var prevBtn = document.getElementById('prev-btn');
+  var nextBtn = document.getElementById('next-btn');
+  var submitBtn = document.getElementById('submit-btn');
+
+  if (page === 1) {
+    prevBtn.style.display = 'none'; // 隐藏上一页按钮
+  } else {
+    prevBtn.style.display = 'block'; // 显示上一页按钮
+  }
+
+  if (page === 3) {
+    nextBtn.style.display = 'none'; // 隐藏下一页按钮
+    submitBtn.style.display = 'block'; // 显示提交按钮
+  } else {
+    nextBtn.style.display = 'block'; // 显示下一页按钮
+    submitBtn.style.display = 'none'; // 隐藏提交按钮
+  }
+}
+
+function nextPage() {
+  var currentPage = getCurrentPage();
+  if (currentPage < 3) {
+    currentPage++;
+    showQuestions(currentPage);
+  }
+}
+
+function prevPage() {
+  var currentPage = getCurrentPage();
+  if (currentPage > 1) {
+    currentPage--;
+    showQuestions(currentPage);
+  }
+}
+
+function getCurrentPage() {
+  var currentQuestion = document.querySelector('.question[style="display: block;"]');
+  return parseInt(currentQuestion.getAttribute('data-page'));
+}
 
 
 
 // 计算推荐城市
 function calculateRecommendation() {
+  // 检查是否有任何答案被选择
+  var hasAnswer = answers.some(answer => answer !== undefined);
+  if (!hasAnswer) {
+    alert("Please answer all questions before generating the recommendation!");
+    return;
+  }
+
   // 检查是否所有问题都已经回答
-  if (answers.includes(undefined)) {
-    alert("Please select the answers to all questions first!");
+  var unansweredQuestions = answers.filter(answer => answer === undefined);
+  if (unansweredQuestions.length > 0) {
+    alert("Please answer all questions before generating the recommendation!");
     return;
   }
 
@@ -115,7 +183,7 @@ function calculateRecommendation() {
     return `${index + 1}. ${city.name}:<br>${cityDescription}`;
   }).join("<br><br>");
 
-  document.getElementById("recommendation-text").innerHTML = `We recommend you to visit the following cities:<br>${recommendationText}`;
+  document.getElementById("recommendation-text").innerHTML = `We recommend you to visit the following cities:<br><br>${recommendationText}`;
 
   // 隐藏问题卡片，显示推荐结果卡片
   document.getElementById("question-container").style.display = "none";
@@ -126,206 +194,206 @@ function calculateRecommendation() {
 function getCityDescription(cityName) {
   // 这里可以根据城市名称获取对应的描述和图片链接，这里只是示例
   const descriptions = {
-    "北京": {
-      description: "北京：千年古都，现代国际都市，融合古今之美。<br>著名景点：故宫、天安门广场、颐和园、长城。",
-      image: "images/Beijing.png"
-    },
-    "长春": {
-      description: "长春：北国春城，汽车工业的摇篮，四季分明，景色宜人。<br>著名景点：伪满皇宫博物院、南湖公园、净月潭。",
-      image: "images/Changchun.png"
-    },
-    "长沙": {
-      description: "长沙：星城长沙，楚汉文化之地，美食与美景并存。<br>著名景点：岳麓山、橘子洲头、世界之窗。",
-      image: "images/Changsha.png"
-    },
-    "成都": {
-      description: "成都：天府之国，悠闲之都，美食与熊猫的故乡。<br>著名景点：大熊猫繁育研究基地、武侯祠、宽窄巷子。",
-      image: "images/Chengdu.png"
-    },
-    "大连": {
-      description: "大连：浪漫之都，海滨风光旖旎，东北的明珠。<br>著名景点：星海广场、老虎滩海洋公园、棒棰岛。",
-      image: "images/Dalian.png"
-    },
-    "东莞": {
-      description: "东莞：世界工厂，制造业发达，现代与传统交相辉映。<br>著名景点：虎门炮台、可园、观音山国家森林公园。",
-      image: "images/Dongguan.png"
-    },
-    "福州": {
-      description: "福州：榕城福州，温泉之都，历史文化底蕴深厚。<br>著名景点：三坊七巷、鼓山、西湖公园。",
-      image: "images/Fuzhou.png"
-    },
-    "广州": {
-      description: "广州：羊城广州，岭南文化的代表，商贸繁荣。<br>著名景点：广州塔、白云山、陈家祠。",
-      image: "images/Guangzhou.png"
-    },
-    "桂林": {
-      description: "桂林：山水甲天下，漓江风光美不胜收。<br>著名景点：漓江、象鼻山、阳朔西街。",
-      image: "images/Guilin.png"
-    },
-    "贵阳": {
-      description: "贵阳：高原明珠，避暑胜地，少数民族文化丰富。<br>著名景点：青岩古镇、黔灵山公园、花溪公园。",
-      image: "images/Guiyang.png"
-    },
-    "哈尔滨": {
-      description: "哈尔滨：冰城哈尔滨，冬季雪景如画，欧陆风情浓郁。<br>著名景点：中央大街、太阳岛、冰雪大世界。",
-      image: "images/Harbin.png"
-    },
-    "海口": {
-      description: "海口：椰城海口，热带海滨城市，阳光沙滩的乐园。<br>著名景点：万绿园、假日海滩、五公祠。",
-      image: "images/Haikou.png"
-    },
-    "杭州": {
-      description: "杭州：人间天堂，西湖美景名扬四海。<br>著名景点：西湖、灵隐寺、千岛湖。",
-      image: "images/Hangzhou.png"
-    },
-    "合肥": {
-      description: "合肥：科教之城，历史悠久，现代气息浓厚。<br>著名景点：包公祠、三河古镇、巢湖。",
-      image: "images/Hefei.png"
-    },
-    "呼和浩特": {
-      description: "呼和浩特：草原明珠，蒙古族文化浓厚，风光无限。<br>著名景点：大召寺、五塔寺、草原文化博物馆。",
-      image: "images/Hohhot.png"
-    },
-    "黄山": {
-      description: "黄山：天下第一奇山，云海、奇松、怪石、温泉四绝。<br>著名景点：黄山风景区、西递宏村古村落。",
-      image: "images/Huangshan.png"
-    },
-    "济南": {
-      description: "济南：泉城济南，七十二名泉，历史文化名城。<br>著名景点：趵突泉、大明湖、千佛山。",
-      image: "images/Jinan.png"
-    },
-    "昆明": {
-      description: "昆明：春城昆明，四季如春，花海之都。<br>著名景点：石林、滇池、西山。",
-      image: "images/Kunming.png"
-    },
-    "拉萨": {
-      description: "拉萨：雪域高原的圣地，藏传佛教的文化中心。<br>著名景点：布达拉宫、大昭寺、罗布林卡。",
-      image: "images/Lhasa.png"
-    },
-    "兰州": {
-      description: "兰州：黄河之都，拉面之乡，自然风光与人文景观交相辉映。<br>著名景点：白塔山、五泉山、黄河风情线。",
-      image: "images/Lanzhou.png"
-    },
-    "丽江": {
-      description: "丽江：古城丽江，纳西文化的瑰宝，风情万种。<br>著名景点：丽江古城、玉龙雪山、束河古镇。",
-      image: "images/Lijiang.png"
-    },
-    "洛阳": {
-      description: "洛阳：牡丹花城，十三朝古都，文化底蕴深厚。<br>著名景点：龙门石窟、白马寺、关林庙。",
-      image: "images/Luoyang.png"
-    },
-    "南昌": {
-      description: "南昌：英雄城南昌，红色文化丰富，湖光山色美。<br>著名景点：滕王阁、八一起义纪念馆、庐山。",
-      image: "images/Nanchang.png"
-    },
-    "南京": {
-      description: "南京：六朝古都，金陵风华，历史与现代交融。<br>著名景点：中山陵、夫子庙、秦淮河。",
-      image: "images/Nanjing.png"
-    },
-    "南宁": {
-      description: "南宁：绿城南宁，壮族文化的摇篮，山水相依。<br>著名景点：青秀山、南湖公园、大明山。",
-      image: "images/Nanning.png"
-    },
-    "宁波": {
-      description: "宁波：东方商埠，海港城市，历史与现代并存。<br>著名景点：天一阁、东钱湖、老外滩。",
-      image: "images/Ningbo.png"
-    },
-    "秦皇岛": {
-      description: "秦皇岛：海滨之城，长城的起点，历史与自然共融。<br>著名景点：山海关、北戴河、秦皇求仙入海处。",
-      image: "images/Qinhuangdao.png"
-    },
-    "青岛": {
-      description: "青岛：海滨明珠，啤酒之城，德国风情浓郁。<br>著名景点：八大关、栈桥、崂山。",
-      image: "images/Qingdao.png"
-    },
-    "泉州": {
-      description: "泉州：海上丝绸之路的起点，文化名城，风光旖旎。<br>著名景点：清源山、开元寺、崇武古城。",
-      image: "images/Quanzhou.png"
-    },
-    "三亚": {
-      description: "三亚：南海明珠，热带海滨度假胜地，阳光沙滩的乐园。<br>著名景点：亚龙湾、天涯海角、南山文化旅游区。",
-      image: "images/Sanya.png"
-    },
-    "上海": {
-      description: "上海：东方之珠，国际大都市，繁华与典雅并存。<br>著名景点：外滩、东方明珠、城隍庙。",
-      image: "images/Shanghai.png"
-    },
-    "沈阳": {
-      description: "沈阳：一朝发祥地，两代帝王都，历史文化与现代气息交相辉映。<br>著名景点：沈阳故宫、张氏帅府、北陵公园。",
-      image: "images/Shenyang.png"
-    },
-    "深圳": {
-      description: "深圳：中国的硅谷，创新之城，现代化程度高。<br>著名景点：世界之窗、东部华侨城、深圳湾公园。",
-      image: "images/Shenzhen.png"
-    },
-    "石家庄": {
-      description: "石家庄：燕赵大地，历史文化名城，现代气息浓厚。<br>著名景点：正定古城、抱犊寨、赵州桥。",
-      image: "images/Shijiazhuang.png"
-    },
-    "苏州": {
-      description: "苏州：人间天堂，园林之城，江南水乡的代表。<br>著名景点：拙政园、留园、虎丘。",
-      image: "images/Suzhou.png"
-    },
-    "太原": {
-      description: "太原：龙城太原，晋商故里，历史文化底蕴深厚。<br>著名景点：晋祠、双塔寺、天龙山石窟。",
-      image: "images/Taiyuan.png"
-    },
-    "天津": {
-      description: "天津：北方明珠，近代历史文化名城，中西建筑交相辉映。<br>著名景点：天津之眼、意式风情街、盘山风景区。",
-      image: "images/Tianjin.png"
-    },
-    "温州": {
-      description: "温州：东瓯名城，商贸繁荣，山水风光秀美。<br>著名景点：雁荡山、楠溪江、江心屿。",
-      image: "images/Wenzhou.png"
-    },
-    "武汉": {
-      description: "武汉：九省通衢，江城武汉，历史与现代交融。<br>著名景点：黄鹤楼、东湖、汉口江滩。",
-      image: "images/Wuhan.png"
-    },
-    "乌鲁木齐": {
-      description: "乌鲁木齐：西域之都，多民族文化交融，自然风光独特。<br>著名景点：天山天池、国际大巴扎、红山公园。",
-      image: "images/Urumqi.png"
-    },
-    "无锡": {
-      description: "无锡：太湖明珠，江南水乡的代表，历史文化名城。<br>著名景点：鼋头渚、灵山大佛、寄畅园。",
-      image: "images/Wuxi.png"
-    },
-    "西安": {
-      description: "西安：古都西安，十三朝古都，历史文化底蕴深厚。<br>著名景点：兵马俑、大雁塔、钟楼。",
-      image: "images/Xi'an.png"
-    },
-    "西宁": {
-      description: "西宁：高原古城，多民族聚居，自然风光与人文景观丰富。<br>著名景点：塔尔寺、东关清真大寺、南山公园。",
-      image: "images/Xining.png"
-    },
-    "厦门": {
-      description: "厦门：海上花园，浪漫鹭岛，文艺气息浓厚。<br>著名景点：鼓浪屿、南普陀寺、环岛路。",
-      image: "images/Xiamen.png"
-    },
-    "宜昌": {
-      description: "宜昌：三峡门户，水电之都，自然风光与人文景观交相辉映。<br>著名景点：三峡大坝、西陵峡、神农架。",
-      image: "images/Yichang.png"
-    },
-    "银川": {
-      description: "银川：塞上江南，回族之乡，沙漠与绿洲共存。<br>著名景点：西夏王陵、镇北堡西部影城、贺兰山。",
-      image: "images/Yinchuan.png"
-    },
-    "张家界": {
-      description: "张家界：武陵源奇观，峰林王国，自然风光旖旎。<br>著名景点：张家界国家森林公园、天门山、黄龙洞。",
-      image: "images/Zhangjiajie.png"
-    },
-    "郑州": {
-      description: "郑州：中原腹地，商都郑州，历史文化与现代气息并存。<br>著名景点：嵩山少林寺、黄河游览区、二七纪念塔。",
-      image: "images/Zhengzhou.png"
-    },
-    "重庆": {
-      description: "重庆：山城重庆，火锅之都，长江与嘉陵江交汇之地。<br>著名景点：洪崖洞、解放碑、武隆仙女山。",
-      image: "images/Chongqing.png"
-    },
-    "珠海": {
-      description: "珠海：浪漫之城，海滨度假胜地，现代化程度高。<br>著名景点：珠海渔女、长隆海洋王国、圆明新园。",
-      image: "images/Zhuhai.png"
-    },
+    "Beijing": {
+          description: "As the capital of China, Beijing blends the beauty of ancient and modern times. Here you can admire the red walls and golden tiles of the Forbidden City and feel the grandeur of Tiananmen Square. The crispy Peking Duck with tender skin and the fried noodles with rich sauce are both memorable.<br>For more info about the city:https://www.trip.com/travel-guide/destination/beijing-1/",
+          image: "images/Beijing.png"
+        },
+    "Changchun": {
+              description: "Changchun's Forged Manchu Palace gives you a glimpse of history, while the lakes and mountains of Jingyuetan are a delight. Don't forget to try the pot roast and snow-coated bean paste, which are Changchun's specialties.<br>For more info about the city:https://us.trip.com/travel-guide/destination/changchun-216",
+              image: "images/Changchun.png"
+            },
+    "Changsha": {
+              description: "In Changsha, you can stroll around Orange Island Head and enjoy the beautiful scenery of Xiangjiang River, while Yuelu Academy gives you a strong cultural atmosphere. Remember to go out for a stroll in the evening. Stinky tofu with crispy outside and tender inside and sweet, soft and sticky sugar-oil panda are a must at Changsha's night market.<br>For more info about the city:https://us.trip.com/travel-guide/destination/changsha-148",
+              image: "images/Changsha.png"
+            },
+    "Chengdu": {
+              description: "The Broad and Narrow Alley can take you back to old Chengdu, while the Panda Base is home to the cute and cuddly pandas. Here you can indulge in spicy hot pots and skewers and experience the culinary charms of Chengdu.<br>For more info about the city:https://us.trip.com/travel-guide/destination/chengdu-104",
+              image: "images/Chengdu.png"
+            },
+    "Dalian": {
+              description: "Dalian's Xinghai Square is dazzling at night, while the Tiger Beach Ocean Park is full of fun. Seafood dinners are one of Dalian's great specialties, especially the grilled squid with its mouth-watering aroma.<br>For more info about the city:https://us.trip.com/travel-guide/destination/dalian-4",
+              image: "images/Dalian.png"
+            },
+    "Dongguan": {
+              description: "When you come to Dongguan, you can feel the lush greenery of Lingnan, taste the sweet lychee, and visit famous historical sites such as Humen Fortress and Ke Yuan. The kuey teow soup and roast goose here are also not to be missed.<br>For more info about the city:https://us.trip.com/travel-guide/destination/dongguan-212",
+              image: "images/Dongguan.png"
+            },
+    "Fuzhou": {
+              description: "Fuzhou's Three Square and Seven Alleys are full of ancient flavors, while Gushan Mountain has beautiful and magnificent scenery. The rich soup of Buddha Jumping Over the Wall and the thin-skinned and stuffed Pork Bird's Nest are very characteristic of the region.They are representative of the local cuisine.<br>For more info about the city:https://us.trip.com/travel-guide/destination/fuzhou-164",
+              image: "images/Fuzhou.png"
+            },
+    "Guangzhou": {
+              description: "Guangzhou's night tour of the Pearl River gives you a taste of the bustling night scenery of the South, while the Canton Tower towers majestically above the clouds. From morning tea and dim sum, refreshing sugar water to crispy BBQ pork ...... Guangzhou's food will never let you down either.<br>For more info about the city:https://us.trip.com/travel-guide/destination/guangzhou-152",
+              image: "images/Guangzhou.png"
+            },
+    "Guilin": {
+              description: "Guilin's landscape scenery is known as the best in the world, and the Li River is even more picturesque. Don't forget to try the Guilin rice noodles and beer fish, the rice noodles are smooth and delicious, and the beer fish is fresh and tasty, with a unique Guilin flavor.<br>For more info about the city:https://us.trip.com/travel-guide/destination/guilin-28",
+              image: "images/Guilin.png"
+            },
+    "Guiyang": {
+              description: "While Qianling Mountain in Guiyang is beautiful and magnificent, Qingyan Ancient Town is simple and elegant. Here, you can savor local delicacies such as fish in sour soup and tofu dumplings. The sour fish in soup is spicy and sour, and the tofu dumplings are crispy on the outside and tender on the inside.<br>For more info about the city:https://us.trip.com/travel-guide/destination/guiyang-33",
+              image: "images/Guiyang.png"
+            },
+    "Harbin": {
+              description: "Harbin is also known as the &quot;Ice City&quot;, in which the Ice World is most famous for its ice sculptures and snow scenery, and Central Street and Sun Island are also worth visiting. You will be warmed up by a meal of rich and flavorful iron pot stew.<br>For more info about the city:https://us.trip.com/travel-guide/destination/harbin-151",
+              image: "images/Harbin.png"
+            },
+    "Haikou": {
+              description: "In Haikou, you can enjoy the flavor of the tropical seaside city and enjoy the relaxing fun of the sunny beaches. Qingbuliang and coconut chicken are delicious dishes not to be missed, and they can also help you cool down and relieve the heat.<br>For more info about the city:https://us.trip.com/travel-guide/destination/haikou-37/",
+              image: "images/Haikou.png"
+            },
+    "Hangzhou": {
+              description: "Hangzhou is known as &quot;Paradise on Earth&quot;, where you can enjoy the picturesque West Lake and come to Lingyin Temple to feel the atmosphere of Buddhist culture. The West Lake Vinegar Fish and Longjing Shrimp are the best food in Hangzhou.<br>For more info about the city:https://us.trip.com/travel-guide/destination/hangzhou-14",
+              image: "images/Hangzhou.png"
+            },
+    "Hefei": {
+              description: "Hefei is a city of science and education, and is also highly cultural, with the Science and Technology University and the Anhui Museum both worth a visit. You can also enjoy unique specialties such as stinky Mandarin fish and Mao tofu.<br>For more info about the city:https://us.trip.com/travel-guide/destination/hefei-196",
+              image: "images/Hefei.png"
+            },
+    "Hohhot": {
+              description: "In Hohhot, you can have a glimpse of the vastness of the grassland and witness the history of heroes in the Mausoleum of Genghis Khan. Traditional grassland cuisine such as hand-held meat and mutton hot pot are most authentic here.<br>For more info about the city:https://us.trip.com/travel-guide/destination/hohhot-156/",
+              image: "images/Hohhot.png"
+            },
+    "Huangshan": {
+              description: "When you come here, the most unmissable thing is the Huangshan Mountain, known as &quot;the most wonderful mountain in the world&quot;, where the strange peaks and rocks and the sunrise over the sea of clouds make people forget to come back. It is also worthwhile to try the Huizhou Mao Tofu and Huangshan Baklava.<br>For more info about the city:https://us.trip.com/travel-guide/destination/huangshan-120061",
+              image: "images/Huangshan.png"
+            },
+    "Jinan": {
+              description: "Jinan has seventy-two famous springs, of which Baotu is the most famous for its sweet water, and Daming Lake and Thousand Buddha Mountain are also the business cards of Jinan's landscape and culture. From pancakes to sweet and sour carp, you can also savor the classic Shandong flavors in Jinan.<br>For more info about the city:https://us.trip.com/travel-guide/destination/jinan-128/",
+              image: "images/Jinan.png"
+            },
+    "Kunming": {
+              description: "Kunming is a city of spring, where flowers flourish in all seasons. Among the attractions, the wonders of the Stone Forest are breathtaking, while the Dianchi Pond with its beautiful environment is a delight. Bridge Rice Noodle and Rose Rice Cold Shrimp are the classic delicacies of Kunming.<br>For more info about the city:https://us.trip.com/travel-guide/destination/kunming-29/",
+              image: "images/Kunming.png"
+            },
+    "Lhasa": {
+              description: "In Lhasa, you can enjoy the sacred and solemn Tibetan culture at the Potala Palace and the Da Zhao Monastery, and the traditional cuisine of the Tibetans - ghee tea and tsampa ...... will surely bring you a novel experience.<br>For more info about the city:https://us.trip.com/travel-guide/destination/lhasa-36/",
+              image: "images/Lhasa.png"
+            },
+    "Lanzhou": {
+              description: "When it comes to Lanzhou, Lanzhou Ramen is its gold standard, and the beef noodles and barbecue meat here are also unique. You can also visit the White Pagoda Mountain and the Yellow River Iron Bridge to experience the beauty and historical heritage of Lanzhou.<br>For more info about the city:https://us.trip.com/travel-guide/destination/lanzhou-231/",
+              image: "images/Lanzhou.png"
+            },
+    "Lijiang": {
+              description: "Lijiang is a city with distinctive features. You can enjoy its natural scenery at Jade Dragon Snow Mountain or stroll through the old town to experience its flavorful atmosphere. Cold noodles with chickpeas and hot pot with preserved pork ribs are the specialties of Lijiang.<br>For more info about the city:https://us.trip.com/travel-guide/destination/lijiang-32/",
+              image: "images/Lijiang.png"
+            },
+    "Luoyang": {
+              description: "In Luoyang, you can check out the majestic Longmen Grottoes Buddha statues or feel the strong Buddhist cultural atmosphere at the White Horse Temple. And remember to try the Luoyang water mat and peony cake, the food here will not disappoint you either.<br>For more info about the city:https://us.trip.com/travel-guide/destination/luoyang-198/",
+              image: "images/Luoyang.png"
+            },
+    "Nanchang": {
+              description: "Nanchang has a rich red culture, while the ancient Tengwang Pavilion and the uniquely scenic Poyang Lake represent the city's simplicity and beauty. Fried noodle and jar soup are the specialties of Nanchang, which are very worth tasting.<br>For more info about the city:https://us.trip.com/travel-guide/destination/nanchang-175/",
+              image: "images/Nanchang.png"
+            },
+    "Nanjing": {
+              description: "Nanjing is a city where history meets modernity, with the solemnity of the Sun Yat-sen Mausoleum and the bustle of the Fuzimiao Temple. Nanjing is also famous for its food, with salt water duck and duck blood vermicelli soup being some of its representatives.<br>For more info about the city:https://us.trip.com/travel-guide/destination/nanjing-9/",
+              image: "images/Nanjing.png"
+            },
+    "Nanning": {
+              description: "You can experience the ultimate natural beauty in Nanning, where mountains and water are close to each other. Qingxiu Mountain, Daming Mountain and Nanhu Park are all great places to travel and relax. You can also taste the spicy and sour Laoyou Vermicelli and Lemon Duck, which have a distinctive flavor.<br>For more info about the city:https://us.trip.com/travel-guide/destination/nanning-166/",
+              image: "images/Nanning.png"
+            },
+    "Ningbo": {
+              description: "When traveling in Ningbo, the book-rich Tianyi Pavilion and the exotic Old Bund are worth visiting. In addition, the delicious soup dumplings and Bad halogen  are specialties not to be missed.<br>For more info about the city:https://us.trip.com/travel-guide/destination/ningbo-83/",
+              image: "images/Ningbo.png"
+            },
+    "Qinhuangdao": {
+              description: "Qinhuangdao is a famous seaside city where you can watch the spectacular sunrise over the sea, challenge the famous Shanhaiguan Great Wall, and don't forget to have a fresh and delicious seafood feast before you leave.<br>For more info about the city:https://us.trip.com/travel-guide/destination/qinhuangdao-132",
+              image: "images/Qinhuangdao.png"
+            },
+    "Qingdao": {
+              description: "Qingdao has a charming seaside scenery and rich European flavor, Trestle Bridge and Bada Guan are very representative of the attractions, mellow beer and seafood barbecue here is the best food partner.<br>For more info about the city:https://us.trip.com/travel-guide/destination/qingdao-5/",
+              image: "images/Qingdao.png"
+            },
+    "Quanzhou": {
+              description: "In Quanzhou, the bells of the Kaiyuan Temple are ringing loudly, Qingyuan Mountain is picturesque, and you can also experience the traditional hairpin culture that's heating up here.Sea Worm Jelly and Marinated Chicken Claws are representative of Quanzhou's cuisine.<br>For more info about the city:https://us.trip.com/travel-guide/destination/quanzhou-243",
+              image: "images/Quanzhou.png"
+            },
+    "Sanya": {
+              description: "Sanya is a tropical seaside resort, Yalong Bay and Nanshan Cultural and Tourism Zone will both give you a great experience, remember to pair it with a fresh and tasty seafood dinner and coconut rice, you won't be disappointed.<br>For more info about the city:https://us.trip.com/travel-guide/destination/sanya-61",
+              image: "images/Sanya.png"
+            },
+    "Shanghai": {
+              description: "Shanghai's prosperity and elegance go hand in hand, with the Bund's sparkling night view and the City God Temple full of old Shanghai flavor. You can also savor the thin-skinned and stuffed xiaolongbao and the rich and tasty crabmeat noodles, which are Shanghai's specialties.<br>For more info about the city:https://us.trip.com/travel-guide/destination/shanghai-2",
+              image: "images/Shanghai.png"
+            },
+    "Shenyang": {
+              description: "In Shenyang, you can visit the historic Shenyang Imperial Palace and stroll through the scenic Beiling Park. Shenyang's food is also very unique, with mouth-watering aromas of fried chicken racks and grilled cold noodles.<br>For more info about the city:https://us.trip.com/travel-guide/destination/shenyang-155",
+              image: "images/Shenyang.png"
+            },
+    "Shenzhen": {
+              description: "Shenzhen, with its skyscrapers, is a modern city. Window of the World and Eastern Overseas Chinese Town are the characteristic scenic spots in Shenzhen. Cantonese dim sum and seafood congee are delicious and rich in flavor, and are representative of Shenzhen's cuisine.<br>For more info about the city:https://us.trip.com/travel-guide/destination/shenzhen-26",
+              image: "images/Shenzhen.png"
+            },
+    "Shijiazhuang": {
+              description: "Shijiazhuang has the beautiful scenery of Huoxizhai and the ancient city of Zhengding, which is full of history. Jinfeng Steak Chicken is tender and juicy, and Donkey Burger is crispy and flavorful, making it a delicacy not to be missed when in Shijiazhuang.<br>For more info about the city:https://us.trip.com/travel-guide/destination/shijiazhuang-199",
+              image: "images/Shijiazhuang.png"
+            },
+    "Suzhou": {
+              description: "Suzhou is the representative of Jiangnan water town, a city of gardens, with the Humble Administrator's Garden and the Liouyuan Garden being the best of them. Squirrel Gui Fish and Ao Zao Noodles are Suzhou's specialties with unique flavors.<br>For more info about the city:https://us.trip.com/travel-guide/destination/suzhou-11",
+              image: "images/Suzhou.png"
+            },
+    "Taiyuan": {
+              description: "Taiyuan has a deep cultural heritage, with the Twin Pagodas Temple, Jin Ancestral Temple and Tianlongshan Grottoes representing Taiyuan's attractions. It is most famous for its noodle dishes, and local delicacies such as over-fried pork and Taiyuan Brain are also memorable.<br>For more info about the city:https://us.trip.com/travel-guide/destination/taiyuan-167",
+              image: "images/Taiyuan.png"
+            },
+    "Tianjin": {
+              description: "When you come to Tianjin, you can sit on the Tianjin Eye overlooking the Haihe River, or feel the exotic atmosphere of Italian style street. Dog-break Buns and Eighteen Street Sesame Flowers are Tianjin's specialty snacks, which are well worth tasting.<br>For more info about the city:https://us.trip.com/travel-guide/destination/tianjin-154",
+              image: "images/Tianjin.png"
+            },
+    "Wenzhou": {
+              description: "Wenzhou has prosperous commerce and beautiful scenery. It has a temperate climate, and scenic spots such as Yandang Mountain, Nanxi River, and Jiangxinyu Island are perfect for traveling excursions, while Wenzhou fishballs and glutinous rice are Wenzhou's culinary calling cards.<br>For more info about the city:https://us.trip.com/travel-guide/destination/wenzhou-153",
+              image: "images/Wenzhou.png"
+            },
+    "Wuhan": {
+              description: "Wuhan's Yellow Crane Tower is famous all over the world, and the East Lake is also a good place to relax. You can taste the famous hot dry noodles and spicy and delicious duck necks here, and there are many more delicacies waiting for you to discover.<br>For more info about the city:https://us.trip.com/travel-guide/destination/wuhan-145",
+              image: "images/Wuhan.png"
+            },
+    "Urumqi": {
+              description: "Urumqi is the capital of the Western Region, with its picturesque Tianshan Tianchi and the exotic International Grand Bazaar. The roasted whole sheep and hand-held rice are delicious and tempting, and are the most authentic Western specialties.<br>For more info about the city:https://us.trip.com/travel-guide/destination/urumqi-117/",
+              image: "images/Urumqi.png"
+            },
+    "Wuxi": {
+              description: "When you come to Wuxi, what you can't miss is Taihu Lake and Soft-Shelled Turtle Lake, which harmonize the softness of the water town and the magnificence of the mountains and waters in a unique way, and the Lingshan Giant Buddha is also a famous scenic spot. Xiao Long Bao and Sweet and Sour Spare Ribs are representative of the local cuisine.<br>For more info about the city:https://us.trip.com/travel-guide/destination/wuxi-10/",
+              image: "images/Wuxi.png"
+            },
+    "Xi'an": {
+              description: "Xi'an is known as the ancient capital of the 13th Dynasty, with the Terracotta Warriors and Horses, the Big Wild Goose Pagoda and the Bell Tower all telling the story of the city's prosperous history. Xi'an is also a paradise of carbohydrates, meat buns and mutton steamed buns are fragrant and delicious, which are the must-eat food here.<br>For more info about the city:https://us.trip.com/travel-guide/destination/xi-an-7",
+              image: "images/Xi'an.png"
+            },
+    "Xining": {
+              description: "Xining is a shining pearl on the Qinghai-Tibet Plateau, with rich ethnic culture and beautiful natural scenery, which is represented by the Tal Templeh and the surrounding Qinghai Lake. In addition to yogurt, stuffed skin and other delicacies, you can also taste mutton in many ways and experience the flavor of the Great Northwest.<br>For more info about the city:https://us.trip.com/travel-guide/destination/xining-237",
+              image: "images/Xining.png"
+            },
+    "Xiamen": {
+              description: "Xiamen is known as the Garden of the Sea, full of romantic and literary atmosphere, Gulangyu Island and the Round Island Road are popular attractions. Xiamen is also a city of food, ginger duck, sand tea noodles and oyster cake are not to be missed.<br>For more info about the city:https://us.trip.com/travel-guide/destination/xiamen-21",
+              image: "images/Xiamen.png"
+            },
+    "Yichang": {
+              description: "When you come to Yichang, you can view the majestic Three Gorges Dam, feel the simplicity and historical flavor of the old streets of Yiling, and local delicacies such as cold shrimp and radish dumplings have an authentic flavor.<br>For more info about the city:https://us.trip.com/travel-guide/destination/yichang-313",
+              image: "images/Yichang.png"
+            },
+    "Yinchuan": {
+              description: "Yinchuan is known as the &quot;South River on the Seaside&quot;, where deserts and oases coexist, and where Zhen Beibu Western Movie City, the Mausoleum of the Western Xia Kings, and Mount Helan are the classic attractions of Yinchuan.You can savor the delicious and enticing mutton noodles and mutton meat noodles here.<br>For more info about the city:https://us.trip.com/travel-guide/destination/yinchuan-239",
+              image: "images/Yinchuan.png"
+            },
+    "Zhangjiajie": {
+              description: "Zhangjiajie is most famous for its natural beauty of mountains and water. In scenic spots such as Zhangjiajie National Forest Park and Tianmen Mountain, you can feel relaxed as well as experience some adventures, and the local Tujia cuisine is very authentic and delicious.<br>For more info about the city:https://us.trip.com/travel-guide/destination/zhangjiajie-23",
+              image: "images/Zhangjiajie.png"
+            },
+    "Zhengzhou": {
+              description: "Zhengzhou is a famous city in the Central Plains, Songshan Shaolin Temple is famous all over the world, and the scenery of the Yellow River Excursion Area is also excellent. You can also taste the famous Zhengzhou cuisine such as Hoisin soup and chow mein.<br>For more info about the city:https://us.trip.com/travel-guide/destination/zhengzhou-157",
+              image: "images/Zhengzhou.png"
+            },
+    "Chongqing": {
+              description: "Known as a mountain city, Chongqing has unique landforms and scenery, and Hongyadong and Jiefangbei are all recommended attractions. You can also taste the authentic spicy hot pot here and feel the passion and vigor of Chongqing.<br>For more info about the city:https://us.trip.com/travel-guide/destination/chongqing-158",
+              image: "images/Chongqing.png"
+            },
+    "Zhuhai": {
+              description: "Zhuhai seashore has beautiful scenery, and the statue of fisherwoman and Changlong Ocean Park are the local landmarks. You can also enjoy the seafood of Zhuhai and feel the romance and coziness of the seaside city.<br>For more info about the city:https://us.trip.com/travel-guide/destination/zhuhai-27/",
+              image: "images/Zhuhai.png"
+            },
   };
 
   const cityInfo = descriptions[cityName];
@@ -343,17 +411,20 @@ function getCityDescription(cityName) {
 
 // 重新开始测试的函数
 function restartTest() {
-  // 清空之前的答案
+  // 清空用户的答案
   answers = [];
-  // 重新加载页面
-  location.reload();
+
+  // 清除选中的选项样式
+  var options = document.querySelectorAll('input[type="radio"]');
+  options.forEach(function (option) {
+    option.checked = false;
+  });
   // 显示问题容器
   // 显示海报卡片
-  document.getElementById("poster-card").style.display = "block";
+  document.getElementById("poster-card").style.display = "none";
   // 隐藏推荐结果卡片
   document.getElementById("recommendation").style.display = "none";
-  // 重置用户选择的答案
-  n1 = null;
-  // 重置问题卡片的显示状态
-  document.getElementById("question-container").style.display = "none";
+  // 显示问题容器，并且显示第一页的问题
+  document.getElementById("question-container").style.display = "block";
+  showQuestions(1);
 }
