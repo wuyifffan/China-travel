@@ -8,14 +8,16 @@
   <title>欢迎解锁你的中国奇遇——一份中国游指南</title>
   <link rel="shortcut icon" href="./images/icon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/echarts.min.js"></script>
-  <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/echarts-wordcloud.min.js"></script>
   <link rel="stylesheet" href="css/body.css">
   <link rel="stylesheet" href="css/type.css">
   <link rel="stylesheet" href="css/plane.css">
   <link rel="stylesheet" href="css/swiper.css">
   <link href="./css/animate.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="./css/style.css">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.28/vue.min.js'></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+
   <style>
     .lang-button {
       display: inline-block;
@@ -43,6 +45,24 @@
       right: 20px;
       z-index: 99999;
     }
+
+    @media only screen and (max-width: 768px) {
+      .lang-button {
+        display: inline-block;
+        padding: 5px 10px;
+        font-size: 12px;
+        color: #343434;
+        background-color: #f9d268;
+        border-color: #343434;
+        border-width: 1px;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        margin-left: 10px;
+        z-index: 99999;
+        font-family: 'button';
+      }
+    }
   </style>
   <script>
     function switchToChinese() {
@@ -56,21 +76,30 @@
 </head>
 
 <body>
+  <!-- partial:index.partial.html -->
+  <!-- <div class="preloader" v-if="loaded !== 0">
+    <div class="preloader__status">
+      <div class="preloader__status-text">loading {{ loaded }} %</div>
+      <div class="preloader__status-loader">
+        <div class="preloader__status-bar" :style="{ width: loadStyle.width }"></div>
+      </div>
+    </div>
+  </div> -->
+  <div class="preloader" v-if="loaded !== 0">
+    <div class="preloader__status">
+      <div class="preloader__status-text">loading {{ loaded }} %</div>
+      <div class="preloader__status-loader">
+        <div class="preloader__status-bar" :style="{ width: loadStyle.width }"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- partial -->
   <div class="lang-buttons-container">
     <button class="lang-button" onclick="switchToChinese()">中文</button>
     <button class="lang-button" onclick="switchToEnglish()">English</button>
   </div>
-  <!-- partial:index.partial.html -->
-  <div class="preloader">
-    <div class="preloader__status">
-      <div status class="preloader__status-text">loading {{loaded}} % </div>
-      <div class="preloader__status-loader">
-        <div loader :style="loadStyle" class="preloader__status-bar"></div>
-      </div>
-    </div>
-  </div>
-  <!-- partial -->
-  <!-- <div id="language-toggle">中/EN</div> -->
   <div id="nav-intro">
     <!-- 导航条 -->
     <nav class="navbox">
@@ -110,8 +139,9 @@
     <!-- cover -->
     <div class="cover">
       <img class="top" src="./images/cover.png" width="100%" height="auto">
+      <img class="top-ph" src="./images/cover-cn-ph.png" width="100%" height="auto">
       <div class="field">
-        <div class="scroll"></div>
+        <div class="scroll" id="scrollButton"></div>
       </div>
       </a>
     </div>
@@ -138,8 +168,9 @@
   <!-- chapter2_trend -->
   <div id="trend-action">
     <div class="cover" id="trend-cover">
-      <img class="chap1" id="chap1" src="./images/chap1.png" alt="Background Image">
-      <img class="scrolling-emoji" src="./images/emoji.png" alt="Scrolling Image">
+      <img class="chap1" id="chap1" src="./images/chap1-cn.png" alt="Background Image">
+      <img class="chap1" id="chap1-ph" src="./images/chap1-cn-ph.png" alt="Background Image">
+
     </div>
 
 
@@ -148,277 +179,242 @@
         <p>如今，正在有越来越多的人对中国产生兴趣。据谷歌旅游目的地洞察数据，2023到2024年，来华航班和住宿的搜索量显呈上升趋势。越来越多的外国朋友们正在将心仪目的地设置为“中国”，对中国表现出强烈的旅行需求。 </p>
         <!-- 谷歌数据图 -->
         <iframe src='https://flo.uri.sh/visualisation/17083187/embed' ' title=' Interactive or visual content'
-          class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;'
+          class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:90%;display: block; margin: 0 auto;'
           sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
         <p> 同时，社交媒体上的“中国热”也在持续升温。</p>
       </div>
+      <div class="video-background">
+        <!-- <video id="backgroundVideo1" autoplay loop muted playsinline x5-video-player-type="h5" webkit-playsinline="true"
+          playsinline="true">
+          <source id="videoSourceDesktop" src="video/1.mp4" type="video/mp4">
+        </video> -->
+        <video id="backgroundVideo1" autoplay loop muted playsinline x5-playsinline="" playsinline="true"
+          webkit-playsinline="true" x-webkit-airplay="true" x5-video-player-type="h5" x5-video-player-fullscreen=""
+          x5-video-orientation="portraint">
+          <source id="videoSourceDesktop" src="video/1.mp4" type="video/mp4">
+        </video>
+        <video id="backgroundVideo2" autoplay loop muted playsinline x5-playsinline="" playsinline="true"
+          webkit-playsinline="true" x-webkit-airplay="true" x5-video-player-type="h5" x5-video-player-fullscreen=""
+          x5-video-orientation="portraint">
+          <source id="videoSourceMobile" src="video/2.mp4" type="video/mp4">
+        </video>
+        <!-- <img id="backgroundVideo2" src="./video/2.gif" style="width: 100%;height:auto;" alt="Background Image"> -->
 
-      <div class="video-container">
-        <div class="video-box" id="video-box">
-          <div class="video-row">
-            <div class="video-block">
-              <video id="video1" autoplay loop muted title="视频源于tiktok@passportvisionz_">
-                <source src="./video/video1.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-block">
-              <video id="video2" autoplay loop muted title="视频源于tiktok@our_awesome_world">
-                <source src="./video/video2.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-block">
-              <video id="video3" autoplay loop muted title="视频源于tiktok@cityviews888">
-                <source src="./video/video3.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-block">
-              <video id="video4" autoplay loop muted title="视频源于tiktok@chinesewithhanhan">
-                <source src="./video/video4.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-block">
-              <video id="video5" autoplay loop muted title="视频源于tiktok@travelih">
-                <source src="./video/video5.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-block">
-              <video id="video6" autoplay loop muted title="视频源于tiktok@travelih">
-                <source src="./video/video6.mp4" type="video/mp4">
-              </video>
-            </div>
+      </div>
+
+      <div class="whitebox">
+        <div class="tiktok-text" id="tiktok-text">
+          <div class="tiktok-p" id="tiktok-p0">
+            <p>今年1月，在国外热门短视频平台——Tiktok上，“china travel”话题兴趣指数相比去年同期上升了376%。以“china
+              travel”为关键词搜索，可以看到数千条相关视频，中国的一山一水，一楼一宇，一食一味，都被记录其中。
+            </p>
           </div>
-          <div class="video-row">
-            <div class="video-block">
-              <video id="video7" autoplay loop muted title="视频源于tiktok@our_awesome_world">
-                <source src="./video/video7.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-block">
-              <video id="video8" autoplay loop muted title="视频源于tiktok@our_awesome_world">
-                <source src="./video/video8.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-block">
-              <video id="video9" autoplay loop muted title="视频源于tiktok@cityviews888">
-                <source src="./video/video9.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-block">
-              <video id="video10" autoplay loop muted title="视频源于tiktok@cityviews888">
-                <source src="./video/video10.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-block">
-              <video id="video11" autoplay loop muted title="视频源于tiktok@jw.relax">
-                <source src="./video/video11.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-block">
-              <video id="video12" autoplay loop muted title="视频源于tiktok@jw.relax">
-                <source src="./video/video12.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-        </div>
-        <div class="whitebox">
-          <div class="tiktok-text" id="tiktok-text">
-            <div class="tiktok-p" id="tiktok-p0">
-              <p>今年1月，在国外热门短视频平台——Tiktok上，“china travel”话题兴趣指数相比去年同期上升了376%。以“china
-                travel”为关键词搜索，可以看到数千条相关视频，中国的一山一水，一楼一宇，一食一味，都被记录其中。
-              </p>
-            </div>
-            <div class="tiktok-p" id="tiktok-p1">
-              <p>为了更加了解外国朋友们对中国的印象，我们选取了“china
-                travel”关键词下，浏览量在百万以上、评论数在1000以上的28条短视频，这些短视频展现了中国各地的特色景观。我们爬取了这些短视频下的评论文本，并对其做了一些有趣的分析。
-              </p>
-            </div>
+          <div class="tiktok-p" id="tiktok-p1">
+            <p>为了更加了解外国朋友们对中国的印象，我们选取了“china
+              travel”关键词下，浏览量在百万以上、评论数在1000以上的28条短视频，这些短视频展现了中国各地的特色景观。我们爬取了这些短视频下的评论文本，并对其做了一些有趣的分析。
+            </p>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="fixed-element" id="fixed-element">
-        <div class="emojibox" id="emojibox">
+    <div class="trend-ana">
+      <div class="fixed-left">
+        <div class="fixed-element" id="fixed-element-0">
           <iframe src='https://flo.uri.sh/visualisation/16915623/embed' title='Interactive or visual content'
             class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;'></iframe>
         </div>
-      </div>
-      <div class="whitebox">
-        <div class="emoji-text" id="emoji-text">
-          <div class="emoji-p" id="emoji-p0">
-            <p>
-              在社交媒体的评论中，网友们常常使用各类emoji表情来抒发自己对视频内容的真实感受。我们提取了评论中的所有emoji表情并进行统计分析，结果显示，这些emoji大都表达了外国网友对中国景观的积极情感。在emoji榜单中，爱心和笑脸元素稳居榜首，🥰、😂、😍成为评论区内外国网友最常使用的表情。
-            </p>
-          </div>
-          <div class="emoji-p" id="emoji-p1">
-            <p>此外，更有趣的是，瞪圆的眼睛和张大的嘴巴（例如：😳、😲）也在表情中占据一席之地，除了喜爱和期待，中国景观给大家带来的震撼和惊叹也不可忽视。</p>
-          </div>
-        </div>
-      </div>
-      <div class="fixed-word" id="fixedword">
-        <div class="wordbox" id="wordbox">
-          <div id="11c49e019bff4e5985d2a8053626f05a" class="chart-container" style="width:1000px; height:500px; ">
-          </div>
-          <div class="whitebox">
-            <p>数据说明：图中所展示出的单词出现频率均在300以上<br>(悬停可查看详情)</p>
-          </div>
-        </div>
-      </div>
-      <div class="whitebox">
-        <div class="word-text" id="word-text">
-          <div class="word-p" id="word-p0">
-            <p>
-              除此之外，我们还对这些评论中的英文文本进行了进一步的词频分析。在英文评论文本中，外国网友最喜欢用“beautiful、amazing、cool”等形容词表达对中国景观的赞美，“cyberpunk、future、dream”等词则表现了外国网友对中国城市景观先进程度的惊叹，在语气词中，“wow”最常出现，而“go”是出现频率最高的动词。
-            </p>
-          </div>
-          <div class="word-p" id="word-p1">
-            <p> 在大家的眼中，中国是一片美丽与未来感并存的土地，地大物博也正是中国的魅力所在。从一座城到另一座城，你可以看到风格截然不同的景观，吃到多样口味的美食，体验多种文化的趣味。多面的中国，正满足着你对旅行的多重想象。
-            </p>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="fixed-go" id="fixed-go">
-        <div class="gobox" id="gobox">
-          <iframe src='https://flo.uri.sh/visualisation/16689989/embed' title='Interactive or visual content'
-            class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;'></iframe>
-        </div>
-      </div>
-      <div class="whitebox">
-        <div class="go-text" id="go-text">
-          <div class="go-p" id="go-p0">
-            <p>我们围绕出现频率较高的几个动词（如：go、visit、love、want等词）及其语用搭配， 对评论文本进行了关键词共现分析，“want to go、need to go、want to
-              visit”等词语组合呈现出了外国网友对中国的极高兴趣和强烈的旅游愿望。评论区中，已经有很多外国朋友将中国列入自己的“旅行必去国家清单”。
-            </p>
-          </div>
-          <div class="go-p" id="go-p1">
-            <p>我们相信，如果你能亲自来到这里，中国一定也值得你的一句“wow”！
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="action" class="part">
-      <div class="cover" id="action-cover">
-        <img class="chap2" id="chap2" src="./images/chap2.png" alt="Background Image">
-        <img class="scrolling-fly" src="./images/fly.jpg" alt="Scrolling Image">
-        <!-- <img class="scrolling-line" src="./images/line.png"> -->
-      </div>
-
-      <div class="content action-text">
-        <p>为了实现“want to go”到“be here”的转变，中国也正在积极加入这场同外国游客的“双向奔赴”，努力让大家的中国行变得更便利、更舒适。</p>
-        <p>首先，来到中国正在变成一件越来越简单的“小事”。
-        </p>
-      </div>
-      <!-- 航线对比图 -->
-      <div class="plane-container">
-        <div class="plane">
-          <div class="swiper swiper1">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide slide1"></div>
-              <div class="swiper-slide slide1">
-              </div>
-              <div class="swiper-slide slide2"></div>
-              <div class="swiper-slide slide3"></div>
-              <div class="swiper-slide slide4"></div>
-              <div class="swiper-slide slide5"></div>
-              <div class="swiper-slide slide6"></div>
-              <div class="swiper-slide slide6">
-              </div>
-              <div class="swiper-slide slide6"></div>
+        <div class="fixed-element" id="fixed-element-1">
+          <div class="wordbox" id="wordbox">
+            <div id="11c49e019bff4e5985d2a8053626f05a" class="chart-container"
+              style="width:100%; height:500px;font-family: 'Chalkboard'; ">
             </div>
-
+            <div class="whitebox">
+              <p>数据说明：图中所展示出的单词出现频率均在300以上<br>(悬停可查看详情)</p>
+            </div>
           </div>
         </div>
-        <div class="trigger swiper1_trigger" id="trigger_100"></div>
-        <div class="trigger swiper1_trigger" id="trigger_800"></div>
-        <div class="trigger swiper1_trigger" id="trigger_250"></div>
-        <div class="trigger swiper1_trigger" id="trigger_250"></div>
-        <div class="trigger swiper1_trigger" id="trigger_100"></div>
-        <div class="trigger swiper1_trigger" id="trigger_100"></div>
-        <div class="trigger swiper1_trigger" id="trigger_100"></div>
-        <div class="trigger swiper1_trigger" id="trigger_100"></div>
-        <div class="trigger swiper1_trigger" id="trigger_100"></div>
-        <div class="trigger swiper1_trigger" id="trigger_800"></div>
-        <div class="bottom-placeholder"></div>
-      </div>
-      <div class="whitebox">
-        <div class="plane-text" id="plane-text">
-          <div class="plane-p" id="plane-p0">
-            <p>我们统计了航班查询专业平台——“飞常准”上国外飞往中国大陆的航班及航线数量。2023年1月份，疫情后全面解封的第一周，我国的国际航班也正式开启了全面复苏，由境外飞往中国的航线共有195条，航班数达到355次。
-            </p>
-          </div>
-          <div class="plane-p" id="plane-p1">
-            <p>
-              过去的一年多以来，中国的国际客运航班数量正在稳步恢复，并在原有基础上不断进行优化和新增。据民航局官方统计，至2023年底，中国国际客运定期航班数已恢复至疫情前的六成以上，共通航67个国家，其中英国等25个国家航班量已超过疫情前水平，同时较疫情前新增了坦桑尼亚、塞尔维亚等多个国家。目前，这组数据还在持续增长中，中国的国门正积极向全世界打开。
-            </p>
-          </div>
-          <div class="plane-p" id="plane-p2">
-            <p>
-              飞常准数据显示，截止到2024年2月的春节期间，中国共开设了784条航线上的共5861条航班。2024年春节，中国迎来了一个新的入境旅游高峰。经文化和旅游部数据中心测算，2024年春节假期，中国入境游人次超过300万，接近2019年同期水平。中国旅游研究院大数据监测显示，除夕当日入境游客超60万人次。浓厚的传统节日氛围吸引了众多外国游客来到中国，同中国人民一起共享春节的热闹与祥和。
-            </p>
+        <div class="fixed-element" id="fixed-element-2">
+          <div class="gobox" id="gobox">
+            <iframe src='https://flo.uri.sh/visualisation/16689989/embed' title='Interactive or visual content'
+              class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;'></iframe>
           </div>
         </div>
       </div>
-
-      <div class="content" action-text>
-        <p>如果是麻烦的签证办理手续让你对中国“望而却步”，那也无需担心，关于签证办理的烦恼，中国也正在努力解决。</p>
-        <p>目前，中国已经为183个国家提供了包括互免签证、单方面免签、团体旅游互免签证等在内的各项签证便利服务。
-        </p>
-        <p>
-          2024年3月1日，中国与泰国签署的互免签证协定正式生效，至此，中国的互免“朋友圈”已增加至23国，遍布五大洲。同时，中国也在持续扩大单方面免签的国家范围，同世界各国构建友谊的桥梁。2023年，有西班牙、马来西亚等多个国家被纳入了中国试行单方面免签政策的国家清单，今年3月，中国又宣布对瑞士、爱尔兰、匈牙利等六个国家试行免签政策。下图是中国免签朋友圈中部分国家的谷歌旅行需求指数变化趋势，政策发布后，相应国家的谷歌旅行需求指数有了明显的上升，攀升的数字见证了中国与世界人民的这场“双向奔赴”。
-        </p>
-        <div class="nation-google">
-          <iframe src='https://flo.uri.sh/visualisation/17360563/embed'' title=' Interactive or visual content'
-            class='flourish-embed-iframe' frameborder='0' scrolling='no'
-            style='width:90%;height: 500px;display: block; margin: 0 auto;' sandbox=' allow-same-origin allow-forms allow-scripts allow-downloads allow-popups
-            allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
-        </div>
-        <p>海南、桂林等热门旅游地，也恢复了专属的免签政策，以最大的热情欢迎外国游客的到来。
-        </p>
-        <p>
-          除此之外，国家政府也在不断优化签证办理的步骤和手续，“一站式签证办理”正在实现。查阅中国驻各国大使馆并进行统计，已经有165个国家公民可以享受到不同程度的签证办理便利服务，包括免采指纹、签证办理免预约等，部分国家的签证办理费用也在逐步下调。
-        </p>
-        <p>为了方便游客们能够迅速了解自己国家能够享受到的来华签证便利，我们构建了一个查询系统。你可以选择自己所在的国家，在这里进行一键式查询，以便根据最新信息，规划更加适合你的“中国行”计划。
-        </p>
-        <div class="policy">
-          <iframe src='https://flo.uri.sh/visualisation/17132515/embed' title='Interactive or visual content'
-            class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:700px;'
-            sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+      <div class="scroll-right">
+        <div class="whitebox">
+          <div class="emoji-text" id="emoji-text">
+            <div class="emoji-p" id="emoji-p0">
+              <p>
+                在社交媒体的评论中，网友们常常使用各类emoji表情来抒发自己对视频内容的真实感受。我们提取了评论中的所有emoji表情并进行统计分析，结果显示，这些emoji大都表达了外国网友对中国景观的积极情感。在emoji榜单中，爱心和笑脸元素稳居榜首，🥰、😂、😍成为评论区内外国网友最常使用的表情。
+              </p>
+            </div>
+            <div class="emoji-p" id="emoji-p1">
+              <p>此外，更有趣的是，瞪圆的眼睛和张大的嘴巴（例如：😳、😲）也在表情中占据一席之地，除了喜爱和期待，中国景观给大家带来的震撼和惊叹也不可忽视。</p>
+            </div>
+          </div>
+          <div class="word-text" id="word-text">
+            <div class="word-p" id="word-p0">
+              <p>
+                除此之外，我们还对这些评论中的英文文本进行了进一步的词频分析。在英文评论文本中，外国网友最喜欢用“beautiful、amazing、cool”等形容词表达对中国景观的赞美，“cyberpunk、future、dream”等词则表现了外国网友对中国城市景观先进程度的惊叹，在语气词中，“wow”最常出现，而“go”是出现频率最高的动词。
+              </p>
+            </div>
+            <div class="word-p" id="word-p1">
+              <p>
+                在大家的眼中，中国是一片美丽与未来感并存的土地，地大物博也正是中国的魅力所在。从一座城到另一座城，你可以看到风格截然不同的景观，吃到多样口味的美食，体验多种文化的趣味。多面的中国，正满足着你对旅行的多重想象。
+              </p>
+            </div>
+          </div>
+          <div class="go-text" id="go-text">
+            <div class="go-p" id="go-p0">
+              <p>我们围绕出现频率较高的几个动词（如：go、visit、love、want等词）及其语用搭配， 对评论文本进行了关键词共现分析，“want to go、need to go、want to
+                visit”等词语组合呈现出了外国网友对中国的极高兴趣和强烈的旅游愿望。评论区中，已经有很多外国朋友将中国列入自己的“旅行必去国家清单”。
+              </p>
+            </div>
+            <div class="go-p" id="go-p1">
+              <p>我们相信，如果你能亲自来到这里，中国一定也值得你的一句“wow”！
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-      <!-- 政策查询地图 -->
 
-      <div class="content action-text">
-        <p>
-          与此同时，我们的入境旅游服务也正在不断完善。2023年9月，中国国务院办公厅发布《关于释放旅游消费潜力推动旅游业高质量发展的若干措施》，着重提到将进一步提高入境旅游的各方面服务水平。在未来，外国游客来到中国的住宿登记将变得更加便利，与服务人员们用外语沟通会更加顺畅，各场所的标识和导览也将更加明白易懂。
-        </p>
-        <p>
-          对于很多外国游客都在旅行中感到头疼的“扫码支付”问题，中国也在积极尝试解决。随着移动支付在中国不断普及，从2019年起，中国政府已开始着力推动入境游客的支付便利化，并在各地深入推进实施。广州、三亚等热门旅游城市已经陆续为外国游客提供了多种入境消费的便利化解决方案，外国游客可根据自身情况，选择手机软件（微信或支付宝）支付、数字人民币、银联境外钱包等多种方式进行支付。2023年11月，上海进博会开幕前，上海在商业、文旅、机场车站等重点场景已开通外卡POS机超3.6万台，实现三大场景重点商户全覆盖，以满足境外游客的刷卡需求。
-        </p>
-        <img src="./images/convenience.png">
-        <p>
-          今年3月，国务院办公厅又发布了《关于进一步优化支付服务提升支付便利性的意见》。针对提升入境游客支付服务水平，提出了很多具体的措施——“大额刷卡、小额扫码、现金兜底“。这些措施既考虑到了外国游客的日常支付习惯，又与当下中国的消费环境相适应，目前正在进一步落实中。
-        </p>
-        <p>我们希望能够让外国游客在旅行中实现“畅通无阻”地消费：挑选你心仪的居住环境，无论是高档酒店还是舒适休闲的民宿；品尝你喜欢的美食，无论是在精致餐馆还是街边小摊；购买你心仪的纪念品，无论是在知名景点还是小众景区……
-        </p>
-        <p>总之，这些都无须担心！</p>
-        <p>中国正在通过自己的努力向世界证明：当你走向中国，中国也在走向你。</p>
+    </div>
+
+  </div>
+
+  <div id="action" class="part">
+    <div class="cover" id="action-cover">
+      <img class="chap2" id="chap2" src="./images/chap2-cn.png" alt="Background Image">
+      <img class="chap2" id="chap2-ph" src="./images/chap2-cn-ph.png" alt="Background Image">
+
+    </div>
+
+    <div class="content action-text">
+      <p>为了实现“want to go”到“be here”的转变，中国也正在积极加入这场同外国游客的“双向奔赴”，努力让大家的中国行变得更便利、更舒适。</p>
+      <p>首先，来到中国正在变成一件越来越简单的“小事”。
+      </p>
+    </div>
+    <!-- 航线对比图 -->
+    <div class="plane-container">
+      <div class="plane">
+        <div class="swiper swiper1">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide slide0"></div>
+            <div class="swiper-slide slide1">
+            </div>
+            <div class="swiper-slide slide1">
+            </div>
+            <div class="swiper-slide slide2"></div>
+            <div class="swiper-slide slide3"></div>
+            <div class="swiper-slide slide4"></div>
+            <div class="swiper-slide slide5"></div>
+            <div class="swiper-slide slide6"></div>
+            <div class="swiper-slide slide6"></div>
+          </div>
+
+        </div>
+      </div>
+      <div class="trigger swiper1_trigger" id="trigger_10"></div>
+      <div class="trigger swiper1_trigger" id="trigger_800"></div>
+      <div class="trigger swiper1_trigger" id="trigger_500"></div>
+      <div class="trigger swiper1_trigger" id="trigger_250"></div>
+      <div class="trigger swiper1_trigger" id="trigger_250"></div>
+      <div class="trigger swiper1_trigger" id="trigger_100"></div>
+      <div class="trigger swiper1_trigger" id="trigger_100"></div>
+      <div class="trigger swiper1_trigger" id="trigger_100"></div>
+      <div class="trigger swiper1_trigger" id="trigger_100"></div>
+      <div class="trigger swiper1_trigger" id="trigger_500"></div>
+      <div class="bottom-placeholder"></div>
+    </div>
+    <div class="whitebox">
+      <div class="plane-text" id="plane-text">
+        <div class="plane-p" id="plane-p0">
+          <p>
+            我们统计了航班查询专业平台——“飞常准”上国外飞往中国大陆的航班及航线数量。2023年1月9日至1月15日，疫情后全面解封的第一周，我国的国际航班也正式开启了全面复苏，由国外飞往中国大陆的<span
+              style="background-color:#8ac92681 ;">航线共有203条，航班数达到384次</span>。
+          </p>
+        </div>
+        <div class="plane-p" id="plane-p1">
+          <p>
+            <span
+              style="background-color:#8ac92681 ;">过去的一年多以来，中国的国际客运航班数量正在稳步恢复</span>，并在原有基础上不断进行优化和新增。据民航局官方统计，至2023年底，中国国际客运定期航班数已恢复至疫情前的六成以上，共通航67个国家，其中英国等25个国家航班量已超过疫情前水平，同时较疫情前新增了坦桑尼亚、塞尔维亚等多个国家。目前，这组数据还在持续增长中，中国的国门正积极向全世界打开。
+          </p>
+        </div>
+        <div class="plane-p" id="plane-p2">
+          <p>
+            飞常准数据显示，截止到2024年2月的春节期间，共有<span
+              style="background-color:#8ac92681 ;">784条航线上的5861个航班由国外飞往中国大陆。</span>这个春节，中国迎来了一个新的入境旅游高峰。经文化和旅游部数据中心测算，春节假期期间，中国入境游人次超过300万，接近2019年同期水平。中国旅游研究院大数据监测显示，除夕当日入境游客超60万人次。浓厚的传统节日氛围吸引了众多外国游客来到中国，同中国人民一起共享春节的热闹与祥和。
+          </p>
+        </div>
       </div>
     </div>
+
+    <div class="content" action-text>
+      <p>如果是麻烦的签证办理手续让你对中国“望而却步”，那也无需担心，关于签证办理的烦恼，中国也正在努力解决。</p>
+      <p>目前，中国已经为183个国家提供了包括互免签证、单方面免签、团体旅游互免签证等在内的各项签证便利服务。
+      </p>
+      <p>
+        2024年3月1日，中国与泰国签署的互免签证协定正式生效，至此，中国的互免“朋友圈”已增加至23国，遍布五大洲。同时，中国也在持续扩大单方面免签的国家范围，同世界各国构建友谊的桥梁。2023年，有西班牙、马来西亚等多个国家被纳入了中国试行单方面免签政策的国家清单，今年3月，中国又宣布对瑞士、爱尔兰、匈牙利等六个国家试行免签政策。下图是中国免签朋友圈中部分国家的谷歌旅行需求指数变化趋势，政策发布后，相应国家的谷歌旅行需求指数有了明显的上升，攀升的数字见证了中国与世界人民的这场“双向奔赴”。
+      </p>
+      <div class="nation-google">
+        <iframe src='https://flo.uri.sh/visualisation/17360563/embed'' title=' Interactive or visual content'
+          class='flourish-embed-iframe' frameborder='0' scrolling='no'
+          style='width:90%;height: 500px;display: block; margin: 0 auto;' sandbox=' allow-same-origin allow-forms allow-scripts allow-downloads allow-popups
+            allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+      </div>
+      <p>海南、桂林等热门旅游地，也恢复了专属的免签政策，以最大的热情欢迎外国游客的到来。
+      </p>
+      <p>
+        除此之外，国家政府也在不断优化签证办理的步骤和手续，“一站式签证办理”正在实现。查阅中国驻各国大使馆并进行统计，已经有165个国家公民可以享受到不同程度的签证办理便利服务，包括免采指纹、签证办理免预约等，部分国家的签证办理费用也在逐步下调。
+      </p>
+      <p>为了方便游客们能够迅速了解自己国家能够享受到的来华签证便利，我们构建了一个查询系统。你可以选择自己所在的国家，在这里进行一键式查询，以便根据最新信息，规划更加适合你的“中国行”计划。
+      </p>
+      <div class="policy">
+        <iframe src='https://flo.uri.sh/visualisation/17132515/embed' title='Interactive or visual content'
+          class='flourish-embed-iframe' id="policy" frameborder='0' scrolling='no'
+          style='width:100%;margin-bottom: -5em;z-index: 1;'
+          sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+      </div>
+      <div id="note">
+        <p>数据来源： 中国领事服务网, 中国驻外外交机构网站<br>
+          数据说明：1. 图中来华签证办理便利具体可分为办理来华签证免预约、免采指纹、办理费用调减三项；<br>
+          2. 图中根据双边协议可免签入境中国的情况包括持普通护照免签入境中国与团体旅游免签入境中国。具体要求详见中外互免签证协议一览表：http://cs.mfa.gov.cn/zlbg/bgzl/lhqz；<br>
+          图中数据获取时间为2024年3月16日，具体情况可能动态调整，建议行前进一步咨询中国驻相关国家使领馆或中国国家移民管理局。</p>
+      </div>
+    </div>
+    <!-- 政策查询地图 -->
+
+
+    <div class="content action-text">
+      <p>
+        与此同时，我们的入境旅游服务也正在不断完善。2023年9月，中国国务院办公厅发布《关于释放旅游消费潜力推动旅游业高质量发展的若干措施》，着重提到将进一步提高入境旅游的各方面服务水平。在未来，外国游客来到中国的住宿登记将变得更加便利，与服务人员们用外语沟通会更加顺畅，各场所的标识和导览也将更加明白易懂。
+      </p>
+      <p>
+        对于很多外国游客都在旅行中感到头疼的“扫码支付”问题，中国也在积极尝试解决。随着移动支付在中国不断普及，从2019年起，中国政府已开始着力推动入境游客的支付便利化，并在各地深入推进实施。广州、三亚等热门旅游城市已经陆续为外国游客提供了多种入境消费的便利化解决方案，外国游客可根据自身情况，选择手机软件（微信或支付宝）支付、数字人民币、银联境外钱包等多种方式进行支付。2023年11月，上海进博会开幕前，上海在商业、文旅、机场车站等重点场景已开通外卡POS机超3.6万台，实现三大场景重点商户全覆盖，以满足境外游客的刷卡需求。
+      </p>
+      <img src="./images/convenience.png">
+      <p>
+        今年3月，国务院办公厅又发布了《关于进一步优化支付服务提升支付便利性的意见》。针对提升入境游客支付服务水平，提出了很多具体的措施——“大额刷卡、小额扫码、现金兜底“。这些措施既考虑到了外国游客的日常支付习惯，又与当下中国的消费环境相适应，目前正在进一步落实中。
+      </p>
+      <p>我们希望能够让外国游客在旅行中实现“畅通无阻”地消费：挑选你心仪的居住环境，无论是高档酒店还是舒适休闲的民宿；品尝你喜欢的美食，无论是在精致餐馆还是街边小摊；购买你心仪的纪念品，无论是在知名景点还是小众景区……
+      </p>
+      <p>总之，这些都无须担心！</p>
+      <p>中国正在通过自己的努力向世界证明：当你走向中国，中国也在走向你。</p>
+    </div>
+  </div>
   </div>
   <div id="recommend-methods">
     <div id="recommend" class="part">
       <div class="cover" id="recommend-cover">
-        <img class="chap3" id="chap3" src="./images/chap3.png" alt="Background Image">
-        <img class="scrolling-changcheng" src="./images/changcheng.png" alt="Scrolling Image">
-        <img class="scrolling-bingmayong" src="./images/bingmayong.png" alt="Scrolling Image">
-        <img class="scrolling-xiongmao" src="./images/xiongmao.png" alt="Scrolling Image">
+        <img class="chap3" id="chap3" src="./images/chap3-cn.png" alt="Background Image">
+        <img class="chap3" id="chap3-ph" src="./images/chap3-cn-ph.png" alt="Background Image">
+
       </div>
       <div class="content recommend-text">
         <p>了解了“如何来”的问题，接下来，我们还希望能够在“去哪里”上为你提供一些建议和帮助。 </p>
-        <p>在全球性旅行网站——TripAdvisor中，来自世界各地的旅行者热情分享了他们的旅行经历、评价和建议。为深入了解外国游客的中国旅行偏好与真实体验，我们爬取了TripAdvisor网站“Things to do in
+        <p>在全球性旅行网站——TripAdvisor中，来自世界各地的旅行者热情分享了他们的旅行经历、评价和建议。为深入了解外国游客的中国旅行偏好与真实体验，我们爬取了TripAdvisor网站“Things to do
+          in
           China”板块中，外文评论超过200条的景点评论、评分等数据，并对其进行统计分析。如果你想来中国，也许外国游客的真实评价会是一个很好的参考。</p>
         <p>下方图中每个圆圈代表一个景点，圆圈越大，景点评论数越多；圆圈颜色越深，景点评分越高。</p>
       </div>
@@ -428,7 +424,7 @@
         <section id="scrolly">
           <figure style="top: 0px;">
             <iframe src='https://flo.uri.sh/story/2177034/embed' title='Interactive or visual content'
-              class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:100%;'
+              class='flourish-embed-iframe' id="story" frameborder='0' scrolling='no'
               sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
           </figure>
           <article>
@@ -478,7 +474,7 @@
             <div class="step step-box">
               <div class="picbox">
                 <iframe src='https://flo.uri.sh/visualisation/16921446/embed' title='Interactive or visual content'
-                  class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height: 100%;'
+                  class='flourish-embed-iframe' id=“dot” frameborder='0' scrolling='no' style='width:100%;height: 100%;'
                   sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
               </div>
               <div class="textbox">
@@ -493,7 +489,7 @@
             <div class="step invisible"></div>
             <div class="step step-box">
               <div class="picbox">
-                <img src="./images/changcheng2.png" width="90%">
+                <img id="panda" src="./images/changcheng2.png" width="80%">
               </div>
               <div class="textbox">
                 <p>
@@ -506,7 +502,7 @@
             <div class="step invisible"></div>
             <div class="step step-box">
               <div class="picbox">
-                <img src="./images/bingmayong2.png" width="90%">
+                <img id="panda" src="./images/bingmayong2.png" width="80%">
               </div>
               <div class="textbox">
                 <p>
@@ -518,7 +514,7 @@
             <div class="step invisible"></div>
             <div class="step step-box">
               <div class="picbox">
-                <img src="./images/xiongmao2.png" width="70%" style="margin: 5% 0 5% 10%;">
+                <img id="panda" src="./images/xiongmao2.png" width="80%">
               </div>
               <div class="textbox">
                 <p>
@@ -530,7 +526,7 @@
             <div class="step invisible"></div>
             <div class="step step-box">
               <div class="picbox">
-                <img src="./images/waitan2.png" width="90%">
+                <img id="panda" src="./images/waitan2.png" width="80%">
               </div>
               <div class="textbox">
                 <p>
@@ -586,8 +582,7 @@
           </article>
           <div class="step invisible" id="last"></div>
         </section>
-        <!-- <section>
-      </section> -->
+
       </main>
       <div class="content recommend-text">
         <p>
@@ -604,9 +599,8 @@
 
         <!-- 问题容器 -->
         <div id="question-container" class="card" style="display: none;">
-
           <!-- 问题1 -->
-          <div class="question">
+          <div class="question" data-page="1">
             <p>1. 您对历史遗迹景点的感兴趣程度是：</p>
             <div class="options">
               <div class="option">
@@ -625,7 +619,7 @@
           </div>
 
           <!-- 问题2 -->
-          <div class="question">
+          <div class="question" data-page="1">
             <p>2. 除了参观著名景区之外，您对探索都市丰富生活感兴趣吗？</p>
             <div class="options">
               <div class="option">
@@ -644,7 +638,7 @@
           </div>
 
           <!-- 问题3 -->
-          <div class="question">
+          <div class="question" data-page="1">
             <p>3. 您对山岳峡谷类景观的感兴趣程度是：</p>
             <div class="options">
               <div class="option">
@@ -663,7 +657,7 @@
           </div>
 
           <!-- 问题4 -->
-          <div class="question">
+          <div class="question" data-page="1">
             <p>4. 您对海滨沙滩类景观的感兴趣程度是：</p>
             <div class="options">
               <div class="option">
@@ -682,7 +676,7 @@
           </div>
 
           <!-- 问题5 -->
-          <div class="question">
+          <div class="question" data-page="1">
             <p>5. 您对动植物园等生物景观的感兴趣程度是：</p>
             <div class="options">
               <div class="option">
@@ -701,7 +695,7 @@
           </div>
 
           <!-- 问题6 -->
-          <div class="question">
+          <div class="question" data-page="1">
             <p>6. 您对江河湖泊类景观的感兴趣程度是：</p>
             <div class="options">
               <div class="option">
@@ -718,9 +712,8 @@
               </div>
             </div>
           </div>
-
           <!-- 问题7 -->
-          <div class="question">
+          <div class="question" data-page="2">
             <p>7. 您在饮食方面对酸味的偏好程度是：</p>
             <div class="options">
               <div class="option">
@@ -739,7 +732,7 @@
           </div>
 
           <!-- 问题8 -->
-          <div class="question">
+          <div class="question" data-page="2">
             <p>8. 您在饮食方面对甜味的偏好程度是：</p>
             <div class="options">
               <div class="option">
@@ -758,7 +751,7 @@
           </div>
 
           <!-- 问题9 -->
-          <div class="question">
+          <div class="question" data-page="2">
             <p>9. 您在饮食方面对咸味的偏好程度是：</p>
             <div class="options">
               <div class="option">
@@ -777,7 +770,7 @@
           </div>
 
           <!-- 问题10 -->
-          <div class="question">
+          <div class="question" data-page="2">
             <p>10. 您在饮食方面对辣味的偏好程度是：</p>
             <div class="options">
               <div class="option">
@@ -796,7 +789,7 @@
           </div>
 
           <!-- 问题11 -->
-          <div class="question">
+          <div class="question" data-page="3">
             <p>11. 如果来到中国旅游，您会选择更知名的城市作为您的目的地吗？</p>
             <div class="options">
               <div class="option">
@@ -815,7 +808,7 @@
           </div>
 
           <!-- 问题12 -->
-          <div class="question">
+          <div class="question" data-page="3">
             <p>12. 您对旅行城市交通便利水平的在意程度是：</p>
             <div class="options">
               <div class="option">
@@ -834,7 +827,7 @@
           </div>
 
           <!-- 问题13 -->
-          <div class="question">
+          <div class="question" data-page="3">
             <p>13. 您对旅行城市住宿性价比的在意程度是：</p>
             <div class="options">
               <div class="option">
@@ -851,9 +844,11 @@
               </div>
             </div>
           </div>
-
-
-          <button class="click" onclick="calculateRecommendation()">提交</button>
+          <div class="quiz-button">
+            <button id="prev-btn" class="click" onclick="prevPage()">上一页</button>
+            <button id="next-btn" class="click" onclick="nextPage()">下一页</button>
+            <button id="submit-btn" class="click" onclick="calculateRecommendation()">提交</button>
+          </div>
         </div>
 
         <!-- 推荐结果容器 -->
@@ -889,7 +884,7 @@
         <div class="team">
           <br><br><br><br><br>
           <p>
-            有关本作品数据获取与分析的方法论，详见：<a href="#" class="method">方法论</a>
+            有关本作品数据获取与分析的方法论，详见：<a href="https://docs.qq.com/aio/DTnljdWp5WllxZndF" class="method">方法论</a>
           </p>
 
           <p>
@@ -908,19 +903,20 @@
     </div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.28/vue.min.js'></script>
-  <script src="./js/script.js"></script>
+  <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/echarts.min.js"></script>
+  <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/echarts-wordcloud.min.js"></script>
+
   <script src="./js/debug.addIndicators.min.js"></script>
   <script src="./js/ScrollMagic.js"></script>
   <script src="./js/fix-scroll.js"></script>
   <script src="./js/swiper.min.js"></script>
   <script src="./js/swiper.animate.min.js"></script>
   <script src="./js/swipertrigger.js"></script>
-  <script src="https://unpkg.com/scrollama"></script>
+  <!-- <script src="https://unpkg.com/scrollama"></script> -->
+  <script src="./js/scrollama.min.js"></script>
   <script src="./js/d3.min.js" language="javascript"></script>
   <script src="https://public.flourish.studio/resources/embed.js"></script>
+
   <script>
     // 获取所有的导航按钮、标签和页面内容区域  
     var buttons = document.querySelectorAll('.sectionBox');
@@ -989,94 +985,15 @@
 
   </script>
 
-
-
-
   <script>
-    // using d3 for convenience
-    var main = d3.select("main");
-    var scrolly = main.select("#scrolly");
-    var figure = scrolly.select("figure");
-    var article = scrolly.select("article");
-    var step = article.selectAll(".step");
-
-    // initialize the scrollama
-    var scroller = scrollama();
-
-    // generic window resize listener event
-    function handleResize() {
-      // 1. update height of step elements
-      var stepH = Math.floor(window.innerHeight * 1);
-
-      step.style("height", 400 + "px");
-
-      var figureHeight = window.innerHeight;
-      var figureMarginTop = (window.innerHeight - figureHeight);
-
-      figure
-        .style("height", figureHeight + "px")
-        .style("top", 0 + "px");
-
-      // 3. tell scrollama to update new element dimensions
-      scroller.resize();
-    }
-
-    // scrollama event handlers
-    function handleStepEnter(response) {
-      console.log(response);
-      // response = { element, direction, index }
-
-      // add color to current step only
-      step.classed("is-active", function (d, i) {
-        return i === response.index;
+    document.getElementById("scrollButton").addEventListener("click", function () {
+      window.scrollBy({
+        top: window.innerHeight, // Scroll one screen height
+        behavior: 'smooth' // Smooth scroll behavior
       });
-
-
-
-      // update graphic based on step
-      figure.select("p").text(response.index + 1);
-
-      figure.select("iframe").attr("src", function (d) {
-        return (
-          "https://flo.uri.sh/story/2177034/embed#slide-" + response.index
-
-        );
-      });
-
-      // var iframe = document.querySelector("#scrolly iframe");
-      // iframe.src = iframe.src.replace(/#slide-.*/, "") + "#slide-" + response.index;
-    }
-
-    function setupStickyfill() {
-      d3.selectAll(".sticky").each(function () {
-        Stickyfill.add(this);
-      });
-    }
-
-    function init() {
-      setupStickyfill();
-
-      // 1. force a resize on load to ensure proper dimensions are sent to scrollama
-      handleResize();
-
-      // 2. setup the scroller passing options
-      // 		this will also initialize trigger observations
-      // 3. bind scrollama event handlers (this can be chained like below)
-      scroller
-        .setup({
-          step: "#scrolly article .step",
-          offset: 0.05,
-          debug: false,
-        })
-        .onStepEnter(handleStepEnter);
-
-      // setup resize event
-      window.addEventListener("resize", handleResize);
-    }
-
-    // kick things off
-    init();
+    });
   </script>
+  
   <script>
     var chart_11c49e019bff4e5985d2a8053626f05a = echarts.init(
       document.getElementById('11c49e019bff4e5985d2a8053626f05a'), 'white', { renderer: 'canvas' });
@@ -1451,6 +1368,94 @@
     };
     chart_11c49e019bff4e5985d2a8053626f05a.setOption(option_11c49e019bff4e5985d2a8053626f05a);
   </script>
+
+
+  <script>
+    // using d3 for convenience
+    var main = d3.select("main");
+    var scrolly = main.select("#scrolly");
+    var figure = scrolly.select("figure");
+    var article = scrolly.select("article");
+    var step = article.selectAll(".step");
+
+    // initialize the scrollama
+    var scroller = scrollama();
+
+    // generic window resize listener event
+    function handleResize() {
+      // 1. update height of step elements
+      var stepH = Math.floor(window.innerHeight * 1);
+
+      step.style("height", 450 + "px");
+
+      var figureHeight = window.innerHeight;
+      var figureMarginTop = (window.innerHeight - figureHeight);
+
+      figure
+        .style("height", figureHeight + "px")
+        .style("top", 0 + "px");
+
+      // 3. tell scrollama to update new element dimensions
+      scroller.resize();
+    }
+
+    // scrollama event handlers
+    function handleStepEnter(response) {
+      console.log(response);
+      // response = { element, direction, index }
+
+      // add color to current step only
+      step.classed("is-active", function (d, i) {
+        return i === response.index;
+      });
+
+
+
+      // update graphic based on step
+      figure.select("p").text(response.index + 1);
+
+      figure.select("iframe").attr("src", function (d) {
+        return (
+          "https://flo.uri.sh/story/2177034/embed#slide-" + response.index
+
+        );
+      });
+
+      // var iframe = document.querySelector("#scrolly iframe");
+      // iframe.src = iframe.src.replace(/#slide-.*/, "") + "#slide-" + response.index;
+    }
+
+    function setupStickyfill() {
+      d3.selectAll(".sticky").each(function () {
+        Stickyfill.add(this);
+      });
+    }
+
+    function init() {
+      setupStickyfill();
+
+      // 1. force a resize on load to ensure proper dimensions are sent to scrollama
+      handleResize();
+
+      // 2. setup the scroller passing options
+      // 		this will also initialize trigger observations
+      // 3. bind scrollama event handlers (this can be chained like below)
+      scroller
+        .setup({
+          step: "#scrolly article .step",
+          offset: 0.05,
+          debug: false,
+        })
+        .onStepEnter(handleStepEnter);
+
+      // setup resize event
+      window.addEventListener("resize", handleResize);
+    }
+
+    // kick things off
+    init();
+  </script>
+  <script src="./js/script.js"></script>
   <script src="./js/quiz.js"></script>
 </body>
 

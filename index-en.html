@@ -43,6 +43,24 @@
       right: 20px;
       z-index: 99999;
     }
+
+    @media only screen and (max-width: 768px) {
+      .lang-button {
+        display: inline-block;
+        padding: 5px 10px;
+        font-size: 12px;
+        color: #343434;
+        background-color: #f9d268;
+        border-color: #343434;
+        border-width: 1px;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        margin-left: 10px;
+        z-index: 99999;
+        font-family: 'button';
+      }
+    }
   </style>
   <script>
     // 假设当前页面是index.html或者index-en.html  
@@ -57,10 +75,6 @@
 </head>
 
 <body>
-  <div class="lang-buttons-container">
-    <button class="lang-button" onclick="switchToChinese()">中文</button>
-    <button class="lang-button" onclick="switchToEnglish()">English</button>
-  </div>
   <!-- partial:index.partial.html -->
   <div class="preloader">
     <div class="preloader__status">
@@ -71,7 +85,10 @@
     </div>
   </div>
   <!-- partial -->
-  <!-- <div id="language-toggle">中/EN</div> -->
+  <div class="lang-buttons-container">
+    <button class="lang-button" onclick="switchToChinese()">中文</button>
+    <button class="lang-button" onclick="switchToEnglish()">English</button>
+  </div>
   <div id="nav-intro">
     <!-- 导航条 -->
     <nav class="navbox">
@@ -111,8 +128,10 @@
     <!-- cover -->
     <div class="cover">
       <img class="top" src="./images/cover-en.png" width="100%" height="auto">
+      <img class="top-ph" src="./images/cover-en-ph.png" width="100%" height="auto">
+
       <div class="field">
-        <div class="scroll"></div>
+        <div class="scroll" id="scrollButton"></div>
       </div>
       </a>
     </div>
@@ -150,7 +169,8 @@
   <div id="trend-action">
     <div class="cover" id="trend-cover">
       <img class="chap1" id="chap1" src="./images/chap1-en.png" alt="Background Image">
-      <img class="scrolling-emoji" src="./images/emoji.png" alt="Scrolling Image">
+      <img class="chap1" id="chap1-ph" src="./images/chap1-en-ph.png" alt="Background Image">
+
     </div>
 
 
@@ -163,181 +183,130 @@
         </p>
         <!-- 谷歌数据图 -->
         <iframe src='https://flo.uri.sh/visualisation/17341161/embed' title=' Interactive or visual content'
-          class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;'
+          class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:90%;display: block; margin: 0 auto;'
           sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
         <p>Simultaneously, there is a rising trend of "China fever" on social media. </p>
       </div>
-
-      <div class="video-container">
-        <div class="video-box" id="video-box">
-          <div class="video-row">
-            <div class="video-block">
-              <video id="video1" autoplay loop muted title="tiktok@passportvisionz_">
-                <source src="./video/video1.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-block">
-              <video id="video2" autoplay loop muted title="tiktok@our_awesome_world">
-                <source src="./video/video2.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-block">
-              <video id="video3" autoplay loop muted title="tiktok@cityviews888">
-                <source src="./video/video3.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-block">
-              <video id="video4" autoplay loop muted title="tiktok@chinesewithhanhan">
-                <source src="./video/video4.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-block">
-              <video id="video5" autoplay loop muted title="tiktok@travelih">
-                <source src="./video/video5.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-block">
-              <video id="video6" autoplay loop muted title="tiktok@travelih">
-                <source src="./video/video6.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="video-row">
-            <div class="video-block">
-              <video id="video7" autoplay loop muted title="tiktok@our_awesome_world">
-                <source src="./video/video7.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-block">
-              <video id="video8" autoplay loop muted title="tiktok@our_awesome_world">
-                <source src="./video/video8.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-block">
-              <video id="video9" autoplay loop muted title="tiktok@cityviews888">
-                <source src="./video/video9.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-block">
-              <video id="video10" autoplay loop muted title="tiktok@cityviews888">
-                <source src="./video/video10.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-block">
-              <video id="video11" autoplay loop muted title="tiktok@jw.relax">
-                <source src="./video/video11.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-block">
-              <video id="video12" autoplay loop muted title="tiktok@jw.relax">
-                <source src="./video/video12.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-        </div>
-        <div class="whitebox">
-          <div class="tiktok-text" id="tiktok-text">
-            <div class="tiktok-p" id="tiktok-p0">
-              <p>In January this year, on the popular short video platform TikTok, the interest index of the topic
-                "China travel" rose by 376% compared with the same period last year. Searching for "china travel" yields
-                thousands of related videos showcasing China's landscapes, architecture, cuisine, and more.
-              </p>
-            </div>
-            <div class="tiktok-p" id="tiktok-p1">
-              <p>To better understand people's impressions of China, we selected 28 short videos under the keyword
-                "china travel" with views over a million and more than 1000 comments. These videos display unique
-                landscapes across China. We collected and analyzed the comments from these videos to gain insights.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-      <div class="fixed-element" id="fixed-element">
-        <div class="emojibox" id="emojibox">
-          <iframe src='https://flo.uri.sh/visualisation/17341837/embed' title='Interactive or visual content'
-            class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px'></iframe>
-        </div>
-
+      <div class="video-background">
+        <video id="backgroundVideo" autoplay loop muted playsinline>
+          <source id="videoSourceDesktop" src="video/1.mp4" type="video/mp4" media="(min-width: 769px)">
+          <source id="videoSourceMobile" src="video/2.mp4" type="video/mp4" media="(max-width: 768px)">
+        </video>
       </div>
       <div class="whitebox">
-        <div class="emoji-text" id="emoji-text">
-          <div class="emoji-p" id="emoji-p0">
-            <p>
-              In social media comments, Tik Tok users often use various emojis to express their genuine feelings about
-              the video content. We extracted all emoji expressions from the comments for statistical analysis. The
-              results
-              show that these emojis mostly convey positive emotions towards Chinese landscapes. In the emoji ranking,
-              heart and smiling face elements top the list, with 🥰, 😂, 😍 being the most frequently used emojis by
-              foreign netizens in the comment section.
+        <div class="tiktok-text" id="tiktok-text">
+          <div class="tiktok-p" id="tiktok-p0">
+            <p>In January this year, on the popular short video platform TikTok, the interest index of the topic
+              "China travel" rose by 376% compared with the same period last year. Searching for "china travel" yields
+              thousands of related videos showcasing China's landscapes, architecture, cuisine, and more.
             </p>
           </div>
-          <div class="emoji-p" id="emoji-p1">
-            <p>Additionally, surprised and awestruck emojis (e.g., 😳, 😲) also find a place, highlighting the amazement
-              and wonder China's scenery evokes.</p>
+          <div class="tiktok-p" id="tiktok-p1">
+            <p>To better understand people's impressions of China, we selected 28 short videos under the keyword
+              "china travel" with views over a million and more than 1000 comments. These videos display unique
+              landscapes across China. We collected and analyzed the comments from these videos to gain insights.
+            </p>
           </div>
         </div>
+      </div>
 
-        <div class="fixed-word" id="fixedword">
-          <div class="wordbox" id="wordbox">
-            <div id="11c49e019bff4e5985d2a8053626f05a" class="chart-container" style="width:1000px; height:500px; ">
+      <div class="trend-ana">
+        <div class="fixed-left">
+          <div class="fixed-element" id="fixed-element-0">
+            <iframe src='https://flo.uri.sh/visualisation/17341837/embed' title='Interactive or visual content'
+              class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;'></iframe>
+          </div>
+          <div class="fixed-element" id="fixed-element-1">
+            <div class="wordbox" id="wordbox">
+              <div id="11c49e019bff4e5985d2a8053626f05a" class="chart-container"
+                style="width:100%; height:500px;font-family: 'Chalkboard'; ">
+              </div>
+              <div class="whitebox">
+                <p>Note: Words shown here have a frequency of 300 or more.<br>(Hover for more information)</p>
+              </div>
             </div>
-            <p>Note: Words shown here have a frequency of 300 or more.<br>(Hover for more information)</p>
+          </div>
+          <div class="fixed-element" id="fixed-element-2">
+            <div class="gobox" id="gobox">
+              <iframe src='https://flo.uri.sh/visualisation/17417779/embed' title='Interactive or visual content'
+                class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;'></iframe>
+            </div>
           </div>
         </div>
-        <div class="word-text" id="word-text">
-          <div class="word-p" id="word-p0">
-            <p>
-              Furthermore, we conducted a frequency analysis of English text in these comments. Among English comments,
-              Tik Tok users often use adjectives like "beautiful, amazing, cool" to praise Chinese landscapes. Words
-              like "cyberpunk, future, dream" express admiration for China's urban landscapes' sophistication. In terms
-              of
-              mood, "wow" appears most frequently, and "go" is the most common verb used.
-            </p>
-          </div>
-          <div class="word-p" id="word-p1">
-            <p>In everyone's eyes, China is a land of beauty and futurism combined. Its vastness and diversity are part
-              of
-              its allure. From one city to another, you can witness vastly different landscapes, savor diverse cuisines,
-              and experience a variety of cultures. The multifaceted China fulfills your multiple travel fantasies.
-            </p>
+        <div class="scroll-right">
+          <div class="whitebox">
+            <div class="emoji-text" id="emoji-text">
+              <div class="emoji-p" id="emoji-p0">
+                <p>
+                  In social media comments, Tik Tok users often use various emojis to express their genuine feelings
+                  about
+                  the video content. We extracted all emoji expressions from the comments for statistical analysis. The
+                  results
+                  show that these emojis mostly convey positive emotions towards Chinese landscapes. In the emoji
+                  ranking,
+                  heart and smiling face elements top the list, with 🥰, 😂, 😍 being the most frequently used emojis by
+                  foreign netizens in the comment section.
+                </p>
+              </div>
+              <div class="emoji-p" id="emoji-p1">
+                <p>Additionally, surprised and awestruck emojis (e.g., 😳, 😲) also find a place, highlighting the
+                  amazement
+                  and wonder China's scenery evokes.</p>
+              </div>
+            </div>
+            <div class="word-text" id="word-text">
+              <div class="word-p" id="word-p0">
+                <p>
+                  Furthermore, we conducted a frequency analysis of English text in these comments. Among English
+                  comments,
+                  Tik Tok users often use adjectives like "beautiful, amazing, cool" to praise Chinese landscapes. Words
+                  like "cyberpunk, future, dream" express admiration for China's urban landscapes' sophistication. In
+                  terms
+                  of
+                  mood, "wow" appears most frequently, and "go" is the most common verb used.
+                </p>
+              </div>
+              <div class="word-p" id="word-p1">
+                <p>
+                  In everyone's eyes, China is a land of beauty and futurism combined. Its vastness and diversity are
+                  part
+                  of
+                  its allure. From one city to another, you can witness vastly different landscapes, savor diverse
+                  cuisines,
+                  and experience a variety of cultures. The multifaceted China fulfills your multiple travel fantasies.
+                </p>
+              </div>
+            </div>
+            <div class="go-text" id="go-text">
+              <div class="go-p" id="go-p0">
+                <p>We conducted keyword co-occurrence analysis focusing on high-frequency verbs such as "go," "visit,"
+                  "love,"
+                  "want," and their collocations in the comments. Phrases like "want to go," "need to go," "want to
+                  visit,"
+                  and similar combinations reflect Tik Tok users' high interest in China and their strong desire to
+                  travel.
+                  Many foreign friends have already added China to their "must-visit travel destinations" list in the
+                  comments
+                  section.
+                </p>
+              </div>
+              <div class="go-p" id="go-p1">
+                <p>We believe that if you can come here in person, China will surely elicit a "wow" from you!
+                </p>
+              </div>
+            </div>
           </div>
         </div>
+
       </div>
 
-      <div class="fixed-go" id="fixed-go">
-        <div class="gobox" id="gobox">
-          <iframe src='https://flo.uri.sh/visualisation/17417779/embed' title='Interactive or visual content'
-            class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;'></iframe>
-        </div>
-      </div>
-      <div class="whitebox">
-        <div class="go-text" id="go-text">
-          <div class="go-p" id="go-p0">
-            <p>We conducted keyword co-occurrence analysis focusing on high-frequency verbs such as "go," "visit,"
-              "love,"
-              "want," and their collocations in the comments. Phrases like "want to go," "need to go," "want to visit,"
-              and similar combinations reflect Tik Tok users' high interest in China and their strong desire to
-              travel.
-              Many foreign friends have already added China to their "must-visit travel destinations" list in the
-              comments
-              section.
-            </p>
-          </div>
-          <div class="go-p" id="go-p1">
-            <p>We believe that if you can come here in person, China will surely elicit a "wow" from you!
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
 
     <div id="action" class="part">
       <div class="cover" id="action-cover">
         <img class="chap2" id="chap2" src="./images/chap2-en.png" alt="Background Image">
-        <img class="scrolling-fly" src="./images/fly.jpg" alt="Scrolling Image">
+        <img class="chap2" id="chap2-ph" src="./images/chap2-en-ph.png" alt="Background Image">
+
       </div>
 
       <div class="content action-text">
@@ -351,7 +320,9 @@
         <div class="plane">
           <div class="swiper swiper1">
             <div class="swiper-wrapper">
-              <div class="swiper-slide slide1"></div>
+              <div class="swiper-slide slide0"></div>
+              <div class="swiper-slide slide1">
+              </div>
               <div class="swiper-slide slide1">
               </div>
               <div class="swiper-slide slide2"></div>
@@ -369,16 +340,16 @@
 
           </div>
         </div>
-        <div class="trigger swiper1_trigger" id="trigger_100"></div>
+        <div class="trigger swiper1_trigger" id="trigger_10"></div>
         <div class="trigger swiper1_trigger" id="trigger_800"></div>
+        <div class="trigger swiper1_trigger" id="trigger_500"></div>
+        <div class="trigger swiper1_trigger" id="trigger_250"></div>
+        <div class="trigger swiper1_trigger" id="trigger_250"></div>
         <div class="trigger swiper1_trigger" id="trigger_250"></div>
         <div class="trigger swiper1_trigger" id="trigger_250"></div>
         <div class="trigger swiper1_trigger" id="trigger_100"></div>
         <div class="trigger swiper1_trigger" id="trigger_100"></div>
         <div class="trigger swiper1_trigger" id="trigger_100"></div>
-        <div class="trigger swiper1_trigger" id="trigger_100"></div>
-        <div class="trigger swiper1_trigger" id="trigger_100"></div>
-        <div class="trigger swiper1_trigger" id="trigger_800"></div>
         <div class="trigger swiper1_trigger" id="trigger_800"></div>
         <div class="trigger swiper1_trigger" id="trigger_800"></div>
 
@@ -392,13 +363,16 @@
               to
               mainland China. In January 2023, during the first week after the complete lifting of pandemic
               restrictions,
-              international flights to China officially resumed, with 195 routes from abroad to China and 355 flights.
+              international flights to China officially resumed, <span style="background-color:#8ac92681 ;">with 203
+                routes from abroad to China and 384 flights.</span>
             </p>
           </div>
           <div class="plane-p" id="plane-p1">
             <p>
-              Over the past year, the number of international passenger flights to China has steadily recovered and
-              continues to optimize and expand from the original base. According to official statistics from the Civil
+              <span style="background-color:#8ac92681 ;">Over the past year, the number of international passenger
+                flights to China has steadily recovered and
+                continues to optimize and expand from the original base.</span> According to official statistics from
+              the Civil
               Aviation Administration, by the end of 2023, regular international passenger flights to China had
               recovered
               to more than 60% of pre-pandemic levels, serving 67 countries, with flight volumes exceeding pre-pandemic
@@ -408,10 +382,13 @@
           </div>
           <div class="plane-p" id="plane-p2">
             <p>
-              VariFlight data shows that during the 2024 Spring Festival period until February, China mainland operated
-              a total of 5,861 flights on 784 routes. The 2024 Spring Festival saw a new peak in inbound tourism to
+              VariFlight data shows that during the 2024 Spring Festival period until February, <span
+                style="background-color:#8ac92681 ;">there were a total of
+                5,861 flights on 784 routes from abroad to mainland China. </span>The 2024 Spring Festival saw a new
+              peak in
+              inbound tourism to
               China. According to calculations from the Cultural and Tourism Ministry's data center, China welcomed more
-              than 3 million inbound tourists during the 2024 Spring Festival holiday, close to the level seen in the
+              than 3 million inbound tourists during the Spring Festival holiday, close to the level seen in the
               same period in 2019.
             </p>
           </div>
@@ -450,7 +427,7 @@
         <div class="nation-google">
           <iframe src='https://flo.uri.sh/visualisation/17360835/embed' title=' Interactive or visual content'
             class='flourish-embed-iframe' frameborder='0' scrolling='no'
-            style='width:85%;height:600px;display: block; margin: 0 auto;'
+            style='width:90%;height:600px;display: block; margin: 0 auto;'
             sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
         </div>
         <p>Hainan, Guilin, and other popular tourist destinations have also reinstated exclusive visa-free policies,
@@ -469,8 +446,18 @@
         </p>
         <div class="policy">
           <iframe src='https://flo.uri.sh/visualisation/17361337/embed' title='Interactive or visual content'
-            class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:700px;'
+            class='flourish-embed-iframe' id="policy" frameborder='0' scrolling='no'
+            style='width:100%;margin-bottom: -4.5em;z-index: 1;'
             sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+        </div>
+        <div id="note">
+          <p>Update time: March 16, 2024<br>
+            Note: 1. The visa processing convenience in the figure can be divided into three items: no appointment, no
+            fingerprinting and reduced processing fee.<br>
+            2. The visa-free access to China under bilateral agreements in the figure includes visa-free access to China
+            for ordinary passport holders and visa-free access to China for group tours. For details of the
+            requirements, please refer to the list of visa exemption agreements between China and foreign countries:
+            http://cs.mfa.gov.cn/zlbg/bgzl/lhqz
         </div>
       </div>
       <!-- 政策查询地图 -->
@@ -503,16 +490,15 @@
           Shanghai, providing full coverage for key merchants and meeting the card payment needs of international
           visitors.
         </p>
-        <p>In March, 2024, the State Council General Office issued the "Opinions on Further Optimizing Payment Services
-          to Enhance Payment Convenience," outlining specific measures to improve payment services for inbound tourists,
-          such as "large amount card payments, small amount QR code payments, and cash as a fallback." These measures
+        <p>In March 2024, the Chinese government put forward specific measures to improve payment services for inbound
+          tourists, such as "large-value credit cards, small-value code scanning, and cash back-up".These measures
           consider both the daily payment habits of foreign tourists and align with the current consumption environment
           in China, with further implementation underway.
         </p>
         <p>We aim to make consumption during travel "smooth and unobstructed" for foreign tourists: choose your desired
           accommodation, whether in luxury hotels or comfortable homestays; savor your favorite cuisine, whether in
           exquisite restaurants or street stalls; purchase souvenirs at your preferred locations, whether at famous
-          landmarks or niche attractions...
+          landmarks or less-known attractions...
         </p>
         <p>In summary, there is no need to worry about these matters!</p>
         <p>China is proving to the world through its efforts that as you step into China, China is also reaching out to
@@ -525,9 +511,8 @@
     <div id="recommend" class="part">
       <div class="cover" id="recommend-cover">
         <img class="chap3" id="chap3" src="./images/chap3-en.png" alt="Background Image">
-        <img class="scrolling-changcheng" src="./images/changcheng.png" alt="Scrolling Image">
-        <img class="scrolling-bingmayong" src="./images/bingmayong.png" alt="Scrolling Image">
-        <img class="scrolling-xiongmao" src="./images/xiongmao.png" alt="Scrolling Image">
+        <img class="chap3" id="chap3-ph" src="./images/chap3-en-ph.png" alt="Background Image">
+
       </div>
       <div class="content recommend-text">
         <p>After addressing the question of "how to get there," we also hope to provide you with some suggestions and
@@ -548,7 +533,7 @@
         <section id="scrolly">
           <figure style="top: 0px;">
             <iframe src='https://flo.uri.sh/story/2314923/embed' title='Interactive or visual content'
-              class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:100%;'
+              class='flourish-embed-iframe' id="story" frameborder='0' scrolling='no'
               sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
           </figure>
           <article>
@@ -563,8 +548,8 @@
               <div class="textbox">
                 <p>After analyzing the cities where these attractions are located, we found that the top five cities are
                   Shanghai, Beijing, Xi'an, Guangzhou, and Chengdu. Moreover, more second and third-tier cities are also
-                  starting to attract the attention of foreign tourists.<br><br>（Hover over the chart for more
-                  information）
+                  starting to attract the attention of foreign tourists.<br><br><span>(Hover over the chart for more
+                    information)</span>
                 </p>
               </div>
             </div>
@@ -616,7 +601,13 @@
                   Based on the ratings and comments of these attractions, we have compiled a comprehensive ranking of
                   these attractions' performance on TripAdvisor. Mutianyu Great Wall, Terracotta Warriors, Chengdu
                   Research Base of Giant Panda Breeding, and The Bund are among the most loved and highly recommended
-                  attractions by foreign tourists.<br><br>（Hover over the chart for more information）
+                  attractions by foreign tourists.<br><span>(Hover
+                    over the chart for more
+                    information)</span>
+                  <br>By extracting keywords from the comments about these attractions, we have summarized their
+                  unique
+                  features.
+
                 </p>
               </div>
             </div>
@@ -624,13 +615,15 @@
             <div class="step invisible"></div>
             <div class="step step-box">
               <div class="picbox">
-                <img src="./images/changcheng2.png" width="90%">
+                <img id="panda" src="./images/changcheng2.png" width="80%">
               </div>
               <div class="textbox">
                 <p>
-                  By extracting keywords from the comments about these attractions, we have summarized their unique
-                  features.
-                  <span>Mutianyu Great Wall:
+
+                  <span style="color: #40B5FF;
+                  font-family: Chalkboard;
+                  font-weight: 500;
+                  font-size: 1.1em;">Mutianyu Great Wall:
                   </span><br>It is said that "The man who does not reach the Great Wall is not a true man." As a
                   world-renowned ancient structure, many tourists enjoy the challenge of visiting the Great Wall, with
                   Mutianyu Great Wall being the most popular section. Besides hiking, there are many new ways to explore
@@ -643,11 +636,14 @@
             <div class="step invisible"></div>
             <div class="step step-box">
               <div class="picbox">
-                <img src="./images/bingmayong2.png" width="90%">
+                <img id="panda" src="./images/bingmayong2.png" width="80%">
               </div>
               <div class="textbox">
                 <p>
-                  <span>Terracotta Warriors:
+                  <span style="color: #40B5FF;
+                  font-family: Chalkboard;
+                  font-weight: 500;
+                  font-size: 1.1em;">Terracotta Warriors:
                   </span><br>Faced with three pits covering an area of over 20,000 square meters, compared to the
                   diverse exploration methods at the Great Wall, visitors to the Terracotta Warriors prefer to follow
                   guides and tour groups to ensure the best viewing experience in the vast area. Choosing a small
@@ -660,11 +656,14 @@
             <div class="step invisible"></div>
             <div class="step step-box">
               <div class="picbox">
-                <img src="./images/xiongmao2.png" width="70%" style="margin: 8% 0 5% 10%;">
+                <img id="panda" src="./images/xiongmao2.png" width="80%">
               </div>
               <div class="textbox">
                 <p>
-                  <span>Chengdu Research Base of Giant Panda Breeding:
+                  <span style="color: #40B5FF;
+                  font-family: Chalkboard;
+                  font-weight: 500;
+                  font-size: 1.1em;">Chengdu Research Base of Giant Panda Breeding:
                   </span><br>As China's national treasure, the adorable giant pandas have numerous foreign fans. Whether
                   they are sleeping, eating bamboo, or playing, the lives of these "panda stars" can always melt your
                   heart. Additionally, here, the red pandas and baby pandas are also beloved by tourists.
@@ -675,11 +674,14 @@
             <div class="step invisible"></div>
             <div class="step step-box">
               <div class="picbox">
-                <img src="./images/waitan2.png" width="90%">
+                <img id="panda" src="./images/waitan2.png" width="80%">
               </div>
               <div class="textbox">
                 <p>
-                  <span>The Bund:
+                  <span style="color: #40B5FF;
+                  font-family: Chalkboard;
+                  font-weight: 500;
+                  font-size: 1.1em;">The Bund:
                   </span><br>Visitors to The Bund prefer the night time more, as the lights, night views, and the
                   beautiful scenery along the river are typical features of Shanghai's The Bund. Here, you can take a
                   leisurely stroll along the Huangpu River, enjoy a modern city-themed light show, and taking photos for
@@ -707,15 +709,15 @@
               <div class="textbox">
                 <br>
                 <p>
-                  In the list of 5A-level tourist attractions, the country's highest-level tourist attractions,
-                  announced by the Ministry of Culture and Tourism of China, those classic attractions with their own
-                  characteristics are widely distributed across China. The picture on the left shows the distribution of
-                  5A-level scenic spots in various provinces in China. It can be seen that only some 5A-level scenic
-                  spots have attracted a large number of foreign tourists' attention on tripadvisor. Some areas with
-                  rich tourism resources, such as Henan, Xinjiang, Jiangxi and other places, are not well known by
-                  foreign tourists.
+                  In the list of 5A-level tourist attractions, the country's highest-level tourist attractions, those
+                  classic attractions are widely distributed across China. The picture on the left shows the
+                  distribution of 5A-level scenic spots in various provinces. Only some 5A-level scenic spots have
+                  attracted a large number of foreign tourists' attention on tripadvisor. Some areas with rich tourism
+                  resources, such as Henan, Xinjiang, Jiangxi and other places, are not well known by foreign tourists.
                   <br>
-                  （Hover over the chart for more information）
+                  <span>(Hover over
+                    the chart for more
+                    information)</span>
                 </p>
               </div>
             </div>
@@ -732,11 +734,10 @@
                   In order to make up for the limitations of the attractions in Tripadvisor, we chose Ctrip, China's
                   largest online travel service platform, and counted the ratings and reviews of these 5A attractions
                   that were not on the Tripadvisor list. From the perspective of comprehensive performance, the Yellow
-                  Crane Tower, one of the "Three Famous Towers in the South of the Yangtze River", the Slender West Lake
-                  with the fragrance of lotus hidden in the clear waves, and Huashan Mountain, which is famous for its
-                  steepness and beauty...are all good places worth visiting.
+                  Crane Tower, the Slender West Lake, and Huashan Mountain...are all good places worth visiting.
                   <br>
-                  （Hover over the chart for more information）
+                  <span>(Hover over the chart for more
+                    information)</span>
                 </p>
               </div>
             </div>
@@ -780,8 +781,8 @@
         <div id="question-container" class="card" style="display: none;">
 
           <!-- 问题1 -->
-          <div class="question">
-            <p>1. Your level of interest in historical sites and attractions is:</p>
+          <div class="question" data-page="1">
+            <p>1. Are you interested in visiting historical sites?</p>
             <div class="options">
               <div class="option">
                 <input type="radio" id="option1" name="question1" value="-1" onclick="selectOption(1,1)">
@@ -799,9 +800,9 @@
           </div>
 
           <!-- 问题2 -->
-          <div class="question">
-            <p>2. In addition to visiting famous scenic spots, are you interested in exploring the rich life in the
-              city?</p>
+          <div class="question" data-page="1">
+            <p>2.In addition to visiting famous scenic spots, are you interested in exploring the rich life in the city?
+            </p>
             <div class="options">
               <div class="option">
                 <input type="radio" id="option4" name="question2" value="-1" onclick="selectOption(1,2)">
@@ -819,8 +820,9 @@
           </div>
 
           <!-- 问题3 -->
-          <div class="question">
-            <p>3. Your level of interest in mountain and canyon landscapes is:</p>
+          <div class="question" data-page="1">
+            <p>3. Are you interested in visiting mountains or canyons?
+            </p>
             <div class="options">
               <div class="option">
                 <input type="radio" id="option7" name="question3" value="-1" onclick="selectOption(1,3)">
@@ -838,8 +840,9 @@
           </div>
 
           <!-- 问题4 -->
-          <div class="question">
-            <p>4. Your level of interest in seaside beach landscapes is:</p>
+          <div class="question" data-page="1">
+            <p>4. Do you want to go on a vacation on a seaside beach?
+            </p>
             <div class="options">
               <div class="option">
                 <input type="radio" id="option10" name="question4" value="1" onclick="selectOption(1,4)">
@@ -857,8 +860,9 @@
           </div>
 
           <!-- 问题5 -->
-          <div class="question">
-            <p>5. Your level of interest in biological landscapes such as zoological and botanical gardens is:</p>
+          <div class="question" data-page="1">
+            <p>5. Are you interested in visiting the Zoological and Botanical Gardens?
+            </p>
             <div class="options">
               <div class="option">
                 <input type="radio" id="option13" name="question5" value="-1" onclick="selectOption(1,5)">
@@ -876,8 +880,9 @@
           </div>
 
           <!-- 问题6 -->
-          <div class="question">
-            <p>6. Your level of interest in rivers and lakes landscapes is:</p>
+          <div class="question" data-page="1">
+            <p>6. Are you interested in visiting rivers or lakes?
+            </p>
             <div class="options">
               <div class="option">
                 <input type="radio" id="option16" name="question6" value="-1" onclick="selectOption(1,6)">
@@ -895,8 +900,9 @@
           </div>
 
           <!-- 问题7 -->
-          <div class="question">
-            <p>7. Your dietary preference for sour flavors is:</p>
+          <div class="question" data-page="2">
+            <p>7. Do you like sour food?
+            </p>
             <div class="options">
               <div class="option">
                 <input type="radio" id="option19" name="question7" value="-1" onclick="selectOption(1,7)">
@@ -914,8 +920,9 @@
           </div>
 
           <!-- 问题8 -->
-          <div class="question">
-            <p>8. Your dietary preference for sweet flavors is:</p>
+          <div class="question" data-page="2">
+            <p>8. Do you have a sweet tooth?
+            </p>
             <div class="options">
               <div class="option">
                 <input type="radio" id="option22" name="question8" value="-1" onclick="selectOption(1,8)">
@@ -933,8 +940,9 @@
           </div>
 
           <!-- 问题9 -->
-          <div class="question">
-            <p>9. Your dietary preference for savory flavors is:</p>
+          <div class="question" data-page="2">
+            <p>9. Do you like salty food?
+            </p>
             <div class="options">
               <div class="option">
                 <input type="radio" id="option25" name="question9" value="-1" onclick="selectOption(1,9)">
@@ -952,8 +960,9 @@
           </div>
 
           <!-- 问题10 -->
-          <div class="question">
-            <p>10. Your dietary preference for spicy flavors is:</p>
+          <div class="question" data-page="2">
+            <p>10. Do you like spicy food?
+            </p>
             <div class="options">
               <div class="option">
                 <input type="radio" id="option28" name="question10" value="-1" onclick="selectOption(1,10)">
@@ -971,12 +980,13 @@
           </div>
 
           <!-- 问题11 -->
-          <div class="question">
-            <p>11. If you travel to China, will you choose a more well-known city as your destination?</p>
+          <div class="question" data-page="3">
+            <p>11. If traveling to China, would you choose a more well-known city as your destination?
+            </p>
             <div class="options">
               <div class="option">
                 <input type="radio" id="option31" name="question11" value="-1" onclick="selectOption(1,11)">
-                <label for="option31"><span>No, I'd rather try a niche destination</span></label>
+                <label for="option31"><span>No, I'd rather try a less-known destination</span></label>
               </div>
               <div class="option">
                 <input type="radio" id="option32" name="question11" value="0" onclick="selectOption(2,11)">
@@ -990,8 +1000,9 @@
           </div>
 
           <!-- 问题12 -->
-          <div class="question">
-            <p>12. How much do you care about the transportation convenience of the city you travel to?</p>
+          <div class="question" data-page="3">
+            <p>12. How much do you care about the transportation convenience of the city you travel to?
+            </p>
             <div class="options">
               <div class="option">
                 <input type="radio" id="option34" name="question12" value="-1" onclick="selectOption(1,12)">
@@ -1009,26 +1020,31 @@
           </div>
 
           <!-- 问题13 -->
-          <div class="question">
-            <p>13. How much do you care about the value for money of accommodation in the cities you travel to?</p>
+          <div class="question" data-page="3">
+            <p>13.What are your requirements for accommodation?
+            </p>
             <div class="options">
               <div class="option">
                 <input type="radio" id="option37" name="question13" value="-1" onclick="selectOption(1,13)">
-                <label for="option37"><span>I don't care</span></label>
+                <label for="option37"><span>Just be comfortable, I'm on a budget</span></label>
               </div>
               <div class="option">
                 <input type="radio" id="option38" name="question13" value="0.5" onclick="selectOption(2,13)">
-                <label for="option38"><span>A little concerned</span></label>
+                <label for="option38"><span>I don't have any ideas</span></label>
               </div>
               <div class="option">
                 <input type="radio" id="option39" name="question13" value="1" onclick="selectOption(3,13)">
-                <label for="option39"><span>I care very much</span></label>
+                <label for="option39"><span>I want to spend less on accommodation</span></label>
               </div>
             </div>
           </div>
 
+          <div class="quiz-button">
+            <button id="prev-btn" class="click" onclick="prevPage()">Previous</button>
+            <button id="next-btn" class="click" onclick="nextPage()">Next</button>
+            <button id="submit-btn" class="click" onclick="calculateRecommendation()">Submit</button>
+          </div>
 
-          <button class="click" onclick="calculateRecommendation()">Submit</button>
         </div>
 
         <!-- 推荐结果容器 -->
@@ -1074,14 +1090,18 @@
           <div class="team">
             <br><br><br><br><br>
             <p>
-              Read more about the&nbsp &nbsp<a href="#" class="method"> methodology</a>&nbsp &nbspbehind this project.
+              Read more about the&nbsp &nbsp<a href="https://docs.qq.com/aio/DTnljdWp5WllxZndF" class="method"> methodology</a>&nbsp &nbspbehind this project.
             </p>
 
             <p>
-              Data collection and analysis: &nbsp Haoyang Xia &nbsp&nbsp Manning Li &nbsp&nbsp Yifan Wu<br><br>
-              Writer: Manning Li &nbsp &nbsp &nbsp Design: Haoyang Xia &nbsp &nbsp &nbsp Front-end: Yifan Wu<br><br>
+              Data collection and analysis: &nbsp Xia Haoyang &nbsp&nbsp Li Manning &nbsp&nbsp Wu Yifan<br><br>
+              Written by Li Manning &nbsp &nbsp &nbsp Graphics designed by Xia Haoyang &nbsp &nbsp &nbsp Front-end
+              developed by
+              Wu Yifan
+              <br><br>
               Supervisor：Liu Ping<br><br>
-              Contact: karexia@163.com</p>
+              Contact: karexia@163.com
+            </p>
           </div>
           <br>
           <p>&copy Communication University of China · School of Journalism · 2024</p>
@@ -1100,7 +1120,8 @@
   <script src="./js/swiper.min.js"></script>
   <script src="./js/swiper.animate.min.js"></script>
   <script src="./js/swipertrigger.js"></script>
-  <script src="https://unpkg.com/scrollama"></script>
+  <!-- <script src="https://unpkg.com/scrollama"></script> -->
+  <script src="./js/scrollama.min.js"></script>
   <script src="./js/d3.min.js" language="javascript"></script>
   <script src="https://public.flourish.studio/resources/embed.js"></script>
   <script>
@@ -1171,7 +1192,14 @@
 
   </script>
 
-
+  <script>
+    document.getElementById("scrollButton").addEventListener("click", function () {
+      window.scrollBy({
+        top: window.innerHeight, // Scroll one screen height
+        behavior: 'smooth' // Smooth scroll behavior
+      });
+    });
+  </script>
 
 
   <script>
@@ -1190,7 +1218,7 @@
       // 1. update height of step elements
       var stepH = Math.floor(window.innerHeight * 1);
 
-      step.style("height", 440 + "px");
+      step.style("height", 450 + "px");
 
       var figureHeight = window.innerHeight;
       var figureMarginTop = (window.innerHeight - figureHeight);
