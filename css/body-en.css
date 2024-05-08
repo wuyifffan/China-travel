@@ -63,32 +63,6 @@
   --192px: 12rem
 }
 
-/* 在不同的屏幕尺寸下调整根元素的字体大小 */
-@media screen and (max-width: 768px) {
-
-  .content,
-  #intro-text,
-  .whitebox,
-  .step,
-  .textbox {
-    font-size: 14px;
-    /* 当屏幕宽度小于等于768px时，字体大小变为14px */
-  }
-
-}
-
-@media screen and (max-width: 480px) {
-
-  .content,
-  #intro-text,
-  .whitebox,
-  .step,
-  .textbox {
-    font-size: 12px;
-    /* 当屏幕宽度小于等于480px时，字体大小变为12px */
-  }
-}
-
 
 
 @font-face {
@@ -478,7 +452,6 @@ nav.navbox.navbox {
   text-align: center;
 }
 
-
 .field {
   display: flex;
   align-items: center;
@@ -486,6 +459,7 @@ nav.navbox.navbox {
   width: 100%;
   margin-top: -5em;
 }
+
 
 .scroll {
   width: 60px;
@@ -495,6 +469,7 @@ nav.navbox.navbox {
   position: relative;
   animation: down 1.5s infinite;
   -webkit-animation: down 1.5s infinite;
+  cursor: pointer;
 }
 
 .scroll::before {
@@ -567,18 +542,6 @@ nav.navbox.navbox {
 }
 
 
-/* .click-icon {
-  position: absolute;
-  top: 50%;
-  left: 70%;
-  transform: translate(-50%, -50%);
-  width: 50px;
-  height: 50px;
-  background-image: url('../images/click-icon.svg');
-  background-size: cover;
-  cursor: pointer;
-} */
-
 .content {
   width: 60%;
   margin: 0 auto;
@@ -589,14 +552,20 @@ nav.navbox.navbox {
   font-family: 'Times New Roman', Times, serif;
 }
 
-p {
-  font-family: 'Times New Roman', Times, serif;
+@media only screen and (max-width: 600px) {
+  .content {
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px 10px;
+    color: #222222;
+    font-size: 14px;
+    line-height: 1.8em;
+    font-family: 'Times New Roman', Times, serif;
+  }
 }
 
-#intro-text p {
+p {
   font-family: 'Times New Roman', Times, serif;
-  font-size: 1em;
-  line-height: 1.5em;
 }
 
 .content p {
@@ -604,82 +573,94 @@ p {
 }
 
 #intro .content p {
-  margin: 2em 5%;
+  margin: 1em 6%;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 100;
+  font-size: 1em;
+  line-height: 1.8em;
 }
 
-#trend .content p {
+@media only screen and (max-width: 600px) {
+  .intro-text p {
+    margin: 1em 6%;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 100;
+    font-size: 14px;
+    line-height: 1.8em;
+  }
+}
+
+/* #trend .content p {
   text-indent: 2em;
 }
 
 #action .content p {
   text-indent: 2em;
-}
-
-#recommend .content p {
-  text-indent: 2em;
-}
-
-
-.video-container {
-  position: relative;
-  overflow: hidden;
-}
-
-.video-box {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 100vw;
-  z-index: 1;
-  /* padding-left: 4.5em; */
-  position: absolute;
-}
-
-.video-row {
-  display: flex;
-  flex-wrap: nowrap;
-  /* 不换行 */
-  width: 100%;
-}
-
-/* .video-block {
-  width: 13em;
-  height: auto;
-  margin: 0 1% 0.3% 0;
-  box-sizing: border-box;
-  overflow: hidden;
-  border: 2px solid #fcaabd;
-  z-index: 1;
 } */
 
-.video-block {
-  flex: 1 0 0;
-  /* 均分空间 */
-  max-width: 16.666%;
-  /* 每行六个，因此最大宽度为16.666% */
-  height: auto;
-  margin: 0 1% 0.3% 0;
-  /* box-sizing: border-box; */
-  position: sticky;
-  top: 0;
-  overflow: hidden;
-  /* border: 2px solid #FFCA3A; */
-  z-index: 1;
+
+#note {
+  background-color: #fefbf4;
+  font-size: 13px;
+  color: #999999;
+  display: inline-block;
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
+  line-height: 1.4em;
+  z-index: 2;
 }
 
-.video-block video {
+#note p {
+  text-indent: 0 !important;
+  z-index: 2 !important;
+}
+
+@media only screen and (max-width: 600px) {
+  #note {
+    background-color: #fefbf4;
+    font-size: 10px;
+    color: #999999;
+    display: inline-block;
+    padding: 10px 5px;
+    max-width: 100%;
+    width: 100%;
+    line-height: 1.4em;
+    z-index: 2;
+    margin: 5em auto;
+  }
+}
+
+/* #recommend .content p {
+  text-indent: 2em;
+} */
+
+
+.video-background {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.video-background video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  top: 0;
-  left: 0;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  background-size: cover;
+  transition: 1s opacity;
 }
 
 
 .tiktok-text {
   position: relative;
   z-index: 2;
-  margin-top: 50em;
+  margin-top: -120em;
 }
 
 .tiktok-p {
@@ -691,167 +672,56 @@ p {
   background-color: rgb(255, 255, 255);
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 50em;
-  line-height: 2rem;
-  text-align: justify;
-  box-shadow: 0px 0px 8px 3px #bcbcbc;
-}
-
-.emojibox {
-  position: absolute;
-  width: 100%;
-  left: 0;
-  z-index: 1;
-  /* opacity: 0;
-  transition: opacity 0.5s ease-in-out; */
-}
-
-.emojibox.active {
-  opacity: 1;
-  animation: moveToLeft 0.8s ease-out forwards;
-}
-
-@keyframes moveToLeft {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-20em);
-  }
-}
-
-
-.emojibox.fixed {
-  position: fixed;
-  left: 20em;
-}
-
-.emoji-text {
-  position: relative;
-  z-index: 2;
-  margin-top: 50em;
-  margin-left: 40em;
-}
-
-.emoji-p {
-  font-size: 1.2em;
-  width: 70%;
-  padding: 20px 40px;
-  box-sizing: border-box;
-  color: rgb(7, 5, 5);
-  background-color: rgb(255, 255, 255);
-  margin-left: auto;
-  margin-right: auto;
   margin-bottom: 40em;
   line-height: 2rem;
   text-align: justify;
-  box-shadow: 0px 0px 8px 3px #bcbcbc;
+  box-shadow: 0px 0px 6px 3px #bcbcbc;
 }
 
-.wordbox {
-  position: absolute;
-  width: 100%;
+.trend-ana {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-top: 10em;
+}
+
+.fixed-left {
+  flex: 1;
   z-index: 1;
-  opacity: 0;
 }
 
-.wordbox.active {
-  opacity: 1;
-  animation: moveToRight 0.8s ease-out forwards;
+.scroll-right {
+  flex: 1;
 }
 
-@keyframes moveToRight {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(35em);
-  }
-}
-
-
-.wordbox.fixed {
-  position: fixed;
-  right: 35em;
-}
-
-.word-text {
+.fixed-element {
   position: relative;
-  z-index: 2;
-  margin-top: 150em;
-  margin-right: 45em;
-}
-
-.wordbox p {
-  font-size: 1em;
-  color: #929292;
-  text-align: center;
-  margin-top: 3em;
-  width: 70%;
-  line-height: 1.6;
-  font-family: 'source sans pro';
-}
-
-.word-p {
-  font-size: 1.2em;
-  width: 70%;
-  padding: 20px 40px;
-  box-sizing: border-box;
-  color: rgb(7, 5, 5);
-  background-color: rgb(255, 255, 255);
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 40em;
-  line-height: 2rem;
-  text-align: justify;
-  box-shadow: 0px 0px 8px 3px #bcbcbc;
-}
-
-.chart-container {
-  font-family: 'Chalkboard';
+  margin-bottom: 10em;
 }
 
 
-.gobox {
-  position: absolute;
-  width: 100%;
-  left: 0;
-  z-index: 1;
-  opacity: 0;
-}
-
-.gobox.active {
-  opacity: 1;
-  animation: moveToLeft 0.8s ease-out forwards;
-}
-
-@keyframes moveToLeft {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-20em);
-  }
-}
-
-
-.gobox.fixed {
+.fixed-element.active {
   position: fixed;
-  left: 20em;
+  opacity: 1;
 }
 
+.emoji-text,
+.word-text,
 .go-text {
   position: relative;
   z-index: 2;
-  margin-top: 120em;
-  margin-left: 45em;
+  flex: 1;
+  margin-bottom: 70em;
 }
 
+.emoji-text {
+  margin-top: 15em;
+}
+
+.emoji-p,
+.word-p,
 .go-p {
-  font-size: 1.2em;
+  font-size: 1.1em;
   width: 70%;
   padding: 20px 40px;
   box-sizing: border-box;
@@ -859,17 +729,29 @@ p {
   background-color: rgb(255, 255, 255);
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 50em;
+  margin-bottom: 40em;
   line-height: 2rem;
   text-align: justify;
-  box-shadow: 0px 0px 8px 3px #bcbcbc;
+  box-shadow: 0px 0px 6px 3px #bcbcbc;
 }
+
+
+.wordbox p {
+  font-size: 1em;
+  color: #b2b0b0;
+  text-align: center;
+  margin-top: 3em;
+  width: 100%;
+  line-height: 2;
+  font-family: 'source sans pro';
+}
+
 
 
 .plane-text {
   position: absolute;
   z-index: 2;
-  margin-top: -300em;
+  margin-top: -310em;
 }
 
 .plane-p {
@@ -884,7 +766,7 @@ p {
   margin-bottom: 50em;
   line-height: 2rem;
   text-align: justify;
-  box-shadow: 0px 0px 8px 3px #bcbcbc;
+  box-shadow: 0px 0px 6px 3px #bcbcbc;
 }
 
 .action-text img {
@@ -892,6 +774,10 @@ p {
   height: auto;
   margin: 1% auto;
   display: block;
+}
+
+.policy {
+  z-index: 1;
 }
 
 /* .policy {
@@ -972,7 +858,7 @@ figure p {
   line-height: 2em;
   padding: 1em 2em;
   /* pointer-events: none; */
-  box-shadow: 0px 0px 8px 3px #bcbcbc;
+  box-shadow: 0px 0px 6px 3px #bcbcbc;
   z-index: 4;
 }
 
@@ -1000,15 +886,29 @@ figure p {
   /* 在主轴上平均分布子元素 */
 }
 
-.picbox {
-  flex: 1.2;
-  /* 使得所有子元素平均分配容器空间 */
-}
 
-.picbox img {
+/* .picbox img {
   margin: 10% auto;
+} */
+
+.picbox {
+  margin: 1% auto;
+  flex: 1.2;
+    display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+#panda{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto 5%;
+  flex: 1;
+}
+#panda img{
+  margin: auto;
+}
 
 .textbox {
   flex: 1;
@@ -1016,11 +916,18 @@ figure p {
   align-items: center;
 }
 
+
 .step span {
   color: #40B5FF;
   font-family: Chalkboard;
   font-weight: 500;
   font-size: 1.1em;
+}
+
+.textbox span {
+  color: #999999;
+  font-family: 'zhengwen';
+  font-size: 14px;
 }
 
 #trend-cover {
@@ -1030,7 +937,7 @@ figure p {
 
 .chap1 {
   position: relative;
-  width: 80%;
+  width: 90%;
   z-index: 1;
   display: block;
   margin: 0 auto;
@@ -1053,7 +960,7 @@ figure p {
 
 .chap2 {
   position: relative;
-  width: 80%;
+  width: 90%;
   z-index: 1;
   display: block;
   margin: 0 auto;
@@ -1086,10 +993,36 @@ figure p {
 
 .chap3 {
   position: relative;
-  width: 80%;
+  width: 90%;
   z-index: 1;
   display: block;
   margin: 0 auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .chap1 {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .chap2 {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .chap3 {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    display: block;
+    margin: 0 auto;
+  }
 }
 
 .scrolling-changcheng {
@@ -1133,7 +1066,15 @@ figure p {
 }
 
 .question {
-  margin-bottom: 20px;
+  margin: 0 40px 20px 40px;
+  /* text-align: center; */
+  font-size: 17px;
+  font-weight: 200;
+  line-height: 1.8em;
+}
+
+.question p {
+  padding: 0 3em;
 }
 
 .options {
@@ -1148,7 +1089,8 @@ figure p {
 .option label {
   display: flex;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 200;
+  font-size: 15px;
 }
 
 .option label span {
@@ -1161,15 +1103,15 @@ figure p {
 }
 
 .option input[type="radio"]:checked+label span {
-  background-color: #edd8e0;
+  background-color: #d6ecfd;
 }
 
 .option input[type="radio"]:checked+label span:before {
-  box-shadow: inset 0 0 0 0.4375em #f28393;
+  box-shadow: inset 0 0 0 0.4375em #63b3f9;
 }
 
 .option label:hover span {
-  background-color: #edd8e0;
+  background-color: #d6ecfd;
 }
 
 .option label span:before {
@@ -1182,12 +1124,18 @@ figure p {
   border-radius: 50%;
   margin-right: 0.375em;
   transition: 0.25s ease;
-  box-shadow: inset 0 0 0 0.125em #f28393;
+  box-shadow: inset 0 0 0 0.125em #63b3f9;
+}
+
+.quiz-button {
+  display: flex;
+  justify-content: space-between;
+  margin: 5em 5em 2em 5em;
 }
 
 .quiz-box button {
   font-family: 'button';
-  font-size: 20px;
+  font-size: 18px;
   margin: 0 auto;
   padding: 10px 20px;
   background-color: #63b3f9;
@@ -1204,9 +1152,6 @@ figure p {
   text-decoration: none;
 }
 
-/* .quiz-box button:hover {
-  background-color: #2d96f2;
-} */
 
 button.click {
   color: #ffffff;
@@ -1315,4 +1260,354 @@ footer p {
   color: #262626;
   font-family: 'button';
   text-decoration: underline;
+}
+
+/* 在不同的屏幕尺寸下调整根元素的字体大小 */
+@media screen and (max-width: 768px) {
+
+  .content,
+  #intro-text,
+  .whitebox,
+  .step,
+  .textbox {
+    font-size: 14px;
+    /* 当屏幕宽度小于等于768px时，字体大小变为14px */
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+
+  .content,
+  #intro-text,
+  .whitebox,
+  .step,
+  .textbox {
+    font-size: 12px;
+    /* 当屏幕宽度小于等于480px时，字体大小变为12px */
+  }
+}
+
+/* 在手机设备上隐藏导航条 */
+@media only screen and (max-width: 600px) {
+  .navbox {
+    display: none;
+  }
+
+  .scroll {
+    display: none;
+  }
+}
+
+/* 在电脑端设置高度为 600px */
+@media screen and (min-width: 768px) {
+  .flourish-embed-iframe {
+    height: 600px;
+  }
+}
+
+/* 在手机端设置高度为 400px */
+@media screen and (max-width: 767px) {
+  .flourish-embed-iframe {
+    height: 400px;
+  }
+}
+
+.top-ph {
+  display: none;
+}
+
+#backgroundVideo2 {
+  display: none;
+}
+
+#chap1-ph {
+  display: none;
+}
+
+#chap2-ph {
+  display: none;
+}
+
+#chap3-ph {
+  display: none;
+}
+
+#policy {
+  height: 700px;
+}
+
+@media only screen and (max-width: 600px) {
+  .top {
+    display: none;
+  }
+
+  .top-ph {
+    display: block;
+  }
+
+  #backgroundVideo1 {
+    display: none;
+  }
+
+  .video-background {
+    margin: auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #backgroundVideo2 {
+    display: block;
+    margin: auto 0;
+  }
+
+  #chap1 {
+    display: none;
+  }
+
+  #chap1-ph {
+    display: block;
+  }
+
+  #chap2 {
+    display: none;
+  }
+
+  #chap2-ph {
+    display: block;
+  }
+
+  #chap3 {
+    display: none;
+  }
+
+  #chap3-ph {
+    display: block;
+  }
+
+  #policy {
+    height: 400px;
+  }
+}
+
+
+@media screen and (max-width: 767px) {
+  .trend-ana {
+    flex-direction: column;
+    /* 将布局改为垂直方向 */
+    align-items: center;
+    /* 居中对齐 */
+  }
+
+  .fixed-left,
+  .scroll-right {
+    width: 100%;
+    /* 让左右两部分都占据整个宽度 */
+    margin: 0;
+    /* 去除左右两部分的外边距 */
+  }
+
+  .emoji-text {
+    order: 1;
+    margin-top: -470em;
+    margin-bottom: 80em;
+    /* 调整顶部间距 */
+  }
+
+  .word-text {
+    order: 2;
+    margin-bottom: 80em;
+  }
+
+  .go-text {
+    order: 3;
+    margin-bottom: 50em;
+    /* 调整顶部间距 */
+  }
+
+  .emoji-p,
+  .word-p,
+  .go-p {
+    width: 90%;
+    /* 调整段落宽度 */
+  }
+
+  .wordbox p {
+    font-size: 14px;
+    /* 调整文字大小 */
+    margin-top: 1em;
+    /* 调整段落间距 */
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .tiktok-p {
+    font-size: 1.1em;
+    width: 80%;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    color: rgb(7, 5, 5);
+    background-color: rgb(255, 255, 255);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40em;
+    line-height: 2rem;
+    text-align: justify;
+    box-shadow: 0px 0px 6px 3px #bcbcbc;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .plane-text {
+    position: absolute;
+    z-index: 2;
+    margin-top: -330em;
+  }
+
+  .plane-p {
+    font-size: 1.1em;
+    width: 90%;
+    line-height: 1.8;
+    margin: 0 auto 50em auto;
+  }
+}
+
+#story {
+  width: 100%;
+  height: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  #story {
+    width: 100%;
+    height: 500px;
+    display: block;
+    margin: auto auto;
+
+  }
+}
+
+@media screen and (max-width: 600px) {
+  article {
+    position: relative;
+    width: 90%;
+    z-index: 3;
+    left: 50%;
+    /* 将左边缘定位到父容器的中心 */
+    transform: translateX(-50%);
+    /* 向左移动元素自身宽度的 50%，实现水平居中 */
+    margin-bottom: 0;
+  }
+
+  .step-box {
+    flex-direction: column;
+  }
+
+  .picbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    flex: 1.2;
+  }
+
+  .picbox img {
+    margin: auto;
+    width: 70%;
+  }
+
+  .textbox {
+    flex: 1;
+    /* 文本框占据整个宽度 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .textbox span {
+    font-size: 11px;
+    color: #999999;
+    font-family: 'zhengwen';
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .quiz-box button {
+    font-size: 14px;
+  }
+
+  #poster-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+  .question {
+    margin: 0 10px 5px 10px;
+    font-size: 14px;
+  }
+
+  .question p {
+    padding: 0;
+  }
+
+  .option label {
+    font-size: 12px;
+  }
+
+  .card {
+    max-width: 90%;
+    margin: 10px auto;
+    padding: 2px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: 'zhengwen';
+  }
+
+  .quiz-button {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 5px;
+  }
+
+  .quiz-box button {
+    font-family: 'button';
+    font-size: 14px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #63b3f9;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    position: relative;
+    display: block;
+    outline: none;
+    border-width: 2px;
+    border: solid;
+    border-color: #4c4c4c;
+    vertical-align: middle;
+    text-decoration: none;
+  }
+
+  #recommendation-text {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+  footer {
+    /* background-color: #40b6ffc5; */
+    background-image: url(../images/footer-ph.png);
+    background-size: cover;
+    background-position: center;
+    color: rgb(24, 23, 23);
+    padding: 10px;
+    text-align: center;
+    line-height: 1.2;
+    font-size: 14px;
+  }
 }

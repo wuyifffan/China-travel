@@ -12,122 +12,120 @@ body {
  */
 
 
+
 .line1 {
     position: relative;
-    top: 40%;
+    /* top: 40%; */
     border-right: 2px solid #ff6f61;
     text-align: left;
     white-space: nowrap;
     overflow: hidden;
-    transform: translateY(-50%);
+    /* transform: translateY(-50%); */
     display: block;
 }
 
 .line2 {
     position: relative;
-    top: 41%;
-    width: 90%;
-    border-right: 0px solid #ff6f61;
+    /* top: 41%; */
+    /* width: 90%; */
+    border-right: 2px solid #ff6f61;
     text-align: left;
     white-space: nowrap;
     overflow: hidden;
-    transform: translateY(-50%);
+    /* transform: translateY(-50%); */
     display: block;
 }
 
 .line3 {
     position: relative;
-    top: 42%;
-    width: 90%;
-    border-right: 2px solid #ff6f61;
+    /* top: 42%; */
+    /* width: 90%; */
+    /* border-right: 2px solid #ff6f61; */
     text-align: left;
     /* white-space: nowrap; */
     overflow: hidden;
-    transform: translateY(-50%);
+    /* transform: translateY(-50%); */
     display: block;
 }
 
 .line4 {
     position: relative;
-    top: 43%;
-    width: 90%;
-    border-right: 2px solid #ff6f61;
+    /* top: 43%; */
+    /* width: 90%; */
+    /* border-right: 2px solid #ff6f61; */
     text-align: left;
     /* white-space: nowrap; */
     overflow: hidden;
-    transform: translateY(-50%);
+    /* transform: translateY(-50%); */
     display: block;
 }
 
 .line5 {
     position: relative;
-    top: 44%;
-    width: 90%;
-    border-right: 2px solid #ff6f61;
+    /* top: 44%; */
+    /* width: 90%; */
+    /* border-right: 2px solid #ff6f61; */
     text-align: left;
     /* white-space: nowrap; */
     overflow: hidden;
-    transform: translateY(-40%);
+    /* transform: translateY(-50%); */
     display: block;
 }
 
 .line6 {
     position: relative;
-    top: 45%;
-    width: 90%;
-    border-right: 2px solid #ff6f61;
+    /* top: 45%; */
+    /* width: 90%; */
+    /* border-right: 2px solid #ff6f61; */
     text-align: left;
     /* white-space: nowrap; */
     overflow: hidden;
-    transform: translateY(-50%);
+    /* transform: translateY(-50%); */
     display: block;
 }
 
 .line7 {
     position: relative;
-    top: 46%;
-    width: 90%;
-    border-right: 2px solid #ff6f61;
+    /* top: 46%; */
+    /* width: 90%; */
+    /* border-right: 2px solid #ff6f61; */
     text-align: left;
     /* white-space: nowrap; */
     overflow: hidden;
-    transform: translateY(-50%);
+    /* transform: translateY(-50%); */
     display: block;
 }
 
 .line8 {
     position: relative;
-    top: 47%;
-    width: 90%;
-    border-right: 2px solid #ff6f61;
+    /* top: 47%; */
+    /* width: 90%; */
     text-align: left;
     /* white-space: nowrap; */
     overflow: hidden;
-    transform: translateY(-40%);
+    /* transform: translateY(-50%); */
     display: block;
 }
 
 .line9 {
     position: relative;
-    top: 48%;
-    width: 90%;
-    border-right: 2px solid #ff6f61;
+    /* top: 48%; */
+    /* width: 90%; */
     text-align: left;
     /* white-space: nowrap; */
     overflow: hidden;
-    transform: translateY(-50%);
+    /* transform: translateY(-50%); */
     display: block;
 }
 
 .line10 {
     position: relative;
-    top: 49%;
-    width: 90%;
-    border-right: 2px solid #ff6f61;
+    /* top: 48%; */
+    /* width: 90%; */
     text-align: left;
     /* white-space: nowrap; */
     overflow: hidden;
-    transform: translateY(-100%);
+    /* transform: translateY(-50%); */
     display: block;
 }
 
@@ -172,13 +170,13 @@ body {
     visibility: hidden;
 }
 
-
 @keyframes typeMsg {
     from {
         width: 0em;
     }
 
     to {
+        /* width: 16%; */
         width: 180px;
     }
 }
@@ -189,9 +187,36 @@ body {
     }
 
     to {
-        width: 360px;
+        /* width: 35%; */
+        width: 300px;
     }
 }
+
+@media only screen and (max-width: 600px) {
+
+    @keyframes typeMsg {
+        from {
+            width: 0em;
+        }
+
+        to {
+            /* width: 16%; */
+            width: 150px;
+        }
+    }
+
+    @keyframes typeMsg2 {
+        from {
+            width: 0em;
+        }
+
+        to {
+            /* width: 35%; */
+            width: 220px;
+        }
+    }
+}
+
 
 @keyframes typeMsg3 {
     from {
@@ -221,67 +246,82 @@ body {
 }
 
 .welcome2.play {
-    text-indent: 2em;
+
     animation: typeMsg2 800ms steps(15) 2s 1 normal both,
         hideCursor 1s 4s 1 normal both;
     visibility: visible;
 }
 
 .welcome3.play {
-    text-indent: 2em;
-    animation: typeMsg3 1s steps(15) 3s 1 normal both,
-        cursorAnim 500ms steps(15) normal both;
+
     visibility: visible;
+    opacity: 0;
+    /* 设置初始透明度为0 */
+    animation: fadeIn 1s ease-in forwards;
+    /* 使用fadeIn动画使透明度从0到1 */
 }
 
 .welcome4.play {
-    text-indent: 2em;
-    animation: typeMsg3 1s steps(15) 3s 1 normal both,
-        cursorAnim 500ms steps(15) normal both;
+
     visibility: visible;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
 }
 
 .welcome5.play {
-    text-indent: 2em;
-    animation: typeMsg3 1s steps(15) 3s 1 normal both,
-        cursorAnim 500ms steps(15) normal both;
+
     visibility: visible;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
 }
 
 .welcome6.play {
-    text-indent: 2em;
-    animation: typeMsg3 1s steps(15) 3s 1 normal both,
-        cursorAnim 500ms steps(15) normal both;
+
     visibility: visible;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
 }
 
 .welcome7.play {
-    text-indent: 2em;
-    animation: typeMsg3 1s steps(15) 3s 1 normal both,
-        cursorAnim 500ms steps(15) normal both;
+
     visibility: visible;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
 }
 
 .welcome8.play {
-    text-indent: 2em;
-    animation: typeMsg3 1s steps(15) 3s 1 normal both,
-        cursorAnim 500ms steps(15) normal both;
+
     visibility: visible;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
 }
 
 .welcome9.play {
-    text-indent: 2em;
-    animation: typeMsg3 1s steps(15) 3s 1 normal both,
-        cursorAnim 500ms steps(15) normal both;
+
     visibility: visible;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+
 }
 
 .welcome10.play {
-    text-indent: 2em;
-    animation: typeMsg3 1s steps(15) 3s 1 normal both,
-        cursorAnim 500ms steps(15) normal both;
+
     visibility: visible;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+
 }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 
 
 @keyframes hideCursor {

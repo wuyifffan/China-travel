@@ -17,6 +17,14 @@ body {
     top: 0;
 }
 
+
+.swiper1 .slide0 {
+    background-image: url();
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80%;
+}
+
 .swiper1 .slide1 {
     background-image: url(../images/2023-1-en.png);
     background-repeat: no-repeat;
@@ -139,3 +147,65 @@ body {
 /* .fade-transition {
     transition: opacity 0.1s ease;
 } */
+
+
+@media screen and (max-width: 767px) {
+    .swiper1 .slide0 {
+        background-image: url();
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 100%;
+    }
+
+    .swiper1 .slide1 {
+        background-image: url(../images/2023-1-en-ph.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 80%;
+    }
+
+    .swiper1 .slide2 {
+        background-image: url(../images/2023-4-en-ph.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 80%;
+    }
+
+    .swiper1 .slide3 {
+        background-image: url(../images/2023-7-en-ph.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 80%;
+    }
+
+    .swiper1 .slide4 {
+        background-image: url(../images/2023-10-en-ph.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 80%;
+    }
+
+    .swiper1 .slide5 {
+        background-image: url(../images/2024-1-en-ph.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 80%;
+    }
+
+    .swiper1 .slide6 {
+        background-image: url(../images/2024-3-en-ph.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 80%;
+    }
+
+    #trigger_500 {
+        position: relative;
+        z-index: 10;
+        margin: 300px auto 0;
+        text-align: justify;
+        height: 10px;
+        background: transparent;
+        /* background: black; */
+    }
+}
